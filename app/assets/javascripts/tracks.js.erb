@@ -12,16 +12,15 @@ window.onload = function () {
 
 var soundIcon = L.icon({
     iconUrl: "<%= asset_path( 'soundcloud.png' ) %>",
-    iconSize:     [70, 70], // size of the icon
-    iconAnchor:   [35, 35], // point of the icon which will correspond to marker's location
-    popupAnchor:  [-3, -56] // point from which the popup should open relative to the iconAnchor
+    iconSize:     [70, 70],
+    iconAnchor:   [35, 35], 
+    popupAnchor:  [-3, -56]
 });
 
    for (var index in gon.coordinates){
    	(function(index){
 	   	window["fun"+index] = function(){ $("#information").slideToggle('slow'); SC.oEmbed(gon.permalink_url[index], {color: "003a3e"}, document.getElementById("information"))}
-	   	L.marker(gon.coordinates[index], {icon: soundIcon}).addTo(map)
-	    .bindPopup("<img src=" + gon.track_image[index] + ">" + "<p>" + gon.track_title[index] + "</p>" + '<a onclick="fun'+ index + '()">'+ "<img src=" + "'<%= asset_path( 'play.gif' ) %>'" + "height=" + "'30px'" + ">" + "</a>");
+	   	L.marker(gon.coordinates[index], {icon: soundIcon}).addTo(map).bindPopup("<img src=" + gon.track_image[index] + ">" + "<p>" + gon.track_title[index] + "</p>" + '<a onclick="fun'+ index + '()">'+ "<img src=" + "'<%= asset_path( 'play.gif' ) %>'" + "height=" + "'30px'" + ">" + "</a>");
   	})(index)
    } 
 };

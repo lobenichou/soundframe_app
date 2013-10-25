@@ -6,12 +6,14 @@ class TracksController < ApplicationController
 
 	def show
 		@id = params[:id]
+		@username = params[:username]
 
 		@search_tracks = @client.get('/users/'"#{@id}"'/tracks', :limit => 50 )
 
 
 		@user = User.find_or_create_by_soundcloud_user_id({
-        :soundcloud_user_id  => @id
+        :soundcloud_user_id  => @id,
+        :soundcloud_username => @username
       })
 
 
@@ -39,17 +41,21 @@ class TracksController < ApplicationController
 					response << result_hash
 			end
 
-		binding.pry
 
+# binding.pry
 			count = 0
 			response.each do |hash|
 				unless hash["results"] == []
 					@lat = hash["results"][0]["geometry"]["location"]["lat"]
 					@lng = hash["results"][0]["geometry"]["location"]["lng"]
-					track = Track.find(@query["#{count}"][:track_id])
+					# binding.pry
+
+					track = Track.find_or_create_by_soundcloud_track_id(@query[count.to_s]["track_id"])
+
 					track.latitude =  @lat
 					track.longitude = @lng
 					track.save
+					
 				end
 				count += 1
 			end

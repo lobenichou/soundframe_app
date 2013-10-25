@@ -4,4 +4,6 @@ SoundframeApp::Application.routes.draw do
 
   resources :tracks
 
+  get "/tracks/:id/:username", :to => 'tracks#show'
+
 end
