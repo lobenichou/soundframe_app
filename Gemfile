@@ -6,7 +6,8 @@ gem 'rails', '3.2.14'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 group :development do
-gem 'sqlite3'
+gem 'sqlite3',
+gem 'pry-rails'
 end
 
 gem 'typhoeus'
@@ -49,4 +50,4 @@ gem 'jquery-rails'
 gem 'soundcloud'
 gem 'bootstrap-sass-rails'
 gem 'gon', '3.0.5'
-gem 'pry-rails'
+
