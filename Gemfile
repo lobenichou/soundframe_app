@@ -5,8 +5,15 @@ gem 'rails', '3.2.14'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+group :development do
 gem 'sqlite3'
+end
+
 gem 'typhoeus'
+
+group :production do
+gem 'pg'
+end
 
 
 
@@ -41,5 +48,5 @@ gem 'jquery-rails'
 
 gem 'soundcloud'
 gem 'bootstrap-sass-rails'
-gem 'pry-rails'
 gem 'gon', '3.0.5'
+gem 'pry-rails'

@@ -8,7 +8,7 @@
 		<div class="all_tracks">
 			<form action="/tracks" method="post">
 				<% count = 0 %>
-				<% @user_tracks.each do |track| %>
+				<% @search_tracks.each do |track| %>
 					<div class="single_track">
 						<img src= "<%= track.artwork_url %>" height="100px" width="auto" class="img-circle"><img><br/><%= track.title %></br>
 						<input type="text" name="location[<%= count %>][input]" placeholder="input location!"/>

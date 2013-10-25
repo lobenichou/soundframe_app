@@ -6,7 +6,7 @@ class TracksController < ApplicationController
 
 	def show
 		@id = params[:id]
-		
+
 		@search_tracks = @client.get('/users/'"#{@id}"'/tracks', :limit => 50 )
 
 
@@ -23,9 +23,8 @@ class TracksController < ApplicationController
 					:permalink_url => search_track.permalink_url, 
 					:artwork_url => search_track.artwork_url)
 		end
-		@soundcloud_user = User.where(soundcloud_user_id: @id)
-		@user_tracks = Track.where(user_id: @soundcloud_user[0][:id])
-		render :show
+
+
 	end 
 		
 	def create
@@ -39,6 +38,8 @@ class TracksController < ApplicationController
 					result_hash = JSON.parse(request.body)
 					response << result_hash
 			end
+
+		binding.pry
 
 			count = 0
 			response.each do |hash|
