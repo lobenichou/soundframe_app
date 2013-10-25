@@ -1,4 +1,7 @@
 /*
+ *= require twitter/bootstrap
+ */
+ /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
@@ -11,3 +14,37 @@
  *= require_self
  *= require_tree .
  */
+
+
+body{
+	font-family: 'Flamenco', cursive;
+	}
+
+ header{
+	text-align: center;
+	letter-spacing: 10px;
+	background-color: #008c93; 
+	height: 100px;
+	margin-bottom: 40px;
+}
+
+footer{
+	text-align: center;
+	color: black;
+	letter-spacing: 5px;
+	background-color: #003a3e; 
+	height: 100px;
+	margin-top: 20px;
+	height: 100px;
+	padding-top: 5px;
+}
+
+h1{
+	font-family: 'Flamenco', cursive;
+}
+
+h2{
+	font-family: 'Flamenco', cursive;
+}
+
+

@@ -29,7 +29,11 @@ GEM
       i18n (~> 0.6, >= 0.6.4)
       multi_json (~> 1.0)
     arel (3.0.2)
+    bootstrap-sass-rails (3.0.0.3)
+      railties (>= 3.1.0)
+      sass-rails (>= 3.1.0)
     builder (3.0.4)
+    coderay (1.0.9)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -38,8 +42,22 @@ GEM
       execjs
     coffee-script-source (1.6.3)
     erubis (2.7.0)
+    ethon (0.6.1)
+      ffi (>= 1.3.0)
+      mime-types (~> 1.18)
     execjs (2.0.2)
+    ffi (1.9.0)
+    gon (3.0.5)
+      actionpack (>= 2.3.0)
+      json
+    hashie (2.0.5)
     hike (1.2.3)
+    httmultiparty (0.3.10)
+      httparty (>= 0.7.3)
+      multipart-post
+    httparty (0.12.0)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.6.5)
     journey (1.0.4)
     jquery-rails (3.0.4)
@@ -49,9 +67,18 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    method_source (0.8.2)
     mime-types (1.25)
     multi_json (1.8.2)
+    multi_xml (0.5.5)
+    multipart-post (1.2.0)
     polyglot (0.3.3)
+    pry (0.9.12.2)
+      coderay (~> 1.0.5)
+      method_source (~> 0.8)
+      slop (~> 3.4)
+    pry-rails (0.3.2)
+      pry (>= 0.9.10)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -82,6 +109,10 @@ GEM
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
+    slop (3.4.6)
+    soundcloud (0.3.2)
+      hashie (~> 2.0)
+      httmultiparty (~> 0.3.0)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -93,6 +124,8 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
+    typhoeus (0.6.5)
+      ethon (~> 0.6.1)
     tzinfo (0.3.38)
     uglifier (2.2.1)
       execjs (>= 0.3.0)
@@ -102,9 +135,14 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap-sass-rails
   coffee-rails (~> 3.2.1)
+  gon (= 3.0.5)
   jquery-rails
+  pry-rails
   rails (= 3.2.14)
   sass-rails (~> 3.2.3)
+  soundcloud
   sqlite3
+  typhoeus
   uglifier (>= 1.0.3)

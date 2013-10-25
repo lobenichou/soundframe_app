@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+	<header>
+		<h1>SoundFrame</h1>
+		<h2>Search Results:</h2>
+	</header>
+	<body>
+		<div class="all_users">
+				<% @users.each do |user| %>
+					<div class="single_user">
+						<a href ="/tracks/<%= user.id %>"><img src= "<%= user.avatar_url %>" height="100px" width="auto" class="img-circle"><img><br/>
+						<%= user.username %></a>
+					</div>
+				<% end %>
+		</div>
+		<div id="clearer"></div>
+	</body>
+	<footer>
+		<h2>Click on the user whose tracks you'd like to upload.</h2>
+	</footer>
+	<a href="/">Home</a>
+
+
+

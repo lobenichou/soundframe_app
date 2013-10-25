@@ -1,0 +1,68 @@
+@import url(http://fonts.googleapis.com/css?family=Flamenco);
+
+body{
+    font-family: 'Flamenco', cursive;
+    text-align: center;
+  }
+
+#map {
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    position: fixed;
+}
+
+#information {
+    height: 200px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    display: none;
+    margin-top: 400px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+a{
+    font-size: 20px;
+}
+
+.all_users{
+    width: 1200px;
+    margin-left: 100px;
+}
+
+.single_user{
+    float: left;
+    margin:2px 2px 2px 2px;
+    width:200px;
+    height:200px;
+    text-align:center;
+}
+
+#clearer{
+    clear:both;
+}
+
+.all_tracks{
+    width: 1200px;
+    margin-left: 100px;
+    overflow: scroll;
+}
+
+.single_track{
+    float: left;
+    margin:2px 2px 2px 2px;
+    width:200px;
+    height:200px;
+    text-align:center;
+
+}
+.submit{
+    position:fixed;
+    left:10px;
+    top:150px;
+}
+

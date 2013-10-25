@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  genre: MyString
+  permalink_url: MyString
+  artwork_url: MyString
+  user_id: 1
+  latitude: 1.5
+  longitude: 1.5
+  soundcloud_track_id: 1
+
+two:
+  title: MyString
+  genre: MyString
+  permalink_url: MyString
+  artwork_url: MyString
+  user_id: 1
+  latitude: 1.5
+  longitude: 1.5
+  soundcloud_track_id: 1

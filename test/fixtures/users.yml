@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  soundcloud_user_id: 1
+  soundcloud_username: MyString
+  tracks: MyString
+
+two:
+  soundcloud_user_id: 1
+  soundcloud_username: MyString
+  tracks: MyString

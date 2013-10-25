@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<header>
+		<h1>SoundFrame</h1>
+		<h2>Here are the tracks for <%= @username %></h2>
+	</header>
+	<body>
+		<div class="all_tracks">
+			<form action="/tracks" method="post">
+				<% count = 0 %>
+				<% @user_tracks.each do |track| %>
+					<div class="single_track">
+						<img src= "<%= track.artwork_url %>" height="100px" width="auto" class="img-circle"><img><br/><%= track.title %></br>
+						<input type="text" name="location[<%= count %>][input]" placeholder="input location!"/>
+						<input class ="box" type="hidden" name="location[<%= count %>][track_id]" value="<%= track.id %>" placeholder="input location!"/>
+				<% count += 1 %>
+					</div>
+				<% end %>
+				<div class="submit">
+					<input class="btn btn-primary" type="submit">
+				</div>
+			</form>
+		</div>
+		<div id="clearer"></div>
+	</body>
+	<footer>
+		<h2>Add a location for the tracks you'd like to map and click submit!</h2>
+	</footer>
+</html>

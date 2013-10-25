@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>SoundFrame</title>
+	</head>
+	<header>
+		<h1>SoundFrame</h1>
+		<h2>Where Soundcloud Meets Storytelling</h2>
+	</header>
+	<body>
+		<div class="searchform">
+			<div class="logo">
+				<img src= "<%= asset_path( 'soundcloud_logo.png' ) %>" height="200px" width="auto" ></img>
+			</div>
+			<div class="search">
+				<form method="get" action="/tracks">
+					<p>To start, enter the Soundcloud user whose tracks you'd like to upload</p>
+					<input class="box"  type="text" name="user" placeholder="Soundcloud User"/>
+					<input  class="btn btn-primary" type="submit" value="Search"/>
+				</form>
+			</div>
+	</div>
+	</body>
+	<footer>
+			<h2>Using the Soundcloud API, you can map out your sounds, add photos and share your SoundFrame project!
+			</h2>
+		</footer>
+</html>
+

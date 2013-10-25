@@ -6,6 +6,8 @@ gem 'rails', '3.2.14'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
+gem 'typhoeus'
+
 
 
 # Gems used only for assets and not required
@@ -36,3 +38,8 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
+
+gem 'soundcloud'
+gem 'bootstrap-sass-rails'
+gem 'pry-rails'
+gem 'gon', '3.0.5'
