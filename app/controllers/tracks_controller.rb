@@ -1,6 +1,6 @@
 class TracksController < ApplicationController
 
-	def index
+def index
 		@users = @client.get('/users', :q => params[:user], :limit => 10)
 	end
 
@@ -20,15 +20,15 @@ class TracksController < ApplicationController
 		@search_tracks.each do |search_track|
 			@user.tracks.create(
 					:soundcloud_track_id => search_track.id,
-					:title => search_track.title , 
-					:genre => search_track.genre, 
-					:permalink_url => search_track.permalink_url, 
+					:title => search_track.title ,
+					:genre => search_track.genre,
+					:permalink_url => search_track.permalink_url,
 					:artwork_url => search_track.artwork_url)
 		end
 
 
-	end 
-		
+	end
+
 	def create
 			response = []
 		 	@query = params[:location]
@@ -42,20 +42,20 @@ class TracksController < ApplicationController
 			end
 
 
-# binding.pry
+
 			count = 0
 			response.each do |hash|
 				unless hash["results"] == []
 					@lat = hash["results"][0]["geometry"]["location"]["lat"]
 					@lng = hash["results"][0]["geometry"]["location"]["lng"]
-					# binding.pry
+
 
 					track = Track.find_or_create_by_soundcloud_track_id(@query[count.to_s]["track_id"])
 
 					track.latitude =  @lat
 					track.longitude = @lng
 					track.save
-					
+
 				end
 				count += 1
 			end
@@ -79,7 +79,7 @@ class TracksController < ApplicationController
 
 			render :map
 		end
-		
+
 end
 
 
