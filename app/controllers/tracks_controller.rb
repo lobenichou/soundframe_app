@@ -7,23 +7,22 @@ def index
 
 	def show
 		id = params[:id]
-
 		@search_tracks = @client.get('/users/'"#{id}"'/tracks', :limit => 50 )
 
 		@user = User.find_or_create_by_soundcloud_user_id({
-      :soundcloud_user_id  => id,
-      :soundcloud_username => params[:username]
-    })
+		      :soundcloud_user_id  => id,
+		      :soundcloud_username => params[:username]
+    		})
 
 
 		@search_tracks.each do |search_track|
 			@user.tracks.create(
-					:soundcloud_track_id => search_track.id,
-					:title => search_track.title ,
-					:genre => search_track.genre,
-					:permalink_url => search_track.permalink_url,
-					:artwork_url => search_track.artwork_url)
-		end
+				:soundcloud_track_id => search_track.id,
+				:title => search_track.title ,
+				:genre => search_track.genre,
+				:permalink_url => search_track.permalink_url,
+				:artwork_url => search_track.artwork_url)
+			end
 	end
 
 
