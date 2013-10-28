@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-	<header>
-		<h1>SoundFrame</h1>
-		<h2>Search Results:</h2>
-	</header>
 	<body>
+		<header class="index_header">
+			<h1>SoundFrame</h1>
+			<h2>Search Results:</h2>
+		</header>
 		<div class="all_users">
 				<% @users.each do |user| %>
 					<div class="single_user">
@@ -14,10 +14,14 @@
 				<% end %>
 		</div>
 		<div id="clearer"></div>
+		<div class="home_link">
+			<a href="/">Home</a>
+		</div>
+		<footer class="index_footer">
+			<h2>Click on the user whose tracks you'd like to upload.</h2></br>
+		</footer>
+
 	</body>
-	<footer>
-		<h2>Click on the user whose tracks you'd like to upload.</h2>
-	</footer>
-	<a href="/">Home</a>
+
 </html>
 

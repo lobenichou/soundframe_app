@@ -1,8 +1,15 @@
 class TracksController < ApplicationController
 	include TracksHelper
 
-def index
-		@users = @client.get('/users', :q => params[:user], :limit => 10)
+	def index
+		query = params[:user]
+
+		if query.empty?
+			render :error
+		else
+		@users = @client.get('/users', :q => query, :limit => 10)
+		end
+
 	end
 
 	def show
@@ -12,7 +19,7 @@ def index
 		@user = User.find_or_create_by_soundcloud_user_id({
 		      :soundcloud_user_id  => id,
 		      :soundcloud_username => params[:username]
-    		})
+	  		})
 
 
 		@search_tracks.each do |search_track|
@@ -23,7 +30,7 @@ def index
 				:permalink_url => search_track.permalink_url,
 				:artwork_url => search_track.artwork_url)
 			end
-	end
+		end
 
 
 	def create

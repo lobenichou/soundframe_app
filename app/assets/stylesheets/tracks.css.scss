@@ -1,7 +1,26 @@
 @import url(http://fonts.googleapis.com/css?family=Flamenco);
 
+ .index_header{
+    text-align: center;
+    letter-spacing: 10px;
+    background-color: #008c93;
+    height: 100px;
+}
+
+h2{
+    color: white;
+}
+
+.index_footer{
+    height: 90px;
+    margin-top: 10px;
+}
+
+.show_footer{
+    margin-top: 30px;
+}
+
 body{
-    font-family: 'Flamenco', cursive;
     text-align: center;
   }
 
@@ -31,7 +50,9 @@ a{
 
 .all_users{
     width: 1200px;
-    margin-left: 100px;
+    height: 320px;
+    margin: auto;
+    padding: 60px;
 }
 
 .single_user{
@@ -48,7 +69,10 @@ a{
 
 .all_tracks{
     width: 1200px;
-    margin-left: 100px;
+    height: 470px;
+    margin: auto;
+    padding: 60px;
+    overflow: scroll;
 }
 
 .single_track{
@@ -57,11 +81,20 @@ a{
     width:200px;
     height:200px;
     text-align:center;
-
 }
+
+.home_link{
+    height: 20px;
+}
+
 .submit{
     position:fixed;
     left:10px;
     top:150px;
+}
+
+.error{
+    color: red;
+    font-size: 25px;
 }
 

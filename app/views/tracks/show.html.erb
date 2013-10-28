@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-	<header>
-		<h1>SoundFrame</h1>
-		<h2>Here are the tracks. Type in a location to map them.</h2>
-	</header>
 	<body>
+		<header class="index_header">
+			<h1>SoundFrame</h1>
+			<h2>Here are the tracks. Type in a location to map them.</h2>
+		</header>
 		<div class="all_tracks">
 			<form action="/tracks" method="post">
 				<% count = 0 %>
@@ -22,9 +22,9 @@
 			</form>
 		</div>
 		<div id="clearer"></div>
+			<!-- <a href="/">Home</a> -->
+		<footer class="show_footer">
+			<h2>Add a location for the tracks you'd like to map and click submit!</h2>
+		</footer>
 	</body>
-	<footer>
-		<h2>Add a location for the tracks you'd like to map and click submit!</h2>
-	</footer>
-	<a href="/">Home</a>
 </html>
