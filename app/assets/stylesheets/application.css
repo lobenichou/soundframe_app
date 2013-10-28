@@ -15,36 +15,40 @@
  *= require_tree .
  */
 
-
 body{
-	font-family: 'Flamenco', cursive;
+	font-family: 'Amatic SC', cursive;
 	}
 
  header{
 	text-align: center;
 	letter-spacing: 10px;
 	background-color: #008c93; 
-	height: 100px;
+	height: 20%;
 	margin-bottom: 40px;
+	margin-top: 0px;
 }
 
 footer{
 	text-align: center;
 	color: black;
 	letter-spacing: 5px;
+	font-size: 20px;
 	background-color: #003a3e; 
 	height: 100px;
 	margin-top: 20px;
-	height: 90px;
+	height: 95px;
 	padding-top: 5px;
+	padding-bottom: 10px;
+	color: white;
 }
 
 h1{
-	font-family: 'Flamenco', cursive;
+	font-family:'Amatic SC', cursive;
+	font-size: 30px;
 }
 
 h2{
-	font-family: 'Flamenco', cursive;
+	font-family: 'Amatic SC', cursive;
 }
 
 

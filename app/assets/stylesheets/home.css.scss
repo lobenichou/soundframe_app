@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-@import url(http://fonts.googleapis.com/css?family=Flamenco);
+@import url(http://fonts.googleapis.com/css?family=Amatic+SC);
 
 
 .box{
@@ -22,6 +22,15 @@
 	text-align: center;
 }
 .logo{
-	margin-right: 20px;
+	padding-top: 5px;
+	margin-right: 10px;
+	margin-left: 455px;
 	margin-bottom: 20px;
+	border-width: 10px;
+	border-radius: 10px;
+	border-style: solid;
+	border-color: #007176;
+	height: 230px;
+	width: 350px;
+	background-color: #bed3d8;
 }
