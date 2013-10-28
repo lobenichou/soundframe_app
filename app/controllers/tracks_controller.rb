@@ -1,20 +1,19 @@
 class TracksController < ApplicationController
+	include TracksHelper
 
 def index
 		@users = @client.get('/users', :q => params[:user], :limit => 10)
 	end
 
 	def show
-		@id = params[:id]
-		@username = params[:username]
+		id = params[:id]
 
-		@search_tracks = @client.get('/users/'"#{@id}"'/tracks', :limit => 50 )
-
+		@search_tracks = @client.get('/users/'"#{id}"'/tracks', :limit => 50 )
 
 		@user = User.find_or_create_by_soundcloud_user_id({
-        :soundcloud_user_id  => @id,
-        :soundcloud_username => @username
-      })
+      :soundcloud_user_id  => id,
+      :soundcloud_username => params[:username]
+    })
 
 
 		@search_tracks.each do |search_track|
@@ -26,6 +25,7 @@ def index
 					:artwork_url => search_track.artwork_url)
 		end
 
+<<<<<<< HEAD
 
 	end
 
@@ -59,27 +59,27 @@ def index
 				end
 				count += 1
 			end
+=======
+	end 
+		
+	def create
+	 	query = params[:location]
 
-			gon.coordinates = {}
-			gon.permalink_url = {}
-			gon.track_title = {}
-			gon.track_image = {}
+	 	Track.find_and_save_lat_lons(query)
+	 		#Makes call to google api and saves lat lons to database
+>>>>>>> 7403f2981a28fe28d501c9da18d1a51c69949aa0
 
-			@all_tracks = Track.all
+		setup_map
+			#sets up array of coordinates for map
+		render :map
+	end
 
-				@all_tracks.each do |track|
-					unless track.latitude == nil
-					gon.coordinates[track.id] = [track.latitude, track.longitude]
-					gon.permalink_url[track.id] = track.permalink_url
-					gon.track_title[track.id] = track.title
-					gon.track_image[track.id] = track.artwork_url
-					end
-
-				end
-
+<<<<<<< HEAD
 			render :map
 		end
 
+=======
+>>>>>>> 7403f2981a28fe28d501c9da18d1a51c69949aa0
 end
 
 
