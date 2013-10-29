@@ -7,7 +7,7 @@ class TracksController < ApplicationController
 		if query.empty?
 			render :error
 		else
-		@users = @client.get('/users', :q => query, :limit => 10)
+		@authors = @client.get('/users', :q => query, :limit => 10)
 		end
 
 	end
@@ -16,14 +16,14 @@ class TracksController < ApplicationController
 		id = params[:id]
 		@search_tracks = @client.get('/users/'"#{id}"'/tracks', :limit => 50 )
 
-		@user = User.find_or_create_by_soundcloud_user_id({
+		@author = Author.find_or_create_by_soundcloud_user_id({
 		      :soundcloud_user_id  => id,
 		      :soundcloud_username => params[:username]
 	  		})
-
+# binding.pry
 
 		@search_tracks.each do |search_track|
-			@user.tracks.create(
+			@author.tracks.create(
 				:soundcloud_track_id => search_track.id,
 				:title => search_track.title ,
 				:genre => search_track.genre,

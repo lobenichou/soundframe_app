@@ -11,27 +11,37 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131025053733) do
+ActiveRecord::Schema.define(:version => 20131029140111) do
 
-  create_table "tracks", :force => true do |t|
-    t.string   "title"
-    t.string   "genre"
-    t.string   "permalink_url"
-    t.string   "artwork_url"
-    t.integer  "user_id"
-    t.float    "latitude"
-    t.float    "longitude"
-    t.integer  "soundcloud_track_id"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
-  end
-
-  create_table "users", :force => true do |t|
+  create_table "authors", :force => true do |t|
     t.integer  "soundcloud_user_id"
     t.string   "soundcloud_username"
     t.string   "tracks"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
   end
+
+  create_table "tracks", :force => true do |t|
+    t.string   "title"
+    t.string   "genre"
+    t.string   "permalink_url"
+    t.string   "artwork_url"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.integer  "soundcloud_track_id"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.integer  "author_id"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.string   "password_digest"
+  end
+
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
 
 end

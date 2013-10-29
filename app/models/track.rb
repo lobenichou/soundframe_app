@@ -1,7 +1,7 @@
 class Track < ActiveRecord::Base
   attr_accessible :artwork_url, :genre, :latitude, :longitude, :permalink_url, :soundcloud_track_id, :title, :user_id
-	
-	belongs_to :user
+
+	belongs_to :authors
 
   validates :soundcloud_track_id, :uniqueness => true
 
@@ -22,5 +22,5 @@ class Track < ActiveRecord::Base
     lng = result[0]["geometry"]["location"]["lng"]
     self.update_attributes(latitude: lat, longitude: lng)
   end
-  
+
 end

@@ -6,10 +6,10 @@
 			<h2>Search Results:</h2>
 		</header>
 		<div class="all_users">
-				<% @users.each do |user| %>
+				<% @authors.each do |author| %>
 					<div class="single_user">
-						<a href ="/tracks/<%= user.id %>/<%=user.username%>"><img src= "<%= user.avatar_url %>" height="100px" width="auto" class="img-circle"><img><br/>
-						<%= user.username %></a>
+						<a href ="/tracks/<%= author.id %>/<%=author.username%>"><img src= "<%= author.avatar_url %>" height="100px" width="auto" class="img-circle"><img><br/>
+						<%= author.username %></a>
 					</div>
 				<% end %>
 		</div>
