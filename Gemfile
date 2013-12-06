@@ -1,17 +1,17 @@
 source 'https://rubygems.org'
 
+ruby '2.0.0'
 gem 'rails', '3.2.14'
-gem 'bcrypt-ruby'
+gem 'bcrypt-ruby', ' ~> 3.0.0'
 
-group :development do
- gem 'sqlite3'
+
+gem 'pg'
+
+
+group :test do
   gem 'pry-rails'
   gem 'rspec-rails'
-end
-
-
-group :production do
-  gem 'pg'
+  gem 'konacha'
 end
 
 
@@ -27,4 +27,5 @@ gem 'typhoeus'
 gem 'soundcloud'
 gem 'bootstrap-sass-rails'
 gem 'gon', '3.0.5'
+gem 'quiet_assets'
 

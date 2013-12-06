@@ -20,7 +20,7 @@ class TracksController < ApplicationController
 		      :soundcloud_user_id  => id,
 		      :soundcloud_username => params[:username]
 	  		})
-# binding.pry
+
 
 		@search_tracks.each do |search_track|
 			@author.tracks.create(
