@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   before_filter :soundcloud_client
 
   def soundcloud_client
-  	@client = Soundcloud.new(:client_id => 'SOUNDCLOUD_CLIENT_ID')
+  	@client = Soundcloud.new(:client_id => ENV["SOUNDCLOUD_CLIENT_ID"])
   end
 
 end
