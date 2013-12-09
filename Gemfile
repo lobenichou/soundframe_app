@@ -7,10 +7,15 @@ gem 'rails', '3.2.14'
 group :test do
   gem 'rspec-rails'
   gem 'konacha'
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'gon', '3.0.5'
+  gem 'soundcloud'
 end
 
 group :development, :test do
  gem 'foreman'
+ gem 'dotenv-rails'
 end
 
 group :development, :production do
