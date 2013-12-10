@@ -21,7 +21,7 @@
 				<%= link_to 'Sign up', signup_path %>
 				<% if signed_in? %>
 				<%= link_to "Profile", current_user %>
-				<%= link_to "Settings", '#' %>
+				<%= link_to "Settings", edit_user_path(current_user) %>
 				<%= link_to "Sign out", signout_path, method: "delete" %>
 				<% else %>
 				<%= link_to "Sign in", signin_path %>
