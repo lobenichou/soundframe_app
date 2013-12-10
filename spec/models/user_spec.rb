@@ -13,6 +13,7 @@ describe User do
   it {should respond_to(:password_digest)}
   it {should respond_to(:password)}
   it {should respond_to(:password_confirmation)}
+  it {should respond_to(:remember_token)}
   it {should respond_to(:authenticate)}
 
   it {should be_valid}
@@ -54,13 +55,13 @@ describe User do
   end
 
   describe "email address with mixed case" do
-      let(:mixed_case_email) { "Foo@ExAMPle.CoM" }
+    let(:mixed_case_email) { "Foo@ExAMPle.CoM" }
 
-      it "should be saved as all lower-case" do
-        @user.email = mixed_case_email
-        @user.save
-        expect(@user.reload.email).to eq mixed_case_email.downcase
-      end
+    it "should be saved as all lower-case" do
+      @user.email = mixed_case_email
+      @user.save
+      expect(@user.reload.email).to eq mixed_case_email.downcase
+    end
   end
 
   describe "when email address is already taken" do
@@ -77,7 +78,7 @@ describe User do
     before do
       @user = User.new(name: "Example User", email: "user@example.com", password: " ", password_confirmation: " ")
     end
-   it { should_not be_valid }
+    it { should_not be_valid }
   end
 
   describe "when password doesn't match confirmation" do
@@ -86,9 +87,9 @@ describe User do
   end
 
   describe "with password that's too short" do
-      before {@user.password = @user.password_confirmation = "a" * 5}
-      it {should be_invalid}
-    end
+    before {@user.password = @user.password_confirmation = "a" * 5}
+    it {should be_invalid}
+  end
 
   describe "return value of authenticate method" do
     before {@user.save}
@@ -96,18 +97,22 @@ describe User do
     let(:found_user) {User.find_by_email(@user.email)}
     #creates a found_user variable whose value is equal to the result of find_by
 
-      describe "with valid password" do
-        it { should eq found_user.authenticate(@user.password)}
+    describe "with valid password" do
+      it { should eq found_user.authenticate(@user.password)}
         #eq test for object equality (uses ==)
       end
 
       describe "with invalid password" do
         let (:user_for_invalid_password) {found_user.authenticate("invalid") }
 
-      it { should_not eq user_for_invalid_password }
-      specify { expect(user_for_invalid_password).to be_false }
+        it { should_not eq user_for_invalid_password }
+        specify { expect(user_for_invalid_password).to be_false }
       #specify is a synonym for "it"
     end
   end
 
+  describe "remember token" do
+    before {@user.save}
+    its(:remember_token) {should_not be_blank}
+  end
 end

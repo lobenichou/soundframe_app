@@ -19,6 +19,13 @@
 					<input  class="btn btn-primary" type="submit" value="Search"/>
 				</form>
 				<%= link_to 'Sign up', signup_path %>
+				<% if signed_in? %>
+				<%= link_to "Profile", current_user %>
+				<%= link_to "Settings", '#' %>
+				<%= link_to "Sign out", signout_path, method: "delete" %>
+				<% else %>
+				<%= link_to "Sign in", signin_path %>
+				<% end %>
 			</div>
 	</div>
 		<footer class="home_footer">

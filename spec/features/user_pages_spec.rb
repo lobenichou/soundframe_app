@@ -16,5 +16,5 @@ describe "User pages" do |variable|
 
       it {should have_content('Sign up')}
       it {should have_title('Sign up')}
-    end
+  end
 end
