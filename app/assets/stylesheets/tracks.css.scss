@@ -1,28 +1,15 @@
-@import url(http://fonts.googleapis.com/css?family=Flamenco);
- .index_header{
-    text-align: center;
-    letter-spacing: 10px;
-    background-color: #008c93;
-    height: 100px;
-}
-
-h2{
-    color: white;
-}
-
-.index_footer{
-    height: 110px;
-    margin-top: 10px;
-}
-
-.show_footer{
-    height: 110px;
-    margin-top: 30px;
-}
 
 body{
     text-align: center;
   }
+
+
+#search_results{
+    border-right: 1px dotted black;
+    height: 300px;
+    position: relative;
+}
+
 
 #map {
     height: 100%;
