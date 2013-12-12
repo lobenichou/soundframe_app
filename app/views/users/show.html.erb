@@ -1,16 +1,6 @@
-<html>
-  <body>
-    <header class="index_header">
-      <% provide(:title, @user.name) %>
-      <h1><%= @user.name %></h1>
-    </header>
-      <div>
-      <h1>
-        <%= gravatar_for @user %>
-      </h1>
-      </div>
-        <footer class="show_footer">
-    </footer>
-      </body>
-</html>
+<% provide(:title, @user.name) %>
+<h1>Dashboard</h1>
+<h1><%= @user.name %></h1>
+<%= gravatar_for @user %>
+<a href="/tracks" id="project" class="button disabled">Create a new project</a>
 

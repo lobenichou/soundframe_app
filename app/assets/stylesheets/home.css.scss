@@ -5,7 +5,7 @@
 
 #bar {
   position: fixed;
-	width: 100px;
+	width: 50px;
 	height: 100%;
 	padding-top: 2.125em;
 	background-color: #212121;
@@ -18,7 +18,10 @@
 	height: 100%;
 }
 
-.main-section{
-	padding-left: 99px;
-}
 
+#next{
+	position: fixed;
+	cursor: pointer;
+	margin-top: 500px;
+	margin-left:300px;
+}

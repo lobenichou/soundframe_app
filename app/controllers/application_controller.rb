@@ -11,7 +11,10 @@ class ApplicationController < ActionController::Base
 
   def gon_variable
     gon.client_id = ENV['SOUNDCLOUD_CLIENT_ID']
-    gon.cloud_made_api_key = ENV['ClOUD_MADE_API_KEY']
+    gon.map_id = ENV['MAP_ID']
+    gon.soundcloud_client = @client
   end
+
+
 
 end

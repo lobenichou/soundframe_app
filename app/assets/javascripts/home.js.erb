@@ -4,44 +4,46 @@
 
 $(function () {
 
-// $('#information').on('click', function(){
-//    $("#information").slideToggle('slow');
-//    });
-
 //Sets the map
-map = L.mapbox.map('map', 'laurenbenichou.gh6946ib', {
-    shareControl: true
-})
-    .setView([24.13, -44.56], 3)
-    .addControl(L.mapbox.geocoderControl('laurenbenichou.gh6946ib'));
+  map = L.mapbox.map('map', gon.map_id, {
+      shareControl: true
+  })
+      .setView([24.13, -44.56], 3)
+      .addControl(L.mapbox.geocoderControl(gon.map_id));
 
 
 //Customize layers
+  layer = new L.StamenTileLayer("watercolor");
 
-layer = new L.StamenTileLayer("watercolor");
+  mapboxTiles = L.tileLayer('https://{s}.tiles.mapbox.com/v3/'+ gon.map_id + '/{z}/{x}/{y}.png', {
+      attribution: '<a href="http://www.mapbox.com/about/maps/" target="_blank">Terms &amp; Feedback</a>'
+  });
 
-mapboxTiles = L.tileLayer('https://{s}.tiles.mapbox.com/v3/laurenbenichou.gh6946ib/{z}/{x}/{y}.png', {
-    attribution: '<a href="http://www.mapbox.com/about/maps/" target="_blank">Terms &amp; Feedback</a>'
-});
+  map.addLayer(layer)
+  map.addLayer(mapboxTiles);
 
-map.addLayer(layer)
-map.addLayer(mapboxTiles);
 
 //Markers
+    var geojson = {"features":[{"geometry":{"coordinates":[-122.2256401,37.7698573],"type":"Point"},"properties":{"description":"SoundMap is an app that allows you to tells stories through sounds and maps. Journalists, travelers and storyteller will get a kick out of it.","id":"marker-hp3iwdvc","marker-color":"#63b6e5","marker-size":"medium","marker-symbol":"","title":"Welcome to SoundMap"},"type":"Feature"},{"geometry":{"coordinates":[2.35337831438349,48.8374883252818],"type":"Point"},"properties":{"description":"...Add sounds, photos and text to a map. ","id":"marker-hp3izy7a","marker-color":"#63b6e5","marker-size":"medium","marker-symbol":"","title":"Paris"},"type":"Feature"},{"geometry":{"coordinates":[121.352146168479,31.0917975938839],"type":"Point"},"properties":{"description":"Share you maps with friends! ","id":"marker-hp3j2iya","marker-color":"#63b6e5","marker-size":"medium","marker-symbol":"","title":"Shanghai"},"type":"Feature"}],"id":"laurenbenichou.gh8c0187","type":"FeatureCollection"}
+    var markers = L.mapbox.markerLayer(geojson)
+      .addTo(map);
 
-var soundIcon = L.icon({
-    iconUrl: "<%= asset_path( 'soundcloud.png' ) %>",
-    iconSize:     [70, 70],
-    iconAnchor:   [35, 35],
-    popupAnchor:  [-3, -56]
-});
+    chapters = []
+
+  markers.eachLayer(function(chapter){
+    chapters.push(chapter)
+    return chapters
+  })
 
 
+//Click action to move from one marker to the next
+  i=-1
 
-   for (var index in gon.coordinates){
-    (function(index){
-      window["fun"+index] = function(){ $("#information").slideToggle('slow'); SC.oEmbed(gon.permalink_url[index], {color: "003a3e"}, document.getElementById("information"))}
-      L.marker(gon.coordinates[index], {icon: soundIcon}).addTo(map).bindPopup("<img src=" + gon.track_image[index] + ">" + "<p>" + gon.track_title[index] + "</p>" + '<a onclick="fun'+ index + '()">'+ "<img src=" + "'<%= asset_path( 'play.gif' ) %>'" + "height=" + "'30px'" + ">" + "</a>");
-    })(index)
-   }
+  $("#next").on('click', function(){
+    i = (i + 1) % chapters.length;
+    var c = chapters[i].feature.geometry.coordinates;
+    map.setView([c[1], c[0]], 3);
+    chapters[i].openPopup();
+  })
+
 });

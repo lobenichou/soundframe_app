@@ -1,27 +1,14 @@
-<!DOCTYPE html>
-<html>
-	<body>
-		<header class="index_header">
-			<h1>SoundFrame</h1>
-			<h2>Search Results:</h2>
-		</header>
-		<div class="all_users">
-				<% @authors.each do |author| %>
-					<div class="single_user">
-						<a href ="/tracks/<%= author.id %>/<%=author.username%>"><img src= "<%= author.avatar_url %>" height="100px" width="auto" class="img-circle"><img><br/>
-						<%= author.username %></a>
-					</div>
-				<% end %>
-		</div>
-		<div id="clearer"></div>
-		<div class="home_link">
-			<a href="/">Home</a>
-		</div>
-		<footer class="index_footer">
-			<h2>Click on the user whose tracks you'd like to upload.</h2></br>
-		</footer>
+<div class="row collapse">
+	<div class="small-10 columns">
+		<input id="search_query" type="text" name="user" placeholder="Soundcloud User">
+	</div>
+	<div class="small-2 columns">
+		<button id="submit_query" class="button postfix">Search</button>
+	</div>
+</div>
 
-	</body>
 
-</html>
-
+<div class="row">
+	<div id="search_results" class="large-6 columns"><h3>Soundcloud users</h3></div>
+	<div class="large-6 columns"><h3>Tracks</h3></div>
+</div>

@@ -2,13 +2,13 @@ class TracksController < ApplicationController
 	include TracksHelper
 
 	def index
-		query = params[:user]
+		# query = params[:user]
 
-		if query.empty?
-			render :error
-		else
-		@authors = @client.get('/users', :q => query, :limit => 10)
-		end
+		# if query.empty?
+		# 	render :error
+		# else
+		# @authors = @client.get('/users', :q => query, :limit => 10)
+		# end
 
 	end
 
