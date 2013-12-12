@@ -1,25 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>SoundframeApp</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <link href='//api.tiles.mapbox.com/mapbox.js/v1.5.2/mapbox.css' rel='stylesheet' />
   <%= include_gon %>
-  <link rel="stylesheet" href="leaflet.css" />
-  <link rel="stylesheet" href="normalize.css"/>
-  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" />
-  <script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
+  <script src='//api.tiles.mapbox.com/mapbox.js/v1.5.2/mapbox.js'></script>
+  <script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.2.4"></script>
   <script src="//connect.soundcloud.com/sdk.js"></script>
-	<script>
-	  SC.initialize({
-	    client_id: "7bc71d1e26e8b1d2ee33dbd1dee5b8bd",
-	  });
-	</script>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <script>
+    SC.initialize({
+      client_id: gon.client_id,
+    });
+  </script>
+    <title><%= content_for?(:title) ? yield(:title) : "SoundFrame" %></title>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>
+  </head>
 
-<%= yield %>
+  <body>
 
-</body>
+    <%= yield %>
+    <%= javascript_include_tag "application" %>
+  </body>
 </html>

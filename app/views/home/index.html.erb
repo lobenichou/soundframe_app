@@ -1,16 +1,54 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>SoundFrame</title>
-	</head>
-	<body>
+<div class="off-canvas-wrap">
+  <div class="inner-wrap">
+    <nav id="bar">
+        <a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+    </nav>
+
+    <aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+        	<li><a href="#">What's SoundFrame?</a></li>
+          <% if signed_in? %>
+          <li><%= link_to "Profile", current_user %></li>
+          <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+          <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
+          <% else %>
+          <li><a href="#" data-dropdown="sign_in_form">Sign in</a></li>
+          <div id="sign_in_form" data-dropdown-content class="small f-dropdown content">
+          	<%= form_for(:session, url: sessions_path) do |f| %>
+          	<%= f.label :email %>
+          	<%= f.text_field :email %>
+          	<%= f.label :password %>
+          	<%= f.password_field :password %>
+          	<%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
+          	<% end %>
+          	<p>New user? <%= link_to "Sign up now!", signup_path %></p>
+					</div>
+          <li><%= link_to 'Sign up', signup_path %></li>
+					<% end %>
+      </ul>
+    </aside>
+
+    <section class="main-section">
+     <div id="map">
+
+     	<!-- Map -->
+     </div>
+    </section>
+
+  <a class="exit-off-canvas"></a>
+
+  </div>
+</div>
+
+
+<!--
 		<header class="home_header">
 			<h1>SoundFrame</h1>
 			<h2>Where Soundcloud Meets Storytelling</h2>
 		</header>
 		<div class="searchform">
 			<div class="logo">
-				<img src= "<%= asset_path( 'soundcloud_logo.png' ) %>" height="200px" width="auto" ></img>
+
 			</div>
 			<div class="search">
 				<form method="get" action="/tracks">
@@ -18,21 +56,12 @@
 					<input class="box"  type="text" name="user" placeholder="Soundcloud User"/>
 					<input  class="btn btn-primary" type="submit" value="Search"/>
 				</form>
-				<%= link_to 'Sign up', signup_path %>
-				<% if signed_in? %>
-				<%= link_to "Profile", current_user %>
-				<%= link_to "Settings", edit_user_path(current_user) %>
-				<%= link_to "Sign out", signout_path, method: "delete" %>
-				<% else %>
-				<%= link_to "Sign in", signin_path %>
-				<% end %>
+
 			</div>
 	</div>
 		<footer class="home_footer">
 			<h2>Using the Soundcloud API, you can map out your sounds, add photos and share your SoundFrame project!
 			</h2>
-		</footer>
-	</body>
+		</footer> -->
 
-</html>
 

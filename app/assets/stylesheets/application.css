@@ -1,5 +1,4 @@
-
- /*
+/*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
@@ -9,42 +8,8 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
+ *= require foundation
  *= require_tree .
  *= require_self
+ *= require foundation_and_overrides
  */
-
-
-
-body{
-	font-family: 'Amatic SC', cursive;
-	height: 100%;
-	width: 100%;
-	}
-
-footer{
-	text-align: center;
-	color: black;
-	letter-spacing: 5px;
-	font-size: 20px;
-	background-color: #003a3e;
-	margin-top: 100px;
-	height: 95px;
-	width: 100%;
-	padding-top: 5px;
-	padding-bottom: 10px;
-	color: white;
-	position: absolute;
-}
-
-h1{
-	margin: 0;
-	font-family:'Amatic SC', cursive;
-	font-size: 30px;
-}
-
-h2{
-	font-family: 'Amatic SC', cursive;
-}
-
-
-
