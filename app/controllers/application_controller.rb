@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  before_filter :soundcloud_client, :gon_variable
+  before_filter :soundcloud_client, :gonify
 
   include SessionsHelper
 
@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   	@client = Soundcloud.new(:client_id => ENV['SOUNDCLOUD_CLIENT_ID'])
   end
 
-  def gon_variable
+  def gonify
     gon.client_id = ENV['SOUNDCLOUD_CLIENT_ID']
     gon.map_id = ENV['MAP_ID']
     gon.soundcloud_client = @client

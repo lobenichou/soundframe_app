@@ -3,6 +3,11 @@ class User < ActiveRecord::Base
   before_save { self.email = email.downcase }
   before_create :create_remember_token
 
+  has_one :library, :dependent => :destroy
+  has_many :projects
+
+
+
   validates :name, presence: true, length: { maximum: 30 }
   # Validating the email format with a regular expression. the code ensures that only email addresses that match the pattern will be considered valid.
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i

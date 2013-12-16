@@ -26,12 +26,14 @@ group :development, :production do
   gem 'soundcloud'
   gem 'gon', '3.0.5'
   gem 'foundation-rails'
+  gem 'ejs'
 end
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
+  gem 'ejs'
 end
 
 group :development do

@@ -3,11 +3,25 @@ body{
     text-align: center;
   }
 
-
-#search_results{
+#column_left{
     border-right: 1px dotted black;
-    height: 300px;
-    position: relative;
+    // position: relative;
+
+}
+#search_results{
+    height:400px;
+    overflow: scroll;
+}
+
+#tracks{
+    height:400px;
+    overflow: scroll;
+}
+
+.clickeable{
+    cursor: pointer;
+    border: 1px solid black;
+    margin: 10px;
 }
 
 

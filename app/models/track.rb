@@ -1,7 +1,10 @@
 class Track < ActiveRecord::Base
   attr_accessible :artwork_url, :genre, :latitude, :longitude, :permalink_url, :soundcloud_track_id, :title, :user_id
 
-	belongs_to :authors
+	has_many :project_tracks
+  has_many :projects, through: :project_tracks
+  has_many :library_tracks
+  has_many :libraries, through: :library_tracks
 
   validates :soundcloud_track_id, :uniqueness => true
 
