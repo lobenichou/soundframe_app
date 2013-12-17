@@ -24,6 +24,10 @@ body{
     margin: 10px;
 }
 
+.active {
+   pointer-events: none;
+   cursor: default;
+}
 
 #map {
     height: 100%;

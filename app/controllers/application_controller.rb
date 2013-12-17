@@ -13,6 +13,7 @@ class ApplicationController < ActionController::Base
     gon.client_id = ENV['SOUNDCLOUD_CLIENT_ID']
     gon.map_id = ENV['MAP_ID']
     gon.soundcloud_client = @client
+    gon.current_user = current_user
   end
 
 

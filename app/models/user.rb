@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :name, :password, :password_confirmation
   before_save { self.email = email.downcase }
   before_create :create_remember_token
+  after_create :create_library
 
   has_one :library, :dependent => :destroy
   has_many :projects
@@ -22,6 +23,7 @@ class User < ActiveRecord::Base
   def User.encrypt(token)
     Digest::SHA1.hexdigest(token.to_s)
   end
+
 
   private
 
