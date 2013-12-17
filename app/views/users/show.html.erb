@@ -2,6 +2,25 @@
 <h1>Dashboard</h1>
 <h1><%= @user.name %></h1>
 <%= gravatar_for @user %>
-<a href="#" id="project" class="button disabled">Create a new project</a>
+<a href="#" id="project" class="button disabled" data-reveal-id="newProject">Create a new project</a>
 <a href="/tracks" id="project" class="button disabled">Add tracks to your library</a>
+<% if @user.projects.empty? %>
+  <h3> You do not have any projects yet! <a href="#">Create one?</a></h3>
+<% else %>
+  <% @user.projects.each do |project| %>
+    <li><a href="/projects/<%=project.id%>"><%= project.title %> : <%= project.description %></a></li>
+  <% end %>
+<% end %>
 
+<div id="newProject" class="reveal-modal" data-reveal>
+  <h2>Create a new project</h2>
+  <%= form_for(:project, url: projects_path) do |f| %>
+  <%= f.label :Title %>
+  <%= f.text_field :title %>
+  <%= f.label :Description %>
+  <%= f.text_field :description %>
+  <%= hidden_field(:user, :id) %>
+  <%= f.submit "Create your project", class: "button disabled", id:"project" %>
+  <% end %>
+  <a class="close-reveal-modal">&#215;</a>
+</div>

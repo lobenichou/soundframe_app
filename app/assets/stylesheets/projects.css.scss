@@ -1,0 +1,36 @@
+// Place all the styles related to the projects controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#map-project {
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  position: fixed;
+}
+
+#save-project{
+  position: fixed;
+  cursor: pointer;
+  margin-top: 500px;
+  margin-left:300px;
+}
+
+#info{
+    height: 350px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0);
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    display: none;
+    margin-top: 23%;
+    padding-top: 10px;
+    overflow: scroll;
+}
+
+tr:hover{
+  background-color: rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+}
+

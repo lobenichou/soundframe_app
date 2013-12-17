@@ -1,5 +1,5 @@
 class Track < ActiveRecord::Base
-  attr_accessible :artwork_url, :genre, :latitude, :longitude, :permalink_url, :soundcloud_track_id, :title, :user_id
+  attr_accessible :artwork_url, :artist, :genre, :permalink_url, :soundcloud_track_id, :title, :user_id
 
 	has_many :project_tracks
   has_many :projects, through: :project_tracks

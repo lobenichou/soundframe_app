@@ -5,7 +5,7 @@
 $(function () {
 
 //Sets the map
-  map = L.mapbox.map('map', gon.map_id, {
+  map = L.mapbox.map('map', null, {
       shareControl: true
   })
       .setView([24.13, -44.56], 3)
@@ -13,14 +13,14 @@ $(function () {
 
 
 //Customize layers
-  layer = new L.StamenTileLayer("watercolor");
+  watercolor_layer = new L.StamenTileLayer("watercolor");
 
-  mapboxTiles = L.tileLayer('https://{s}.tiles.mapbox.com/v3/'+ gon.map_id + '/{z}/{x}/{y}.png', {
+  name_layer = L.tileLayer('https://{s}.tiles.mapbox.com/v3/'+ gon.map_id + '/{z}/{x}/{y}.png', {
       attribution: '<a href="http://www.mapbox.com/about/maps/" target="_blank">Terms &amp; Feedback</a>'
   });
 
-  map.addLayer(layer)
-  map.addLayer(mapboxTiles);
+  map.addLayer(watercolor_layer)
+  map.addLayer(name_layer);
 
 
 //Markers
@@ -34,6 +34,11 @@ $(function () {
     chapters.push(chapter)
     return chapters
   })
+
+// First popup open on load
+  chapters[0].openPopup()
+  var a = chapters[0].feature.geometry.coordinates;
+  map.setView([a[1], a[0]], 3);
 
 
 //Click action to move from one marker to the next

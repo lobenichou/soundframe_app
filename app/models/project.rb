@@ -5,4 +5,7 @@ class Project < ActiveRecord::Base
   has_many :project_tracks
   has_many :tracks, through: :project_tracks
 
+  validates :title, presence: true
+  validates :description, presence: true
+
 end

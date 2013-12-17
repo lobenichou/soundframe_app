@@ -22,3 +22,8 @@
   height: 100%;
   padding-left: 50px;
 }
+
+.active {
+  pointer-events: auto;
+  cursor: default;
+}

@@ -40,6 +40,7 @@ class TracksController < ApplicationController
 		@user.library.tracks.create(
 				:soundcloud_track_id => track[:id],
 				:title => track[:title] ,
+        :artist => track[:user][:username],
 				:genre => track[:genre],
 				:permalink_url => track[:permalink_url],
 				:artwork_url => track[:artwork_url])
