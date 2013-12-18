@@ -1,6 +1,6 @@
 class Track < ActiveRecord::Base
   attr_accessible :artwork_url, :artist, :genre, :permalink_url, :soundcloud_track_id, :title, :user_id
-
+  searchkick autocomplete: ["title"]
 	has_many :project_tracks
   has_many :projects, through: :project_tracks
   has_many :library_tracks
