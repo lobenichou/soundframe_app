@@ -7,7 +7,7 @@
   <% @tracks.each do |track| %>
   <div class="small-2 large-4 columns">
   <h6><%=track.artist%>: <%= track.title %></h6>
-  <iframe width="100%" height="20%" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F<%= track.soundcloud_track_id %>&show_artwork=true"></iframe>
+  <iframe width="100%" height="20%" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F<%= track.soundcloud_track_id %>&show_artwork=false"></iframe>
   <div class="row collapse">
   <div class="small-10 columns">
   <input type="text" name="location[<%= count %>][input]" placeholder="input location!"/>
