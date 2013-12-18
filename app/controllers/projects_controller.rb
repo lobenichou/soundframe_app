@@ -8,11 +8,11 @@ end
 
 def create
   project = @user.projects.create(params[:project])
-  redirect_to new_project_path
+  redirect_to "/projects/#{project.id}/edit"
 end
 
-def update
-
+def edit
+  @tracks = current_user.library.tracks.all
 end
 
 private

@@ -65,6 +65,9 @@ GEM
     foreman (0.63.0)
       dotenv (>= 0.7)
       thor (>= 0.13.6)
+    foundation-icons-sass-rails (3.0.0)
+      railties (>= 3.1.1)
+      sass-rails (>= 3.1.1)
     foundation-rails (5.0.2.0)
       railties (>= 3.1.0)
       sass (>= 3.2.0)
@@ -84,6 +87,8 @@ GEM
     jquery-rails (3.0.4)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
+    jquery-ui-rails (4.1.1)
+      railties (>= 3.1.0)
     json (1.8.1)
     konacha (3.0.0)
       actionpack (>= 3.1, < 5)
@@ -100,7 +105,7 @@ GEM
     multi_json (1.8.2)
     multi_xml (0.5.5)
     multipart-post (1.2.0)
-    nokogiri (1.6.0)
+    nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
     pg (0.17.0)
     polyglot (0.3.3)
@@ -175,7 +180,7 @@ GEM
     typhoeus (0.6.6)
       ethon (~> 0.6.1)
     tzinfo (0.3.38)
-    uglifier (2.3.2)
+    uglifier (2.3.3)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
     xpath (2.0.0)
@@ -192,9 +197,11 @@ DEPENDENCIES
   ejs
   factory_girl_rails
   foreman
+  foundation-icons-sass-rails
   foundation-rails
   gon (= 3.0.5)
   jquery-rails
+  jquery-ui-rails
   konacha
   pg
   pry-rails

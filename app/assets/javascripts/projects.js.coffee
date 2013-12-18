@@ -41,7 +41,12 @@ $("#map-project").on "click", "a[class='target-library']", (e) ->
   unless $("#info").is(":visible")
     $("#info").slideToggle "slow"
 
-$("tr").draggable()
+$("#close-info").on "click", ->
+  $("#info").slideToggle "slow"
+
+$("tr").on "click", ->
+  $("#info-content").empty()
+
 
 
 

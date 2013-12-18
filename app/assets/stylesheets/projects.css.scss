@@ -17,20 +17,22 @@
 }
 
 #info{
-    height: 350px;
-    text-align: center;
-    background: rgba(0, 0, 0, 0);
-    text-align: center;
-    position: fixed;
+    height: 100%;
     width: 100%;
-    display: none;
-    margin-top: 23%;
-    padding-top: 10px;
+    text-align: center;
+    background: white;
+    position: relative;
+    margin: auto;
     overflow: scroll;
 }
 
+#close-info:hover{
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.3);
+}
+
+
 tr:hover{
   background-color: rgba(0, 0, 0, 0.8);
-  cursor: pointer;
 }
 
