@@ -28,7 +28,6 @@ GEM
     activesupport (3.2.14)
       i18n (~> 0.6, >= 0.6.4)
       multi_json (~> 1.0)
-    ansi (1.4.3)
     arel (3.0.3)
     bcrypt-ruby (3.0.1)
     builder (3.0.4)
@@ -52,14 +51,6 @@ GEM
     dotenv-rails (0.9.0)
       dotenv (= 0.9.0)
     ejs (1.1.1)
-    elasticsearch (0.4.3)
-      elasticsearch-api (= 0.4.3)
-      elasticsearch-transport (= 0.4.3)
-    elasticsearch-api (0.4.3)
-      multi_json
-    elasticsearch-transport (0.4.3)
-      faraday
-      multi_json
     erubis (2.7.0)
     ethon (0.6.1)
       ffi (>= 1.3.0)
@@ -70,8 +61,6 @@ GEM
     factory_girl_rails (4.3.0)
       factory_girl (~> 4.3.0)
       railties (>= 3.0.0)
-    faraday (0.8.8)
-      multipart-post (~> 1.2.0)
     ffi (1.9.3)
     foreman (0.63.0)
       dotenv (>= 0.7)
@@ -86,7 +75,6 @@ GEM
       actionpack (>= 2.3.0)
       json
     hashie (2.0.5)
-    hashr (0.0.22)
     hike (1.2.3)
     httmultiparty (0.3.10)
       httparty (>= 0.7.3)
@@ -159,8 +147,6 @@ GEM
     rake (10.1.0)
     rdoc (3.12.2)
       json (~> 1.4)
-    rest-client (1.6.7)
-      mime-types (>= 1.16)
     rspec-core (2.14.7)
     rspec-expectations (2.14.4)
       diff-lcs (>= 1.1.3, < 2.0)
@@ -177,9 +163,6 @@ GEM
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
-    searchkick (0.3.5)
-      tire
-      tire-contrib
     slop (3.4.7)
     soundcloud (0.3.2)
       hashie (~> 2.0)
@@ -191,16 +174,6 @@ GEM
       tilt (~> 1.1, != 1.3.0)
     thor (0.18.1)
     tilt (1.4.1)
-    tire (0.6.1)
-      activemodel (>= 3.0)
-      activesupport
-      ansi
-      hashr (~> 0.0.19)
-      multi_json (~> 1.3)
-      rake
-      rest-client (~> 1.6)
-    tire-contrib (0.1.3)
-      tire
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
@@ -222,7 +195,6 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   dotenv-rails
   ejs
-  elasticsearch
   factory_girl_rails
   foreman
   foundation-icons-sass-rails
@@ -238,7 +210,6 @@ DEPENDENCIES
   rails_12factor
   rspec-rails
   sass-rails (~> 3.2.3)
-  searchkick
   soundcloud
   typhoeus
   uglifier (>= 1.0.3)
