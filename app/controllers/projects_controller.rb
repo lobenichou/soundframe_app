@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
-before_filter :signed_in_user
-before_filter :correct_user,  only: [:create]
+  include ProjectsHelper
+  before_filter :signed_in_user
+  before_filter :correct_user,  only: [:create]
 
 def new
   @tracks = current_user.library.tracks.all
@@ -13,6 +14,20 @@ end
 
 def edit
   @tracks = current_user.library.tracks.all
+  @project = Project.find(params[:id])
+end
+
+def update
+  track = current_user.library.tracks.find_by_soundcloud_track_id(params[:track])
+  project = current_user.projects.find(params[:project])
+  location = params[:location]
+  find_and_save_lat_lons(track, project, location)
+  render json: {project: project.id, track: track.soundcloud_track_id, text: "Track was saved to map!"}, status: 201
+end
+
+def show
+    project = current_user.projects.find(params[:id])
+    setup_map(project)
 end
 
 private

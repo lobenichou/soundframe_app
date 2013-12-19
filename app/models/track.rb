@@ -1,6 +1,7 @@
 class Track < ActiveRecord::Base
   attr_accessible :artwork_url, :artist, :genre, :permalink_url, :soundcloud_track_id, :title, :user_id
-  searchkick autocomplete: ["title"]
+
+
 	has_many :project_tracks
   has_many :projects, through: :project_tracks
   has_many :library_tracks
@@ -20,10 +21,6 @@ class Track < ActiveRecord::Base
     end
   end
 
-  def save_lat_lon(result)
-    lat = result[0]["geometry"]["location"]["lat"]
-    lng = result[0]["geometry"]["location"]["lng"]
-    self.update_attributes(latitude: lat, longitude: lng)
-  end
+
 
 end

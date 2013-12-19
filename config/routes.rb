@@ -10,5 +10,5 @@ SoundframeApp::Application.routes.draw do
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signup', to: 'users#new',  via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
-
+  get :autocomplete, to: 'projects#autocomplete'
 end

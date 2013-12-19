@@ -4,13 +4,19 @@
 <%= gravatar_for @user %>
 <a href="#" id="project" class="button disabled" data-reveal-id="newProject">Create a new project</a>
 <a href="/tracks" id="project" class="button disabled">Add tracks to your library</a>
+<div id="all-projects" class="small-10 columns">
 <% if @user.projects.empty? %>
   <h3> You do not have any projects yet! <a href="#">Create one?</a></h3>
 <% else %>
+<div class="row">
   <% @user.projects.each do |project| %>
-    <li><a href="/projects/<%=project.id%>"><%= project.title %> : <%= project.description %></a></li>
+  <div class="small-4 columns">
+  <a href="/projects/<%=project.id%>"><%= project.title %> : <%= project.description %></a>
+</div>
   <% end %>
+</div>
 <% end %>
+</div>
 
 <div id="newProject" class="reveal-modal" data-reveal>
   <h2>Create a new project</h2>

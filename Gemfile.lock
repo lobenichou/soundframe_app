@@ -52,6 +52,14 @@ GEM
     dotenv-rails (0.9.0)
       dotenv (= 0.9.0)
     ejs (1.1.1)
+    elasticsearch (0.4.3)
+      elasticsearch-api (= 0.4.3)
+      elasticsearch-transport (= 0.4.3)
+    elasticsearch-api (0.4.3)
+      multi_json
+    elasticsearch-transport (0.4.3)
+      faraday
+      multi_json
     erubis (2.7.0)
     ethon (0.6.1)
       ffi (>= 1.3.0)
@@ -62,6 +70,8 @@ GEM
     factory_girl_rails (4.3.0)
       factory_girl (~> 4.3.0)
       railties (>= 3.0.0)
+    faraday (0.8.8)
+      multipart-post (~> 1.2.0)
     ffi (1.9.3)
     foreman (0.63.0)
       dotenv (>= 0.7)
@@ -212,6 +222,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   dotenv-rails
   ejs
+  elasticsearch
   factory_girl_rails
   foreman
   foundation-icons-sass-rails

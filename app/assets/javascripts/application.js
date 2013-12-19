@@ -15,7 +15,11 @@
 //= require jquery_ujs
 //= require jquery.ui.all
 //= require foundation
+//= require ./typeahead.js
+//= require ./masonry.pkgd.min.js
+//=require ./modernizr.js
 //= require_tree .
 
+
 $(document).foundation();
-$(function(){ $(document).foundation(); });
+

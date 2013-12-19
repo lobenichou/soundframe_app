@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131217205043) do
+ActiveRecord::Schema.define(:version => 20131219035738) do
 
   create_table "libraries", :force => true do |t|
     t.integer  "user_id"
@@ -28,12 +28,12 @@ ActiveRecord::Schema.define(:version => 20131217205043) do
 
   create_table "project_tracks", :force => true do |t|
     t.integer  "track_id"
-    t.string   "project_id"
     t.text     "text"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.float    "longitude"
     t.float    "latitude"
+    t.integer  "project_id"
   end
 
   create_table "projects", :force => true do |t|

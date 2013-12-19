@@ -27,7 +27,6 @@ group :development, :production do
   gem 'gon', '3.0.5'
   gem 'foundation-rails'
   gem 'ejs'
-  gem "searchkick"
 end
 
 group :assets do
