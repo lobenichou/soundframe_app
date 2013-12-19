@@ -1,4 +1,3 @@
-
 // This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //
@@ -15,11 +14,9 @@
 //= require jquery_ujs
 //= require jquery.ui.all
 //= require foundation
-//= require ./typeahead.js
 //= require ./masonry.pkgd.min.js
 //= require ./modernizr.js
 //= require_tree .
-
 
 $(document).foundation();
 
