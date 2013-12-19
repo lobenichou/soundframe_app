@@ -2,25 +2,28 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
-# #initialize map#
-# map_project = L.mapbox.map("map-project", null, {
-#       shareControl: true
-#   })
 
-# map_project.setView [24.13, -44.56], 3
-# map_project.addControl(L.mapbox.geocoderControl(gon.map_id))
+########### MAP ###########
 
-# #layers#
+#initialize map#
+map_project = L.mapbox.map("map-project", null, {
+      shareControl: true
+  })
 
-# watercolor_layer = new L.StamenTileLayer("watercolor")
-# name_layer = L.tileLayer('https://{s}.tiles.mapbox.com/v3/'+ gon.map_id + '/{z}/{x}/{y}.png', {
-#       attribution: '<a href="http://www.mapbox.com/about/maps/" target="_blank">Terms &amp; Feedback</a>'
-#   })
+map_project.setView [24.13, -44.56], 3
+map_project.addControl(L.mapbox.geocoderControl(gon.map_id))
 
-# map_project.addLayer(watercolor_layer)
-# map_project.addLayer(name_layer)
+# layers#
 
-# #place markers on map#
+watercolor_layer = new L.StamenTileLayer("watercolor")
+name_layer = L.tileLayer('https://{s}.tiles.mapbox.com/v3/'+ gon.map_id + '/{z}/{x}/{y}.png', {
+      attribution: '<a href="http://www.mapbox.com/about/maps/" target="_blank">Terms &amp; Feedback</a>'
+  })
+
+map_project.addLayer(watercolor_layer)
+map_project.addLayer(name_layer)
+
+#place markers on map#
 
 # placeMarker = (map_project, latlng) ->
 #   popupContent = "<a href='#' class='target-library'>" + "Add track" + "</a>"

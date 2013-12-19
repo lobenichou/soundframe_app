@@ -57,5 +57,7 @@ jquery-ui/ui-icons_888888_256x240.png: jquery-ui/ui-icons_888888_256x240-8040cfc
 jquery-ui/ui-icons_888888_256x240/index.png: jquery-ui/ui-icons_888888_256x240-8040cfcc88792375b7788feb59189eef.png
 jquery-ui/ui-icons_cd0a0a_256x240.png: jquery-ui/ui-icons_cd0a0a_256x240-d4a62216bf6f0cd0071149890763a5ff.png
 jquery-ui/ui-icons_cd0a0a_256x240/index.png: jquery-ui/ui-icons_cd0a0a_256x240-d4a62216bf6f0cd0071149890763a5ff.png
+vendor/modernizr.js: vendor/modernizr-a7d5258f68c42509cd151b5d3ebb9aa9.js
+vendor/modernizr/index.js: vendor/modernizr-a7d5258f68c42509cd151b5d3ebb9aa9.js
 jquery.min.map: jquery.min-6336c5bca4c709e809647cdfcb484d0a.map
 jquery/index.min.map: jquery.min-6336c5bca4c709e809647cdfcb484d0a.map
