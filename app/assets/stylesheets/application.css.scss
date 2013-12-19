@@ -15,6 +15,7 @@
  *= require foundation_and_overrides
  */
 
+
 @import 'foundation-icons';
 
 .gravatar{
@@ -31,15 +32,6 @@
   cursor: default;
 }
 
-#info{
-    height: 100%;
-    width: 100%;
-    text-align: center;
-    background: white;
-    position: relative;
-    margin: auto;
-    overflow: scroll;
-}
 
 /**** MASONRY****/
  #container {

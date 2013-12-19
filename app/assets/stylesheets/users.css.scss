@@ -10,6 +10,17 @@
   overflow: scroll;
 }
 
+#info{
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  background: white;
+  position: relative;
+  margin: auto;
+  overflow: scroll;
+
+}
+
 
 .h_iframe        {position:relative;}
 .h_iframe .ratio {display:block;width:100%;height:auto;}

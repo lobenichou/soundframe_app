@@ -2,26 +2,29 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
 #bar {
   position: fixed;
-	width: 50px;
-	height: 100%;
-	padding-top: 2.125em;
-	background-color: #212121;
-	z-index: 9999;
-	cursor: pointer;
+  width: 50px;
+  height: 100%;
+  padding-top: 2.125em;
+  background-color: #212121;
+  z-index: 9999;
+  cursor: pointer;
 }
 
+
 .inner-wrap {
-	position: fixed;
-	height: 100%;
+  position: fixed;
+  height: 100%;
 }
 
 
 #next{
-	position: fixed;
-	cursor: pointer;
-	margin-top: 500px;
-	margin-left:300px;
+  position: fixed;
+  cursor: pointer;
+  margin-top: 500px;
+  margin-left:300px;
 }
+
+
+
