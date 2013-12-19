@@ -47,6 +47,7 @@
 # $("tr").on "click", ->
 #   $("#info-content").empty()
 
+####### SAVING TRACK LOCATIONS ##########
 
 $("#all-tracks").on "click", "a[data-id]", (e) ->
   e.preventDefault()

@@ -17,7 +17,7 @@
 //= require foundation
 //= require ./typeahead.js
 //= require ./masonry.pkgd.min.js
-//=require ./modernizr.js
+//= require ./modernizr.js
 //= require_tree .
 
 
