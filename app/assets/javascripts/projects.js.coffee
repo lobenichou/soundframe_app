@@ -5,7 +5,8 @@
 
 ########### MAP ###########
 
-#initialize map#
+# initialize map #
+
 map_project = L.mapbox.map("map-project", null, {
       shareControl: true
   })
@@ -13,7 +14,7 @@ map_project = L.mapbox.map("map-project", null, {
 map_project.setView [24.13, -44.56], 3
 map_project.addControl(L.mapbox.geocoderControl(gon.map_id))
 
-# layers#
+# layers #
 
 watercolor_layer = new L.StamenTileLayer("watercolor")
 name_layer = L.tileLayer('https://{s}.tiles.mapbox.com/v3/'+ gon.map_id + '/{z}/{x}/{y}.png', {
@@ -23,7 +24,13 @@ name_layer = L.tileLayer('https://{s}.tiles.mapbox.com/v3/'+ gon.map_id + '/{z}/
 map_project.addLayer(watercolor_layer)
 map_project.addLayer(name_layer)
 
-#place markers on map#
+# place markers on map #
+
+for index of gon.coordinates
+  popupContent = "<h5>" + gon.track_title[index] + "</h5>"
+  L.marker(gon.coordinates[index],
+  icon: L.mapbox.marker.icon("marker-color": "CC0033")
+  ).addTo(map_project).bindPopup(popupContent)
 
 # placeMarker = (map_project, latlng) ->
 #   popupContent = "<a href='#' class='target-library'>" + "Add track" + "</a>"

@@ -1,19 +1,33 @@
+<div id="info">
 <% provide(:title, @user.name) %>
 <h1>Dashboard</h1>
 <h1><%= @user.name %></h1>
 <%= gravatar_for @user %>
+
+<div class="row collapse">
+    <div class="small-5 columns">
 <a href="#" id="project" class="button disabled" data-reveal-id="newProject">Create a new project</a>
+    </div>
+  <div class="small-5 columns">
 <a href="/tracks" id="project" class="button disabled">Add tracks to your library</a>
-<div id="all-projects" class="small-10 columns">
+ </div>
+  </div>
+
+<div id="all-projects" class="small-5 large-12 columns">
 <% if @user.projects.empty? %>
   <h3> You do not have any projects yet! <a href="#">Create one?</a></h3>
 <% else %>
 <div class="row">
+  <div id="container" class="large-12 columns transitions-enabled large-centered clearfix">
   <% @user.projects.each do |project| %>
-  <div class="small-4 columns">
-  <a href="/projects/<%=project.id%>"><%= project.title %> : <%= project.description %></a>
-</div>
+  <div class="box col5">
+    <iframe width="500px" height="500px" frameBorder="0" src="http://localhost:3000/projects/<%= project.id %>"style="-webkit-transform:scale(0.6);-moz-transform-scale(0.6);"></iframe>
+  <h5><%= project.title %></h5>
+  <p><%= project.description %></p>
+  <a href="/projects/<%=project.id%>">view</a>
+  </div>
   <% end %>
+</div>
 </div>
 <% end %>
 </div>
@@ -29,4 +43,5 @@
   <%= f.submit "Create your project", class: "button disabled", id:"project" %>
   <% end %>
   <a class="close-reveal-modal">&#215;</a>
+</div>
 </div>
