@@ -16,16 +16,6 @@
   margin-left:300px;
 }
 
-#info{
-    height: 100%;
-    width: 100%;
-    text-align: center;
-    background: white;
-    position: relative;
-    margin: auto;
-    overflow: scroll;
-}
-
 #close-info:hover{
   cursor: pointer;
   color: rgba(0, 0, 0, 0.3);
@@ -46,6 +36,25 @@
 .hide{
   display: none;
 }
+
+#information {
+  height: 100%;
+  text-align: center;
+  background: rgba(0,0,0,0.5);
+  position: relative;
+  width: 100%;
+  margin: auto;
+  display: none;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+#info{
+  overflow: scroll;
+  width: 100%;
+  height: 100%;
+}
+
 
 
 /**** MASONRY****/

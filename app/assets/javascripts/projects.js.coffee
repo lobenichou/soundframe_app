@@ -2,25 +2,29 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
-# #initialize map#
-# map_project = L.mapbox.map("map-project", null, {
-#       shareControl: true
-#   })
 
-# map_project.setView [24.13, -44.56], 3
-# map_project.addControl(L.mapbox.geocoderControl(gon.map_id))
+########### MAP ###########
+debugger
+map_project = L.mapbox.map("map-project", null,
+  shareControl: true
+).setView([24.13, -44.56], 3).addControl(L.mapbox.geocoderControl(gon.map_id))
 
-# #layers#
+######## layers ############
 
-# watercolor_layer = new L.StamenTileLayer("watercolor")
-# name_layer = L.tileLayer('https://{s}.tiles.mapbox.com/v3/'+ gon.map_id + '/{z}/{x}/{y}.png', {
-#       attribution: '<a href="http://www.mapbox.com/about/maps/" target="_blank">Terms &amp; Feedback</a>'
-#   })
+# watercolor_layer =  L.StamenTileLayer("watercolor")
+name_layer = L.tileLayer("https://{s}.tiles.mapbox.com/v3/" + gon.map_id + "/{z}/{x}/{y}.png",
+  attribution: "<a href=\"http://www.mapbox.com/about/maps/\" target=\"_blank\">Terms &amp; Feedback</a>"
+)
+# map_project.addLayer watercolor_layer
+map_project.addLayer name_layer
 
-# map_project.addLayer(watercolor_layer)
-# map_project.addLayer(name_layer)
+######## place markers on map ##########
 
-# #place markers on map#
+for index of gon.coordinates
+  popupContent = "<a href='#' class='target-info'>" + gon.track_title[index] + "</a>"
+  L.marker(gon.coordinates[index],
+  icon: L.mapbox.marker.icon("marker-color": "CC0033")
+  ).addTo(map_project).bindPopup(popupContent)
 
 # placeMarker = (map_project, latlng) ->
 #   popupContent = "<a href='#' class='target-library'>" + "Add track" + "</a>"
@@ -35,17 +39,18 @@
 # map_project.on "click", (e) ->
 #   placeMarker map_project, e.latlng
 
-# #On click events#
-# $("#map-project").on "click", "a[class='target-library']", (e) ->
-#   e.preventDefault
-#   unless $("#info").is(":visible")
-#     $("#info").slideToggle "slow"
+######## On click events ##########
 
-# $("#close-info").on "click", ->
-#   $("#info").slideToggle "slow"
+$("#map-project").on "click", "a[class='target-info']", (e) ->
+  e.preventDefault
+  unless $("#information").is(":visible")
+    $("#information").slideToggle "slow"
 
-# $("tr").on "click", ->
-#   $("#info-content").empty()
+$("#close-info").on "click", ->
+  $("#information").slideToggle "slow"
+
+
+####### SAVING TRACK LOCATIONS ##########
 
 
 $("#all-tracks").on "click", "a[data-id]", (e) ->
@@ -63,7 +68,6 @@ $("#all-tracks").on "click", "a[data-id]", (e) ->
       visible_div = "#" + data.track
       $(visible_div).toggleClass("fade").empty()
       $(visible_div).append("<i class='fi-check large'></i>The track was added to your map!")
-
 
 
 

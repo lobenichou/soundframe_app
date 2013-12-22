@@ -17,17 +17,17 @@ module ProjectsHelper
     gon.permalink_url = {}
     gon.track_title = {}
     gon.track_image = {}
-    mapped_tracks = {}
+    mapped_tracks = []
 
 
     proj_trs.each do |proj_tr|
       unless proj_tr.latitude == nil
         gon.coordinates[proj_tr.track_id] = [proj_tr.latitude, proj_tr.longitude]
-        mapped_tracks << track.find(proj_tr.track_id)
+        mapped_tracks << tracks.find(proj_tr.track_id)
         mapped_tracks.each do |mapped_track|
-          gon.permalink_url[mapped_track.soundcloud_track_id] = track.permalink_url
-          gon.track_title[mapped_track.soundcloud_track_id] = track.title
-          gon.track_image[mapped_track.soundcloud_track_id] = track.artwork_url
+          gon.permalink_url[mapped_track.soundcloud_track_id] = mapped_track.permalink_url
+          gon.track_title[mapped_track.soundcloud_track_id] = mapped_track.title
+          gon.track_image[mapped_track.soundcloud_track_id] = mapped_track.artwork_url
         end
       end
     end
