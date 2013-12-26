@@ -15,10 +15,15 @@
 //= require jquery_ujs
 //= require jquery.ui.all
 //= require foundation
-//= require ./masonry.pkgd.min.js
-//= require ./modernizr.js
-//= require ./tile.stamen.js
+//= require_tree ../../../vendor/assets/javascripts/.
 //= require_tree .
 
+//loads foundation
 $(document).foundation();
 
+//Initialized Soundcloud Client ID
+(function(){
+  SC.initialize({
+    client_id: gon.client_id,
+  });
+})

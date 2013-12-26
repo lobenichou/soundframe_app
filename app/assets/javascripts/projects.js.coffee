@@ -3,22 +3,23 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 
-########### MAP ###########
-debugger
-map_project = L.mapbox.map("map-project", null,
-  shareControl: true
-).setView([24.13, -44.56], 3).addControl(L.mapbox.geocoderControl(gon.map_id))
+########### LOAD MAPS ###########
+if $("#map-project").length > 0
+  map_project = L.mapbox.map("map-project", null,
+    shareControl: true
+  ).setView([24.13, -44.56], 3).addControl(L.mapbox.geocoderControl(gon.map_id))
 
-######## layers ############
+## load layers ##
 
-# watercolor_layer =  L.StamenTileLayer("watercolor")
-name_layer = L.tileLayer("https://{s}.tiles.mapbox.com/v3/" + gon.map_id + "/{z}/{x}/{y}.png",
-  attribution: "<a href=\"http://www.mapbox.com/about/maps/\" target=\"_blank\">Terms &amp; Feedback</a>"
-)
-# map_project.addLayer watercolor_layer
-map_project.addLayer name_layer
+  watercolor_layer =  new L.StamenTileLayer("watercolor")
+  name_layer = L.tileLayer("https://{s}.tiles.mapbox.com/v3/" + gon.map_id + "/{z}/{x}/{y}.png",
+    attribution: "<a href=\"http://www.mapbox.com/about/maps/\" target=\"_blank\">Terms &amp; Feedback</a>"
+  )
 
-######## place markers on map ##########
+  map_project.addLayer watercolor_layer
+  map_project.addLayer name_layer
+
+## place markers on map ##
 
 for index of gon.coordinates
   popupContent = "<a href='#' class='target-info'>" + gon.track_title[index] + "</a>"
@@ -39,7 +40,7 @@ for index of gon.coordinates
 # map_project.on "click", (e) ->
 #   placeMarker map_project, e.latlng
 
-######## On click events ##########
+######## ON CLICK EVENTS ##########
 
 $("#map-project").on "click", "a[class='target-info']", (e) ->
   e.preventDefault
