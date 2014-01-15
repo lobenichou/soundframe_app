@@ -9,9 +9,6 @@ class ApplicationController < ActionController::Base
   	@client = Soundcloud.new(:client_id => ENV['SOUNDCLOUD_CLIENT_ID'])
   end
 
-
-private
-
   def gonify
     gon.client_id = ENV['SOUNDCLOUD_CLIENT_ID']
     gon.map_id = ENV['MAP_ID']

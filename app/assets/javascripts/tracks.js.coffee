@@ -1,8 +1,6 @@
 # Saving tracks to the current user's library#
-
 $("#submit_query").on "click", (event) ->
   event.preventDefault()
-  debugger
   $("#search_results").empty()
   query = $("#search_query").val()
 

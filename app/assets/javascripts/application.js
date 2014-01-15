@@ -1,4 +1,3 @@
-
 // This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //
@@ -17,12 +16,13 @@
 //= require foundation
 //= require_tree ../../../vendor/assets/javascripts/.
 //= require_tree .
+//= require_self
 
 //loads foundation
 $(document).foundation();
 
 //Initialized Soundcloud Client ID
-(function(){
+$(document).ready(function(){
   SC.initialize({
     client_id: gon.client_id,
   });
