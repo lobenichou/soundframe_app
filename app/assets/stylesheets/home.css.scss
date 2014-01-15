@@ -8,9 +8,25 @@
 	width: 50px;
 	height: 100%;
 	padding-top: 2.125em;
-	background-color: #212121;
+  border-right: 1px dotted black;
+	background-color: #fff;
 	z-index: 9999;
 	cursor: pointer;
+}
+
+.left-off-canvas-menu {
+  text-align: left;
+  font-family: oswald;
+}
+
+ul.off-canvas-list li a:hover{
+  color: white;
+  background-color: #D25E15;
+  -webkit-transition: all 500ms ease;
+  -moz-transition: all 500ms ease;
+  -ms-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+  transition: all 500ms ease;
 }
 
 .inner-wrap {
@@ -18,12 +34,8 @@
 	height: 100%;
 }
 
-
 #next{
-	position: fixed;
-	cursor: pointer;
-	margin-top: 500px;
-	margin-left:300px;
+	font-size: 20px;
 }
 
 #home-map {
@@ -32,3 +44,34 @@
   background-color: white;
   position: fixed;
 }
+
+#information {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  background: rgba(0,0,0,0.5);
+  position: relative;
+  margin: auto;
+  display: none;
+  padding-top: 35%;
+  padding-bottom: 20px;
+}
+
+#close-information{
+  font-size: 50px;
+  float: right;
+  margin-top: -35%;
+  color: black;
+  cursor: pointer;
+}
+
+#close-information:hover{
+  color: white;
+  background-color: #D25E15;
+  -webkit-transition: all 500ms ease;
+  -moz-transition: all 500ms ease;
+  -ms-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+  transition: all 500ms ease;
+}
+

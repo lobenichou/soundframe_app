@@ -24,12 +24,12 @@ geojson =
       type: "Point"
 
     properties:
-      description: "SoundMap is an app that allows you to tells stories through sounds and maps. Journalists, travelers and storyteller will get a kick out of it."
+      description: "<p>SoundFrame is an app that allows you to tells stories through sounds and maps. Journalists, travelers and storyteller will get a kick out of it.</p> <a id=\"next\" href=\"#\">Next</a>"
       id: "marker-hp3iwdvc"
-      "marker-color": "#63b6e5"
+      "marker-color": "#D25E15"
       "marker-size": "medium"
       "marker-symbol": ""
-      title: "Welcome to SoundMap"
+      title: "<h1>Welcome to SoundFrame</h1>"
 
     type: "Feature"
   ,
@@ -38,12 +38,12 @@ geojson =
       type: "Point"
 
     properties:
-      description: "...Add sounds, photos and text to a map. "
+      description: "...Add sounds, photos and text to a map. Like <a id=\"home-example-link\" href=\"#\">This!</a><br/><a id=\"next\" href=\"#\">Next</a>"
       id: "marker-hp3izy7a"
-      "marker-color": "#63b6e5"
+      "marker-color": "#D25E15"
       "marker-size": "medium"
       "marker-symbol": ""
-      title: "Paris"
+      title: "<h1>Create maps</h1>"
 
     type: "Feature"
   ,
@@ -52,12 +52,12 @@ geojson =
       type: "Point"
 
     properties:
-      description: "Share you maps with friends! "
+      description: "Share you maps with friends! <br/> <a class=\"left-off-canvas-toggle\" href=\"#\">Start now!</a> "
       id: "marker-hp3j2iya"
-      "marker-color": "#63b6e5"
+      "marker-color": "#D25E15"
       "marker-size": "medium"
       "marker-symbol": ""
-      title: "Shanghai"
+      title: "<h1>Share with the world</h1>"
 
     type: "Feature"
   ]
@@ -78,8 +78,16 @@ map.setView [a[1], a[0]], 3
 
 #Click action to move from one marker to the next
 i = -1
-$("#next").on "click", ->
+$("#home-map").on "click", "a[id='next']", (e) ->
+  e.preventDefault()
   i = (i + 1) % chapters.length
   c = chapters[i].feature.geometry.coordinates
   map.setView [c[1], c[0]], 3
   chapters[i].openPopup()
+
+$("#home-map").on "click", "a[id='home-example-link']", (e) ->
+  e.preventDefault()
+  $("#information").toggle "slow"
+
+$("#information").on "click", "i[id='close-information']", ->
+  $("#information").toggle "slow"

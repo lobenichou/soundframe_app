@@ -1,23 +1,46 @@
 <% provide(:title, @user.name) %>
+<div id="user-info">
 <h1>Dashboard</h1>
-<h1><%= @user.name %></h1>
-<%= gravatar_for @user %>
-<a href="#" id="project" class="button disabled" data-reveal-id="newProject">Create a new project</a>
-<a href="/tracks" id="project" class="button disabled">Add tracks to your library</a>
-<div id="all-projects" class="small-10 columns">
-<% if @user.projects.empty? %>
-  <h3> You do not have any projects yet! <a href="#">Create one?</a></h3>
-<% else %>
-<div class="row">
-  <% @user.projects.each do |project| %>
-  <div class="small-4 columns">
-  <a href="/projects/<%=project.id%>"><%= project.title %> : <%= project.description %></a>
-</div>
-  <% end %>
-</div>
-<% end %>
+<p>Welcome,</p><h3><%= @user.name %>.</h3>
+
+<div class="small-12 columns">
+  <%= gravatar_for @user %>
 </div>
 
+<div class="row">
+  <div class="small-4 columns">
+    <a href="#" class="button dashboard-option" data-reveal-id="newProject">Create a new project</a>
+  </div>
+  <div class="small-4 columns">
+    <a href="/tracks" class="button dashboard-option">Add tracks to your library</a>
+  </div>
+  <div class="small-4 columns">
+    <a href="#" id="reveal-project" class="button dashboard-option">View my projects</a>
+  </div>
+</div>
+</div>
+<div id="all-projects">
+  <i id="close-project" class="fi-x-circle large"></i>
+  <% if @user.projects.empty? %>
+  <h3> You do not have any projects yet! <a href="#">Create one?</a></h3>
+  <% else %>
+  <div class="small-12 columns">
+    <p> Projects </p>
+  </div>
+  <div class="row">
+    <div id="container" class="large-12 columns transitions-enabled large-centered clearfix">
+    <% @user.projects.each do |project| %>
+    <div id="project-box" class="box col6">
+      <a href="/projects/<%=project.id%>"><h1><%= project.title %>:</h1> <%= project.description %></a>
+    </div>
+    <% end %>
+  </div>
+  </div>
+  <% end %>
+</div>
+
+
+<!-- NEW PROJECT MODAL -->
 <div id="newProject" class="reveal-modal" data-reveal>
   <h2>Create a new project</h2>
   <%= form_for(:project, url: projects_path) do |f| %>
@@ -26,7 +49,7 @@
   <%= f.label :Description %>
   <%= f.text_field :description %>
   <%= hidden_field(:user, :id) %>
-  <%= f.submit "Create your project", class: "button disabled", id:"project" %>
+  <%= f.submit "Create", class: "button dashboard-option", id:"project" %>
   <% end %>
   <a class="close-reveal-modal">&#215;</a>
 </div>

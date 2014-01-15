@@ -11,7 +11,6 @@
   <%= javascript_include_tag "vendor/modernizr" %>
   <%= csrf_meta_tags %>
 </head>
-
 <body>
   <div class="off-canvas-wrap">
     <div class="inner-wrap">
@@ -21,11 +20,11 @@
 
       <aside class="left-off-canvas-menu">
         <ul class="off-canvas-list">
+          <h4>SoundFrame</h4>
           <% if signed_in? %>
-          <li><%= gravatar_for @current_user %><%=@current_user.name%></li>
           <li><%= link_to "Dashboard", current_user %></li>
           <li><%= link_to "Update Profile", edit_user_path(current_user) %></li>
-          <li><a href="#">Create a new sound map</a></li>
+          <li><a href="#">My projects</a></li>
           <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
 
           <% else %>

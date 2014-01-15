@@ -1,4 +1,3 @@
-
 body{
     text-align: center;
   }
@@ -17,28 +16,5 @@ body{
     overflow: scroll;
 }
 
-.clickeable{
-    cursor: pointer;
-    border: 1px solid black;
-    margin: 10px;
-}
 
-.active {
-   pointer-events: none;
-   cursor: default;
-}
-
-
-#information {
-    height: 200px;
-    text-align: center;
-    background: rgba(0, 0, 0, 0.5);
-    text-align: center;
-    position: fixed;
-    width: 100%;
-    display: none;
-    margin-top: 400px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
 

@@ -35,6 +35,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
   gem 'ejs'
   gem 'jquery-ui-rails'
+  gem 'foundation-rails'
   gem 'foundation-icons-sass-rails'
 end
 
