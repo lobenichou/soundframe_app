@@ -29,8 +29,6 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
   gem 'ejs'
-  gem 'jquery-rails'
-  gem 'jquery-ui-rails'
   gem 'foundation-rails'
   gem 'foundation-icons-sass-rails'
 end
@@ -44,4 +42,5 @@ group :production do
   gem 'rails_12factor'
 end
 
-
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
