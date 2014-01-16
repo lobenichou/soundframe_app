@@ -5,6 +5,7 @@
 $(document).foundation();
 
 ########### LOAD MAPS ###########
+
 if $("#map-project").length > 0
   map_project = L.mapbox.map("map-project", null,
     shareControl: true
@@ -42,48 +43,48 @@ for index of gon.coordinates
 #   placeMarker map_project, e.latlng
 
 ######## ON CLICK EVENTS ##########
+$(document).ready ->
+  $("#map-project").on "click", "a[class='target-info']", (e) ->
+    e.preventDefault
+    unless $("#information").is(":visible")
+      $("#information").slideToggle "slow"
 
-$("#map-project").on "click", "a[class='target-info']", (e) ->
-  e.preventDefault
-  unless $("#information").is(":visible")
+  $("#close-info").on "click", ->
     $("#information").slideToggle "slow"
-
-$("#close-info").on "click", ->
-  $("#information").slideToggle "slow"
 
 
 ####### SAVING TRACK LOCATIONS ##########
 
 
-$("#all-tracks").on "click", "a[data-id]", (e) ->
-  e.preventDefault()
-  proj_id = window.location.href.match(/projects\/\d*\//)[0].split("/")[1]
-  id = $(this).attr("data-id")
-  location = $("#location_#{id}").val()
-  params = {track: id, location: location, project: proj_id}
-  $.ajax(
-    url: '/projects/' + proj_id
-    type: 'PUT'
-    data: params
-    dataType: 'json').done (data) ->
-      hidden_div = "#" + "fade_" + data.track
-      visible_div = "#" + data.track
-      $(visible_div).toggleClass("fade").empty()
-      $(visible_div).append("<i class='fi-check large'></i>The track was added to your map!")
+  $("#all-tracks").on "click", "a[data-id]", (e) ->
+    e.preventDefault()
+    proj_id = window.location.href.match(/projects\/\d*\//)[0].split("/")[1]
+    id = $(this).attr("data-id")
+    location = $("#location_#{id}").val()
+    params = {track: id, location: location, project: proj_id}
+    $.ajax(
+      url: '/projects/' + proj_id
+      type: 'PUT'
+      data: params
+      dataType: 'json').done (data) ->
+        hidden_div = "#" + "fade_" + data.track
+        visible_div = "#" + data.track
+        $(visible_div).toggleClass("fade").empty()
+        $(visible_div).append("<i class='fi-check large'></i>The track was added to your map!")
 
 
 
 ######### MASONRY #############
+if $("#all-tracks").length > 0
+  container = document.querySelector("#container")
+  msnry = new Masonry(container,
 
-container = document.querySelector("#container")
-msnry = new Masonry(container,
-
-  # options
-  columnWidth:100
-  itemSelector: ".box"
-  isAnimated: !Modernizr.csstransitions,
-  isFitWidth: true
-)
+    # options
+    columnWidth:100
+    itemSelector: ".box"
+    isAnimated: !Modernizr.csstransitions,
+    isFitWidth: true
+  )
 
 
 

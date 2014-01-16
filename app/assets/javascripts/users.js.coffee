@@ -5,7 +5,7 @@
 $(document).foundation();
 
 ####### REVEAL PROJECTS ########
-$ ->
+$(document).ready ->
   $("#user-info").on "click", "a[id='reveal-project']", (e) ->
     e.preventDefault
     $("#user-info").toggle "slow"
@@ -18,12 +18,13 @@ $ ->
 
 ######### MASONRY #############
 
-container = document.querySelector("#container")
-msnry = new Masonry(container,
+if $("#all-projects").length > 0
+  container = document.querySelector("#container")
+  msnry = new Masonry(container,
 
-  # options
-  columnWidth:100
-  itemSelector: ".box"
-  isAnimated: !Modernizr.csstransitions,
-  isFitWidth: true
-)
+    # options
+    columnWidth:100
+    itemSelector: ".box"
+    isAnimated: !Modernizr.csstransitions,
+    isFitWidth: true
+  )
