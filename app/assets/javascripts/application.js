@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.ui.all
-//= require_tree ../../../vendor/.
+//= require_tree ../../../vendor/ .
 //= require foundation
 //= require_tree .
 
