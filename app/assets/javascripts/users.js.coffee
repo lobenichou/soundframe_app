@@ -2,15 +2,18 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
+$(document).foundation();
 
-$("#user-info").on "click", "a[id='reveal-project']", (e) ->
-  e.preventDefault
-  $("#user-info").toggle "slow"
-  $("#all-projects").toggle "slow"
+####### REVEAL PROJECTS ########
+$ ->
+  $("#user-info").on "click", "a[id='reveal-project']", (e) ->
+    e.preventDefault
+    $("#user-info").toggle "slow"
+    $("#all-projects").toggle "slow"
 
-$("#close-project").on "click", ->
-  $("#all-projects").toggle "slow"
-  $("#user-info").toggle "slow"
+  $("#close-project").on "click", ->
+    $("#all-projects").toggle "slow"
+    $("#user-info").toggle "slow"
 
 
 ######### MASONRY #############
