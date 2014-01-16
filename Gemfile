@@ -9,8 +9,6 @@ group :test do
   gem 'konacha'
   gem 'factory_girl_rails'
   gem 'capybara'
-  gem 'gon', '3.0.5'
-  gem 'soundcloud'
 end
 
 group :development, :test do
@@ -24,8 +22,6 @@ group :development, :production do
   gem 'typhoeus'
   gem 'soundcloud'
   gem 'gon', '3.0.5'
-  gem 'foundation-rails'
-  gem 'ejs'
 end
 
 group :assets do
