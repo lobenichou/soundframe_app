@@ -4,6 +4,7 @@
 
 
 ########### LOAD MAPS ###########
+
 if $("#map-project").length > 0
   map_project = L.mapbox.map("map-project", null,
     shareControl: true
