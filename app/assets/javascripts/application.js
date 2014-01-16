@@ -12,10 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require tile.stamen.js
+//= require soundcloud
+//= require masonry.pkgd.min.js
+//= require modernizr
 //= require foundation
 //= require_tree .
-
-
 
 //loads foundation
 $(document).foundation();
