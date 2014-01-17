@@ -13,8 +13,12 @@ def create
 end
 
 def edit
-  @tracks = current_user.library.tracks.all
   @project = Project.find(params[:id])
+  if current_user.id != @project.user_id
+    render "error"
+  else
+    @tracks = current_user.library.tracks.all
+  end
 end
 
 def update
