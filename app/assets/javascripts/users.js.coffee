@@ -18,13 +18,13 @@ $(document).ready ->
 
 ######### MASONRY #############
 
-if $("#all-projects").length > 0
-  container = document.querySelector("#container")
-  msnry = new Masonry(container,
+  if $("#all-projects").length > 0
+    container = document.querySelector("#container")
+    msnry = new Masonry(container,
 
-    # options
-    columnWidth:100
-    itemSelector: ".box"
-    isAnimated: !Modernizr.csstransitions,
-    isFitWidth: true
-  )
+      # options
+      columnWidth:100
+      itemSelector: ".box"
+      isAnimated: !Modernizr.csstransitions,
+      isFitWidth: true
+    )

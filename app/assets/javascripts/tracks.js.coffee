@@ -5,7 +5,9 @@
 $(document).foundation();
 
 $(document).ready ->
-# Saving tracks to the current user's library#
+
+##########SAVING TRACKS TO LIBRARY#########
+
   $("#submit_query").on "click", (event) ->
     event.preventDefault()
     $("#search_results").empty()

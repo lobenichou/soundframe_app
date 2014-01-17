@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   include ProjectsHelper
-  before_filter :signed_in_user
+  before_filter :signed_in_user, :except => [:show]
   before_filter :correct_user,  only: [:create]
 
 def new
@@ -26,8 +26,14 @@ def update
 end
 
 def show
-    project = current_user.projects.find(params[:id])
-    setup_map(project)
+    if current_user
+      project = current_user.projects.find(params[:id])
+      gon.project_id = project.id
+      setup_map(project)
+    else
+      project = Project.find(params[:id])
+      setup_map(project)
+    end
 end
 
 private

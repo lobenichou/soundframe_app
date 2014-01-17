@@ -14,6 +14,7 @@ module ProjectsHelper
     proj_trs = ProjectTrack.find(:all, :conditions => {project_id: project.id})
     tracks = project.tracks
     gon.coordinates = {}
+    gon.soundcloud_track_id = []
     gon.permalink_url = {}
     gon.track_title = {}
     gon.track_image = {}
@@ -25,9 +26,10 @@ module ProjectsHelper
         gon.coordinates[proj_tr.track_id] = [proj_tr.latitude, proj_tr.longitude]
         mapped_tracks << tracks.find(proj_tr.track_id)
         mapped_tracks.each do |mapped_track|
-          gon.permalink_url[mapped_track.soundcloud_track_id] = mapped_track.permalink_url
-          gon.track_title[mapped_track.soundcloud_track_id] = mapped_track.title
-          gon.track_image[mapped_track.soundcloud_track_id] = mapped_track.artwork_url
+          gon.permalink_url[proj_tr.track_id] = mapped_track.permalink_url
+          gon.soundcloud_track_id.push(proj_tr.track_id)
+          gon.track_title[proj_tr.track_id] = mapped_track.title
+          gon.track_image[proj_tr.track_id] = mapped_track.artwork_url
         end
       end
     end

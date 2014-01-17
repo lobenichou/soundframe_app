@@ -4,24 +4,15 @@
 
 $(document).foundation();
 
-# loadMapboxScript = ->
-#   script = document.createElement("script")
-#   script.src = "//api.tiles.mapbox.com/mapbox.js/v1.5.2/mapbox.js"
-#   script.type = "text/javascript"
-#   head = document.getElementsByTagName("head")[0]
-#   cssScript = $("#mapbox-stylesheet")
-#   head.insertBefore script, cssScript
-
-
-########### LOAD MAPS ###########
+########### LOAD MAP ###########
 $(document).ready ->
-
   if $("#home-map").length > 0
     map = L.mapbox.map("home-map", null,
       shareControl: true
     ).setView([24.13, -44.56], 3).addControl(L.mapbox.geocoderControl(gon.map_id))
 
-  #Customize layers
+##Customize layers##
+
     watercolor_layer = new L.StamenTileLayer("watercolor")
     name_layer = L.tileLayer("https://{s}.tiles.mapbox.com/v3/" + gon.map_id + "/{z}/{x}/{y}.png",
       attribution: "<a href=\"http://www.mapbox.com/about/maps/\" target=\"_blank\">Terms &amp; Feedback</a>"
@@ -30,9 +21,7 @@ $(document).ready ->
     map.addLayer watercolor_layer
     map.addLayer name_layer
 
-
-
-  #Markers
+##Markers##
     geojson =
       features: [
         geometry:
@@ -87,12 +76,12 @@ $(document).ready ->
       chapters
 
 
-  # First popup open on load
+##First popup open on load##
     chapters[0].openPopup()
     a = chapters[0].feature.geometry.coordinates
     map.setView [a[1], a[0]], 3
 
-  #Click action to move from one marker to the next
+##Click action to move from one marker to the next##
     i = -1
     $("#home-map").on "click", "a[id='next']", (e) ->
       e.preventDefault()
