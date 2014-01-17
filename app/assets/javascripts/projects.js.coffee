@@ -8,7 +8,6 @@ $(document).foundation();
 ########### LOAD MAPS ###########
 $(document).ready ->
   if $("#map-project").length > 0
-    loadMapboxScript()
     map_project = L.mapbox.map("map-project", null,
       shareControl: true
     ).setView([24.13, -44.56], 3).addControl(L.mapbox.geocoderControl(gon.map_id))
