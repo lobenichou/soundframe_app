@@ -14,6 +14,7 @@ end
 
 def edit
   @project = Project.find(params[:id])
+  gon.project_id = @project.id
   if current_user.id != @project.user_id
     render "error"
   else
