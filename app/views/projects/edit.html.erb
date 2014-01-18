@@ -5,35 +5,41 @@
 
   <div class="row collapse">
     <div class="small-5 columns">
-      <a href="/projects/<%=@project.id%>" class="button postfix">View Map!</a>
+      <a href="/projects/<%=@project.id%>" class="button library-option">View Map!</a>
     </div>
     <div class="small-5 columns">
-      <a href="/tracks" class="button postfix">Add more tracks to library</a>
+      <a href="/tracks" class="button library-option">Add tracks to library</a>
     </div>
   </div>
 
     <div id="all-tracks" class="row">
       <div id="container" class="large-12 columns transitions-enabled large-centered clearfix">
-      <% @tracks.each do |track| %>
-      <div id="<%= track.soundcloud_track_id%>" class="box col3">
+      <% if @tracks.empty? %>
+      <div class="box col4">
+        <h3> You do not have any tracks yet! <a href="/tracks">Add some?</a></h3>
+      </div>
+      <% else %>
+        <% @tracks.each do |track| %>
+        <div id="<%= track.soundcloud_track_id%>" class="box col3">
 
-        <iframe width="100%" height="20%" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F<%= track.soundcloud_track_id %>&show_artwork=false"></iframe>
+          <iframe width="100%" height="20%" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F<%= track.soundcloud_track_id %>&show_artwork=false"></iframe>
 
-        <div class="row collapse">
+          <div class="row collapse">
 
-          <div class=" small-8 medium-9 large-10 columns">
-            <input id="location_<%= track.soundcloud_track_id %>" type="text" name="location" placeholder="input location!"/>
-            <input class ="box" type="hidden" name="location" value="<%= track.soundcloud_track_id %>" placeholder="input location!"/>
+            <div class=" small-8 medium-9 large-10 columns">
+              <input id="location_<%= track.soundcloud_track_id %>" type="text" name="location" placeholder="input location!"/>
+              <input class ="box" type="hidden" name="location" value="<%= track.soundcloud_track_id %>" placeholder="input location!"/>
+            </div>
+
+            <div class="small-4 medium-3 large-2 columns">
+              <a data-id="<%= track.soundcloud_track_id %>" href="#" class="button postfix add-option">Add</a>
+            </div>
+
           </div>
 
-          <div class="small-4 medium-3 large-2 columns">
-            <a data-id="<%= track.soundcloud_track_id %>" href="#" class="button postfix">Add</a>
           </div>
-
-        </div>
-
-        </div>
-      <% end %>
+        <% end %>
+        <%end%>
       </div>
   </div>
 </div>

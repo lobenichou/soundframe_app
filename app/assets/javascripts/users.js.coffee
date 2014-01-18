@@ -18,7 +18,7 @@ $(document).ready ->
 
 ######### MASONRY #############
 
-  if $("#all-projects").length > 0
+  if $("#all-container").length > 0
     container = document.querySelector("#container")
     msnry = new Masonry(container,
 

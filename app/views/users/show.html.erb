@@ -24,14 +24,14 @@
   <% if @user.projects.empty? %>
   <h3> You do not have any projects yet! <a href="#">Create one?</a></h3>
   <% else %>
-  <div class="small-12 columns">
-    <p> Projects </p>
-  </div>
   <div class="row">
     <div id="container" class="large-12 columns transitions-enabled large-centered clearfix">
     <% @user.projects.each do |project| %>
-    <div id="project-box" class="box col6">
-      <a href="/projects/<%=project.id%>"><h1><%= project.title %>:</h1> <%= project.description %></a>
+    <div id="project-box" class="box">
+      <h1><%= project.title %>:</h1><br/>
+      <p><%= project.description %></p><br/>
+      <a href="/projects/<%=project.id%>">View</a><br/>
+      <a href="/projects/<%=project.id%>/edit"> Edit </a>
     </div>
     <% end %>
   </div>
