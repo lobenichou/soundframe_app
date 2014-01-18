@@ -1,3 +1,4 @@
+
 /* required styles */
 
 .leaflet-map-pane,
@@ -168,7 +169,7 @@
 .leaflet-container {
         background: #ddd;
         outline: 0;
-        font-family: oswald;
+        font-family: oswaldbook;
         }
 .leaflet-container a {
         color: #D25E15;
@@ -185,7 +186,7 @@
 
 /* general typography */
 .leaflet-container {
-        font-family: oswald;
+        font-family: oswaldbook;
 }
 
 .leaflet-container h1,
@@ -201,7 +202,7 @@
   }
 .leaflet-container p {
     font-family: 12px;
-    font-family: oswald;
+    font-family: oswaldboo;
 }
 
 

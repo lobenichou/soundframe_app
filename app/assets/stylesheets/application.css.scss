@@ -12,6 +12,7 @@
  *= require_tree .
  *= require_self
  *= require foundation_and_overrides
+ *= require oswald
  */
 
 @import 'foundation-icons';
@@ -22,13 +23,13 @@
 
 .main-section{
   height: 100%;
-  // padding-left: 50px;
 }
 
 .left-off-canvas-menu {
   text-align: left;
-  font-family: oswald;
-  background-color: rgba(247, 125, 44, 0.2);
+  font-family: oswaldbook;
+  background-color: white;
+  border-right: 1px dotted #D25E15;
 }
 
 ul.off-canvas-list li a:hover{
@@ -56,7 +57,8 @@ ul.off-canvas-list li a:hover{
 
 #target-side-bar{
   position: fixed;
-  width: 50px;
+  width: 140px;
+  height: 40px;
   z-index: 9999;
   cursor: pointer;
   margin-left: 40px;
