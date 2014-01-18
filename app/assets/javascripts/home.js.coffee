@@ -6,6 +6,10 @@ $(document).foundation();
 
 ########### LOAD MAP ###########
 $(document).ready ->
+  $("#target-side-bar").mouseover ->
+    $(".left-off-canvas-toggle").click()
+
+
   if $("#home-map").length > 0
     map = L.mapbox.map("home-map", null,
       shareControl: true
@@ -94,5 +98,5 @@ $(document).ready ->
       e.preventDefault()
       $("#information").toggle "slow"
 
-    $("#information").on "click", "i[id='close-information']", ->
+    $("#information").on "click", "i[id='close-information']", (e) ->
       $("#information").toggle "slow"

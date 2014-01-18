@@ -35,17 +35,17 @@ $(document).ready ->
 
 ######## ON CLICK EVENTS ########
 
-  $("#map-project").on "click", "a[class='target-info']", (e) ->
-    e.preventDefault
-    unless $("#information").is(":visible")
-      id = $(this).attr("data-id")
-      $("#information").slideToggle "slow"
-      single_track = JST["templates/single_track"]({id: id})
-      $("#information").append(single_track)
+    $("#map-project").on "click", "a[class='target-info']", (e) ->
+      e.preventDefault
+      unless $("#information").is(":visible")
+        id = $(this).attr("data-id")
+        $("#information").slideToggle "slow"
+        single_track = JST["templates/single_track"]({id: id})
+        $("#information").append(single_track)
 
-  $("#information").on "click", "i[id='close-information']", ->
-    $("#information").contents(':not(#close-information)').remove()
-    $("#information").toggle "slow"
+    $("#information").on "click", "i[id='close-information']", ->
+      $("#information").contents(':not(#close-information)').remove()
+      $("#information").toggle "slow"
 
 
 ####### SAVING TRACK LOCATIONS #######

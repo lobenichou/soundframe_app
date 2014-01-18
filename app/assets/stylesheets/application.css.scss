@@ -22,7 +22,23 @@
 
 .main-section{
   height: 100%;
-  padding-left: 50px;
+  // padding-left: 50px;
+}
+
+.left-off-canvas-menu {
+  text-align: left;
+  font-family: oswald;
+  background-color: rgba(247, 125, 44, 0.2);
+}
+
+ul.off-canvas-list li a:hover{
+  color: white;
+  background-color: #D25E15;
+  -webkit-transition: all 500ms ease;
+  -moz-transition: all 500ms ease;
+  -ms-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+  transition: all 500ms ease;
 }
 
 .active {
@@ -36,6 +52,15 @@
 
 .show{
   display: inline;
+}
+
+#target-side-bar{
+  position: fixed;
+  width: 50px;
+  z-index: 9999;
+  cursor: pointer;
+  margin-left: 40px;
+  background-color: rgba(247, 125, 44, 0.2);
 }
 
 /**** MASONRY****/
