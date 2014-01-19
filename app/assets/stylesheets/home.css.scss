@@ -50,3 +50,89 @@
   transition: all 500ms ease;
 }
 
+//ABOUT PAGE
+
+.style_one{
+  margin-top: 40px;
+  height: 150px;
+  margin-left: 260px;
+  text-align: right;
+  border-radius: 20px;
+  border: 2.5px dotted #D25E15;
+}
+
+.style_two{
+  margin-top: 150px;
+  height: 280px;
+  width: 250px;
+  text-align: center;
+  border-radius: 20px;
+  border:2.5px dotted #D25E15;
+}
+
+.style_two:hover{
+  background-color: #D25E15;
+  width: 500px;
+  text-align: right;
+  -webkit-transition: all 500ms ease;
+  -moz-transition: all 500ms ease;
+  -ms-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+  transition: all 500ms ease;
+}
+
+.style_two a{
+  font-family: oswaldbook;
+  color: white;
+  font-size: 20px;
+}
+
+.style_two a:hover {
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+  font-size: 30px;
+  -webkit-transition: all 500ms ease;
+  -moz-transition: all 500ms ease;
+  -ms-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+  transition: all 500ms ease;
+}
+
+
+.connector{
+  border-right: 2.5px dotted #D25E15;
+  border-bottom: 2.5px dotted #D25E15;
+  margin-left: 200px;
+  height: 100px;
+  top: 190px;
+}
+
+.connector_two{
+  border-left: 2.5px dotted #D25E15;
+  margin-left: 200px;
+  height: 50px;
+  top: 190px;
+}
+
+.about_title{
+  font-family: oswaldbold;
+}
+
+.about_img{
+  height: 150px;
+  width: 150px;
+  border-radius: 100px;
+  // position: static;
+}
+
+.about_me_blurb{
+  text-align: left;
+  float: left;
+  bottom: 100px;
+  word-wrap: break-word;
+  height: 250px;
+  width: 300px;
+  color: white;
+}
+

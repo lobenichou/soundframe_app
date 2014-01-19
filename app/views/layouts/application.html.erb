@@ -13,7 +13,7 @@
   <div class="off-canvas-wrap">
     <div class="inner-wrap">
       <div id="target-side-bar">
-          <p>SoundFrame</p>
+          <p><i class="fi-arrow-left large"></i> SoundFrame</p>
         </div>
         <div class="left-off-canvas-toggle hide" >
         </div>
@@ -23,13 +23,14 @@
           <% if signed_in? %>
           <li><%= link_to "Dashboard", current_user %></li>
           <li><%= link_to "Update Profile", edit_user_path(current_user) %></li>
-          <li><a href="#">My projects</a></li>
           <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
+          <li><a href="/help">How does it work?</a></li>
+          <li><a href="/about">What's SoundFrame?</a></li>
 
           <% else %>
 
-          <li><a href="#">What's SoundFrame?</a></li>
-
+          <li><a href="/about">What's SoundFrame?</a></li>
+          <li><a href="/help">How does it work?</a></li>
           <li><a href="#" data-dropdown="sign_in_form">Sign in</a></li>
 
           <div id="sign_in_form" data-dropdown-content class="small f-dropdown content">

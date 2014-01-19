@@ -9,4 +9,7 @@ SoundframeApp::Application.routes.draw do
   match '/signup', to: 'users#new',  via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
 
+  match '/about', to: 'home#about', via: 'get'
+  match '/help', to: 'home#help', via: 'get'
+
 end
