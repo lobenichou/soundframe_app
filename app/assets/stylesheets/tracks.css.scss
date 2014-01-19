@@ -9,12 +9,12 @@ body{
 }
 #search_results{
   height:400px;
-  overflow: scroll;
+  overflow-y: overlay;
 }
 
 #tracks{
   height:400px;
-  overflow: scroll;
+  overflow-y: overlay;
 }
 
 .clickeable {

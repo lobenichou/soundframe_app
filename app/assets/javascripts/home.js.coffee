@@ -33,7 +33,7 @@ $(document).ready ->
           type: "Point"
 
         properties:
-          description: "<p>SoundFrame is an app that allows you to tells stories through sounds and maps. Journalists, travelers and storyteller will get a kick out of it.</p> <a id=\"next\" href=\"#\">Next</a>"
+          description: "SoundFrame is an app that allows you to tells stories through sounds and maps. Journalists, travelers and storyteller will get a kick out of it. <a id=\"next\" href=\"#\">Next</a>"
           id: "marker-hp3iwdvc"
           "marker-color": "#D25E15"
           "marker-size": "medium"

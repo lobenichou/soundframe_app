@@ -50,6 +50,7 @@ body h1 h2{
 #all-projects{
   display: none;
   height: 700px;
+  padding-top: 40px;
   overflow: scroll;
 }
 
@@ -63,6 +64,7 @@ body h1 h2{
   border: 3px solid black;
   padding: 10px;
 }
+
 #project-box:hover{
   background-color: #D25E15;
   color: white;

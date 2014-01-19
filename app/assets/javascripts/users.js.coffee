@@ -5,6 +5,7 @@
 $(document).foundation();
 
 ####### REVEAL PROJECTS ########
+
 $(document).ready ->
   $("#user-info").on "click", "a[id='reveal-project']", (e) ->
     e.preventDefault
