@@ -49,7 +49,7 @@ body h1 h2{
 
 #all-projects{
   display: none;
-  background-color: gainsboro;
+  background-color: white;
   height: 700px;
   padding-top: 40px;
   overflow: scroll;
@@ -63,7 +63,7 @@ body h1 h2{
 
 #project-box{
   border: 3px solid black;
-  background-color: gainsboro;
+  background-color: white;
   padding: 10px;
   -webkit-transition: all 500ms ease-out;
   -moz-transition: all 500ms ease-out;
@@ -78,6 +78,7 @@ body h1 h2{
 }
 
 #project-box a{
+  margin: 20px;
   -webkit-transition: all 500ms ease-out;
   -moz-transition: all 500ms ease-out;
   -ms-transition: all 500ms ease-out;
@@ -90,7 +91,6 @@ body h1 h2{
   background-color: black;
   color: white;
   border-radius: 10px;
-  font-size: 30px;
 }
 
 #close-project{
@@ -113,4 +113,20 @@ body h1 h2{
   background-color: #D25E15;
 }
 
+//User Forms
+
+.forms{
+  border-radius: 20px;
+  border: 2.5px dotted #D25E15;
+}
+
+.submit_button{
+  padding: 10px !important;
+}
+
+.connector_form{
+  border-top: 2.5px dotted #D25E15;
+  width: 330px;
+  top: 100px;
+}
 

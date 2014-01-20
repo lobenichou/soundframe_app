@@ -17,9 +17,6 @@
 
 @import 'foundation-icons';
 
-body{
-  background-color: gainsboro;
-}
 .gravatar{
   border-radius: 50px;
 }
@@ -31,7 +28,7 @@ body{
 .left-off-canvas-menu {
   text-align: left;
   font-family: oswaldbook;
-  background-color: rgb(183, 181, 181);
+  background-color: white;
   border-right: 1px dotted #D25E15;
 }
 
@@ -76,7 +73,7 @@ ul.off-canvas-list li a:hover{
 /**** MASONRY****/
  #container {
           float:none;
-          background: gainsboro;
+          background: white;
           padding: 0;
           margin:0 auto;
           margin-bottom:30px;

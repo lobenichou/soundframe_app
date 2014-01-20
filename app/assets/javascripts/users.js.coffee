@@ -2,7 +2,12 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
-$(document).foundation();
+$(document).foundation().foundation('abide', {
+    patterns: {
+      email_pattern: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i,
+      password: /^.{0,6}$/
+    }
+  });;
 
 ####### REVEAL PROJECTS ########
 

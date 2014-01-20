@@ -1,38 +1,32 @@
 <% provide(:title, 'Sign Up') %>
 <h1>Sign up</h1>
+<div class="row">
+  <div class="large-6 large-offset-3 columns forms">
+    <form data-abide action="/users" class="new_user" id="new_user" method="post">
+      <div class="name-field">
+        <label>Name <small>required</small></label>
+        <input type="text" name="user[name]" required pattern="[a-zA-Z]+">
+        <small class="error">Name is required and must be a string.</small>
+      </div>
+      <div class="email-field">
+        <label>Email <small>required</small></label>
+        <input type="email" required name="user[email]" pattern="email_pattern">
+        <small class="error">An email address is required.</small>
+      </div>
+      <div class="password-field">
+        <label>Password <small>required</small></label>
+        <input type="password" id="password" name="user[password]" required pattern="password">
+        <small class="error">Your password is too short</small>
+      </div>
+      <div class="password-confirmation-field">
+        <label>Confirm Password <small>required</small></label>
+        <input type="password" name="user[password_confirmation]" required pattern="password" data-equalto="password">
+        <small class="error">The password did not match</small>
+      </div>
+      <input class="button dashboard-option submit_button" name="commit" type="submit" value="Sign up">
+    </form>
+  </div>
+</div>
 
-<div class ="form-horizontal">
-  <%= form_for(@user) do |f| %>
-  <%= render 'shared/error_messages' %>
-  <div class="control-group">
-    <label class="control-label"><%= f.label :name %></label>
-    <div class="controls">
-      <%= f.text_field :name %>
-    </div>
-  </div>
-  <div class="control-group">
-    <label class="control-label"><%= f.label :email %></label>
-    <div class="controls">
-      <%= f.text_field :email %>
-    </div>
-  </div>
-  <div class="control-group">
-    <label class="control-label"><%= f.label :password %></label>
-    <div class="controls">
-      <%= f.password_field :password %>
-    </div>
-  </div>
-  <div class="control-group">
-    <label class="control-label"><%= f.label :password_confirmation, "Confirmation" %>
-      <div class="controls"></label>
-        <%= f.password_field :password_confirmation %>
-      </div>
-    </div>
-    <div class="control-group">
-      <div class="controls">
-        <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
-        <% end %>
-      </div>
-    </div>
-  </div>
+
 

@@ -1,8 +1,10 @@
+<div class="large-12 columns forms">
   <%= form_for(:session, url: sessions_path) do |f| %>
   <%= f.label :email %>
   <%= f.text_field :email %>
   <%= f.label :password %>
   <%= f.password_field :password %>
-  <%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
+  <%= f.submit "Sign in", class: "button dashboard-option submit_button" %>
   <% end %>
-  <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+  New user? <%= link_to "Sign up now!", signup_path %>
+</div>

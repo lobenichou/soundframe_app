@@ -1,3 +1,4 @@
+<div class="large-12 columns forms">
 <%= form_for(:user, url: users_path) do |f| %>
 <%= f.label :name %>
 <%= f.text_field :name %>
@@ -7,5 +8,6 @@
 <%= f.password_field :password %>
 <%= f.label :password_confirmation, "Confirmation" %>
 <%= f.password_field :password_confirmation %>
-<%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
+<%= f.submit "Sign up!", class: "button dashboard-option submit_button" %>
 <% end %>
+</div>
