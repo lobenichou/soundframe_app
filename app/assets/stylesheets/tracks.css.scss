@@ -20,16 +20,16 @@ body{
 .clickeable {
   cursor: pointer;
   border-radius: 10px;
+  -webkit-transition: all 500ms ease-out;
+  -moz-transition: all 500ms ease-out;
+  -ms-transition: all 500ms ease-out;
+  -o-transition: all 500ms ease-out;
+  transition: all 500ms ease-out;
 }
 
 .clickeable:hover{
   color: white;
   background-color: #D25E15;
-  -webkit-transition: all 500ms ease;
-  -moz-transition: all 500ms ease;
-  -ms-transition: all 500ms ease;
-  -o-transition: all 500ms ease;
-  transition: all 500ms ease;
 }
 
 

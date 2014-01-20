@@ -38,16 +38,16 @@
   color: black;
   border-radius: 10px;
   cursor: pointer;
+  -webkit-transition: all 500ms ease-out;
+  -moz-transition: all 500ms ease-out;
+  -ms-transition: all 500ms ease-out;
+  -o-transition: all 500ms ease-out;
+  transition: all 500ms ease-out;
 }
 
 #close-information:hover{
   color: white;
   background-color: #D25E15;
-  -webkit-transition: all 500ms ease;
-  -moz-transition: all 500ms ease;
-  -ms-transition: all 500ms ease;
-  -o-transition: all 500ms ease;
-  transition: all 500ms ease;
 }
 
 //ABOUT PAGE
@@ -63,28 +63,42 @@
 
 .style_two{
   margin-top: 150px;
-  height: 280px;
+  padding-top: 20px;
+  height: 250px;
   width: 250px;
   text-align: center;
   border-radius: 20px;
   border:2.5px dotted #D25E15;
+  -webkit-transition: all 500ms ease-in-out;
+  -moz-transition: all 500ms ease-in-out;
+  -ms-transition: all 500ms ease-in-out;
+  -o-transition: all 500ms ease-in-out;
+  transition: all 500ms ease-in-out;
 }
 
 .style_two:hover{
   background-color: #D25E15;
   width: 500px;
-  text-align: right;
-  -webkit-transition: all 500ms ease;
-  -moz-transition: all 500ms ease;
-  -ms-transition: all 500ms ease;
-  -o-transition: all 500ms ease;
-  transition: all 500ms ease;
+}
+
+.style_two:hover .about_img{
+  float: right;
+}
+
+
+.style_two:hover .about_me_blurb {
+  display: block;
 }
 
 .style_two a{
   font-family: oswaldbook;
   color: white;
   font-size: 20px;
+  -webkit-transition: all 500ms ease;
+  -moz-transition: all 500ms ease;
+  -ms-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+  transition: all 500ms ease;
 }
 
 .style_two a:hover {
@@ -92,11 +106,6 @@
   color: white;
   border-radius: 10px;
   font-size: 30px;
-  -webkit-transition: all 500ms ease;
-  -moz-transition: all 500ms ease;
-  -ms-transition: all 500ms ease;
-  -o-transition: all 500ms ease;
-  transition: all 500ms ease;
 }
 
 
@@ -123,16 +132,20 @@
   height: 150px;
   width: 150px;
   border-radius: 100px;
-  // position: static;
+  -webkit-transition: all 500ms ease-in-out;
+  -moz-transition: all 500ms ease-in-out;
+  -ms-transition: all 500ms ease-in-out;
+  -o-transition: all 500ms ease-in-out;
+  transition: all 500ms ease-in-out;
+
 }
 
 .about_me_blurb{
   text-align: left;
-  float: left;
-  bottom: 100px;
-  word-wrap: break-word;
+  position: fixed;
   height: 250px;
   width: 300px;
-  color: white;
+  display: none;
+  color: black;
 }
 

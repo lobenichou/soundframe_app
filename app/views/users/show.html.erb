@@ -30,6 +30,7 @@
     <div id="project-box" class="box">
       <h1><%= project.title %>:</h1><br/>
       <p><%= project.description %></p><br/>
+      Created at: <%= project.created_at %><br/>
       <a href="/projects/<%=project.id%>">View</a><br/>
       <a href="/projects/<%=project.id%>/edit"> Edit </a>
     </div>

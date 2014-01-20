@@ -17,6 +17,9 @@
 
 @import 'foundation-icons';
 
+body{
+  background-color: gainsboro;
+}
 .gravatar{
   border-radius: 50px;
 }
@@ -28,18 +31,22 @@
 .left-off-canvas-menu {
   text-align: left;
   font-family: oswaldbook;
-  background-color: white;
+  background-color: rgb(183, 181, 181);
   border-right: 1px dotted #D25E15;
 }
 
-ul.off-canvas-list li a:hover{
-  color: white;
-  background-color: #D25E15;
+ul.off-canvas-list li a{
   -webkit-transition: all 500ms ease;
   -moz-transition: all 500ms ease;
   -ms-transition: all 500ms ease;
   -o-transition: all 500ms ease;
   transition: all 500ms ease;
+
+}
+
+ul.off-canvas-list li a:hover{
+  color: white;
+  background-color: #D25E15;
 }
 
 .active {
@@ -69,7 +76,7 @@ ul.off-canvas-list li a:hover{
 /**** MASONRY****/
  #container {
           float:none;
-          background: #ffffff;
+          background: gainsboro;
           padding: 0;
           margin:0 auto;
           margin-bottom:30px;

@@ -75,7 +75,7 @@
         pointer-events: none;
         }
 .leaflet-top {
-        top: 0;
+        top: 100px;
         }
 .leaflet-right {
         right: 0;
