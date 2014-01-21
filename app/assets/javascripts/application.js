@@ -21,7 +21,7 @@
 //= require_tree .
 
 //loads foundation
-$(document).foundation();
+$(document).foundation()
 
 //Initialized Soundcloud Client ID
 $(document).ready(function(){

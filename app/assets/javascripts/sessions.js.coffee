@@ -4,7 +4,6 @@
 
 $(document).foundation().foundation('abide', {
     patterns: {
-      email_pattern: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i,
-      password: /^.{0,6}$/
+
     }
   });;

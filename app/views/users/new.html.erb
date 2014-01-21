@@ -1,5 +1,6 @@
 <% provide(:title, 'Sign Up') %>
 <h1>Sign up</h1>
+<%= render 'shared/error_messages' %>
 <div class="row">
   <div class="large-6 large-offset-3 columns forms">
     <form data-abide action="/users" class="new_user" id="new_user" method="post">
@@ -10,17 +11,17 @@
       </div>
       <div class="email-field">
         <label>Email <small>required</small></label>
-        <input type="email" required name="user[email]" pattern="email_pattern">
+        <input type="email" required name="user[email]" pattern="email">
         <small class="error">An email address is required.</small>
       </div>
       <div class="password-field">
-        <label>Password <small>required</small></label>
-        <input type="password" id="password" name="user[password]" required pattern="password">
+        <label>Password <small>required (Must contain upper-case, lower-case, number/special character, and min 8 characters) </small></label>
+        <input type="password" name="user[password]" pattern="password">
         <small class="error">Your password is too short</small>
       </div>
       <div class="password-confirmation-field">
         <label>Confirm Password <small>required</small></label>
-        <input type="password" name="user[password_confirmation]" required pattern="password" data-equalto="password">
+        <input type="password" name="user[password_confirmation]" data-equalto="password">
         <small class="error">The password did not match</small>
       </div>
       <input class="button dashboard-option submit_button" name="commit" type="submit" value="Sign up">
