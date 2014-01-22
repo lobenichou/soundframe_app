@@ -1,6 +1,11 @@
 <script src='//api.tiles.mapbox.com/mapbox.js/v1.5.2/mapbox.js'></script>
-
-<div id="map-project"></div>
+<div id="project-title">
+Title: <%= @project.title %><br/>
+Description: <%= @project.description %><br/>
+Author: <a href="/users/<%= @project.user.id %>"><%= @project.user.name %></a>
+</div>
+<div id="map-project">
+</div>
 <div id="information">
   <i id="close-information" class="fi-x-circle large"></i>
 </div>

@@ -7,7 +7,7 @@ body p{
   font-size: 25px;
 }
 
-body a{
+body a {
   font-family: oswaldbook;
   color: #D25E15;
 }
@@ -18,6 +18,7 @@ body h1 h2{
 
 #user-info{
   visibility: visible;
+  height: 300px;
 }
 
 .gravatar{
@@ -55,10 +56,17 @@ body h1 h2{
   overflow: scroll;
 }
 
-#all-projects a{
+
+
+#all-projects, #all-projects-public a{
   font-family: oswaldbook;
   color: white;
   font-size: 20px;
+}
+
+.new_project_link{
+  font-family: oswaldbook;
+  color: #D25E15 !important;
 }
 
 #project-box{
@@ -129,4 +137,14 @@ body h1 h2{
   width: 330px;
   top: 100px;
 }
+
+//Public profile
+
+#all-projects-public{
+  border-top: 1px dotted black;
+  background-color: white;
+  height: 300px;
+  overflow: visible;
+}
+
 

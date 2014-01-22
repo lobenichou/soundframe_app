@@ -16,7 +16,6 @@
   margin-left:300px;
 }
 
-
 .fade {
   background-color: rgba(0, 0, 0, 0.3);
   height: 195px;
@@ -79,4 +78,16 @@
   background-color: #D25E15;
 }
 
+#project-title{
+  position: fixed;
+  text-align: left;
+  font-family: oswaldbook;
+  width: 145px;
+  height: 140px;
+  z-index: 9999;
+  cursor: pointer;
+  left: 10px;
+  bottom: 0;
+  background-color: rgba(247, 125, 44, 0.4);
+}
 

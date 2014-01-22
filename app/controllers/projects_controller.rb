@@ -31,6 +31,7 @@ def update
 end
 
 def show
+    @project = Project.find(params[:id])
     if current_user
       project = current_user.projects.find(params[:id])
       gon.project_id = project.id

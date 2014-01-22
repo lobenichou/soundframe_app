@@ -20,6 +20,9 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @projects = @user.projects.all
+    unless current_user
+      render "public_profile"
+    end
   end
 
   def edit

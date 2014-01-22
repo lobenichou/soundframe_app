@@ -1,0 +1,31 @@
+<% provide(:title, @user.name) %>
+<div id="user-info">
+<h1>SoundFrame User Profile</h1>
+<div class="small-12 columns">
+  <p>Welcome to <%= @user.name %>'s public profile</p>
+</div>
+<div class="small-12 columns">
+  <%= gravatar_for @user %>
+</div>
+</div>
+<div id="all-projects-public">
+  <div class="small-12 columns">
+  <p>Projects</p>
+</div>
+  <% if @user.projects.empty? %>
+  <h3> The user does not have any projects yet!</h3>
+  <% else %>
+  <div class="row">
+    <div id="container" class="large-12 columns transitions-enabled large-centered clearfix">
+    <% @user.projects.each do |project| %>
+    <div id="project-box" class="box">
+      <h1><%= project.title %>:</h1><br/>
+      <p><%= project.description %></p><br/>
+      Created at: <%= project.created_at %><br/>
+      <a href="/projects/<%=project.id%>">View</a><br/>
+    </div>
+    <% end %>
+  </div>
+  </div>
+  <% end %>
+</div>

@@ -22,7 +22,7 @@
 <div id="all-projects">
   <i id="close-project" class="fi-x-circle large"></i>
   <% if @user.projects.empty? %>
-  <h3> You do not have any projects yet! <a href="#">Create one?</a></h3>
+  <h3> You do not have any projects yet! <a href="#" class="new_project_link" data-reveal-id="newProject">Create one?</a></h3>
   <% else %>
   <div class="row">
     <div id="container" class="large-12 columns transitions-enabled large-centered clearfix">
