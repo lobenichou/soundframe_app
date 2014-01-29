@@ -74,6 +74,8 @@ GEM
     gon (3.0.5)
       actionpack (>= 2.3.0)
       json
+    haml (4.0.4)
+      tilt
     hashie (2.0.5)
     hike (1.2.3)
     httmultiparty (0.3.10)
@@ -199,6 +201,7 @@ DEPENDENCIES
   foundation-icons-sass-rails
   foundation-rails
   gon (= 3.0.5)
+  haml
   jquery-rails
   konacha
   pg

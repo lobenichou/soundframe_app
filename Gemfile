@@ -19,6 +19,7 @@ end
 group :development, :production do
   gem 'bcrypt-ruby', ' ~> 3.0.0'
   gem 'pg'
+  gem "haml"
   gem 'typhoeus'
   gem 'soundcloud'
   gem 'gon', '3.0.5'
