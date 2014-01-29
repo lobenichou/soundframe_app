@@ -65,7 +65,12 @@ $(document).ready ->
         $(visible_div).toggleClass("fade").empty()
         $(visible_div).append("<i class='fi-check large'></i>The track was added to your map!")
 
-
+  $("#setMap").on "click", "input[name='answer']", ->
+    form = $(this).closest('div#setMap').find('#map_region')
+    if $(this).is(':checked') && $(this).val() == "Yes" && form.is(':visible') == false
+      $("#map_region").toggle "slow"
+    else if $(this).is(':checked') && $(this).val() == "No"  &&  form.is(':visible')
+      $("#map_region").toggle "slow"
 
 ######### MASONRY #############
 
