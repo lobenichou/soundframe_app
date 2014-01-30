@@ -8,8 +8,12 @@
   </div>
   <div class="large-6 columns padding">
     <%= link_to user.name, user %>
+    <% if current_user.admin? && !current_user?(user) %>
+    | <%= link_to "delete", user, method: :delete,
+    data: { confirm: "Are You sure?" } %>
+    <%end %>
   </div>
-  </div>
-  <%end%>
+</div>
+<%end%>
 
 <%= will_paginate %>

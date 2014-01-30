@@ -21,24 +21,11 @@ $(document).ready ->
     e.preventDefault
     id = $(this).attr('data-id')
     params = {id: id}
-    $.ajax(
-      url: '/projects/' + id
-      type: 'DELETE'
-      data: params
-      dataType: 'json').done (data) ->
-        project_box = "#" + data.project
-        $(project_box).remove()
-
-
-######### MASONRY #############
-
-  if $("#container").length > 0
-    container = document.querySelector("#container")
-    msnry = new Masonry(container,
-
-      # options
-      columnWidth:100
-      itemSelector: ".box"
-      isAnimated: !Modernizr.csstransitions,
-      isFitWidth: true
-    )
+    if confirm('This action is irreversible. Are you sure you want to delete this project?')
+      $.ajax(
+        url: '/projects/' + id
+        type: 'DELETE'
+        data: params
+        dataType: 'json').done (data) ->
+          project_box = "#" + data.project
+          $(project_box).remove()
