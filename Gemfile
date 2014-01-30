@@ -24,6 +24,7 @@ group :development, :production do
   gem 'soundcloud'
   gem 'gon', '3.0.5'
   gem 'will_paginate'
+  gem 'carrierwave'
 end
 
 group :assets do
