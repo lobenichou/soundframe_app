@@ -23,6 +23,7 @@ group :development, :production do
   gem 'typhoeus'
   gem 'soundcloud'
   gem 'gon', '3.0.5'
+  gem 'will_paginate'
 end
 
 group :assets do
