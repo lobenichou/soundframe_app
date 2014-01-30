@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   include ProjectsHelper
-  require 'pry-remote'
+
   before_filter :signed_in_user, :except => [:show]
   before_filter :correct_user,  only: [:create]
 

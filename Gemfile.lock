@@ -115,9 +115,6 @@ GEM
       slop (~> 3.4)
     pry-rails (0.3.2)
       pry (>= 0.9.10)
-    pry-remote (0.1.7)
-      pry (~> 0.9)
-      slop (~> 3.0)
     quiet_assets (1.0.2)
       railties (>= 3.1, < 5.0)
     rack (1.4.5)
@@ -209,7 +206,6 @@ DEPENDENCIES
   konacha
   pg
   pry-rails
-  pry-remote
   quiet_assets
   rails (= 3.2.14)
   rails_12factor
