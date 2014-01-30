@@ -49,14 +49,14 @@
   <h2>A few questions before we create your map...</h2>
   <p>Would you like to focus the map on a specific region or city (i.e., "United-States", "San Francisco, CA")?</p>
   <form>
-  <input type="radio" name="answer" value="Yes">Yes</input>
+  <input id="positive_answer" type="radio" name="answer" value="Yes">Yes</input>
   <input type="radio" name="answer" value="No">No</input>
 </form>
 <div class="large-12 columns">
   <input id="map_region" type="text" name="region" placeholder="input the region!"/>
     </div>
     <div class="large-12 columns">
-  <a href="/projects/<%=@project.id%>" class="button library-option">View map!</a>
+  <a href="/projects/<%=@project.id%>" id="submit_answer" class="button library-option">View map!</a>
   </div>
     <a class="close-reveal-modal">&#215;</a>
   </div>
