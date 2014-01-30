@@ -2,7 +2,7 @@
 <h1>All users</h1>
 <%= will_paginate %>
 <% @users.each do |user| %>
-<div class="row">
+
   <div class="large-6 columns">
     <%= gravatar_for user %>
   </div>
@@ -10,5 +10,5 @@
     <%= link_to user.name, user %>
   </div>
   <%end%>
-</div>
+
 <%= will_paginate %>
