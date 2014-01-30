@@ -18,11 +18,15 @@
   <div class="row">
     <div id="container" class="large-12 columns transitions-enabled large-centered clearfix">
     <% @user.projects.each do |project| %>
-    <div id="project-box" class="box">
+    <div class="box project-box">
       <h1><%= project.title %>:</h1><br/>
       <p><%= project.description %></p><br/>
       Created at: <%= project.created_at %><br/>
+      <hr>
+      <div class="row">
+        <div class="small-4 columns">
       <a href="/projects/<%=project.id%>">View</a><br/>
+    </div>
     </div>
     <% end %>
   </div>

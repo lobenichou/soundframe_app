@@ -32,7 +32,7 @@ $(document).ready ->
 
 ######### MASONRY #############
 
-  if $("#all-container").length > 0
+  if $("#container").length > 0
     container = document.querySelector("#container")
     msnry = new Masonry(container,
 

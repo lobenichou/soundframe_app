@@ -24,9 +24,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @projects = @user.projects.all
-    unless current_user
-      render "public_profile"
-    end
+    render "public_profile" unless current_user?(@user)
   end
 
   def edit
@@ -55,6 +53,6 @@ class UsersController < ApplicationController
   def correct_user
       @user = User.find(params[:id])
       redirect_to(root_url) unless current_user?(@user)
-    end
+  end
 
 end
