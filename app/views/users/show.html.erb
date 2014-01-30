@@ -19,6 +19,7 @@
   </div>
 </div>
 </div>
+<div id="projects-revealed-here">
 <div id="all-projects">
   <i id="close-project" class="fi-x-circle large"></i>
   <% if @user.projects.empty? %>
@@ -27,19 +28,29 @@
   <div class="row">
     <div id="container" class="large-12 columns transitions-enabled large-centered clearfix">
     <% @user.projects.each do |project| %>
-    <div id="project-box" class="box">
+    <div id="<%=project.id%>" class="box project-box">
       <h1><%= project.title %>:</h1><br/>
       <p><%= project.description %></p><br/>
-      Created at: <%= project.created_at %><br/>
-      <a href="/projects/<%=project.id%>">View</a><br/>
+      Created at:  <%= project.created_at %><br/>
+      <hr>
+      <div class="row">
+        <div class="small-4 columns">
+      <a href="/projects/<%=project.id%>">View</a>
+    </div>
+    <div class="small-4 columns">
       <a href="/projects/<%=project.id%>/edit"> Edit </a>
+    </div>
+    <div class="small-4 columns">
+      <a href="#" id="delete_project" data-id="<%=project.id%>"> Delete </a>
+    </div>
+    </div>
     </div>
     <% end %>
   </div>
   </div>
   <% end %>
 </div>
-
+</div>
 
 <!-- NEW PROJECT MODAL -->
 <div id="newProject" class="reveal-modal" data-reveal>

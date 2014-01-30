@@ -16,6 +16,19 @@ $(document).ready ->
     $("#all-projects").toggle "slow"
     $("#user-info").toggle "slow"
 
+######### DELETE PROJECT#######
+  $('#projects-revealed-here').on "click","a[id='delete_project']", (e) ->
+    e.preventDefault
+    id = $(this).attr('data-id')
+    params = {id: id}
+    $.ajax(
+      url: '/projects/' + id
+      type: 'DELETE'
+      data: params
+      dataType: 'json').done (data) ->
+        project_box = "#" + data.project
+        $(project_box).remove()
+
 
 ######### MASONRY #############
 

@@ -69,7 +69,7 @@ body h1 h2{
   color: #D25E15 !important;
 }
 
-#project-box{
+.project-box{
   border: 3px solid black;
   background-color: white;
   padding: 10px;
@@ -80,12 +80,12 @@ body h1 h2{
   transition: all 500ms ease-out;
 }
 
-#project-box:hover{
+.project-box:hover{
   background-color: #D25E15;
   color: white;
 }
 
-#project-box a{
+.project-box a{
   margin: 20px;
   color: white;
   -webkit-transition: all 500ms ease-out;
@@ -96,7 +96,7 @@ body h1 h2{
 
 }
 
-#project-box a:hover {
+.project-box a:hover {
   background-color: black;
   color: white;
   border-radius: 10px;

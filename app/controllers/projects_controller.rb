@@ -46,6 +46,13 @@ def show
     end
 end
 
+def destroy
+  project = current_user.projects.find(params[:id])
+  project.destroy
+  render json: {project: project.id}, status: 201
+end
+
+
 private
 
   def signed_in_user

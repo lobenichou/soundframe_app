@@ -89,7 +89,6 @@ $(document).ready ->
     form = $(this).closest('div#setMap').find('#map_region')
     yes_answer = $(this).closest('div#setMap').find('#positive_answer')
     region = form.val()
-    console.log (region)
     if yes_answer.is(':checked') && region != ""
       params = {project: gon.project_id, region: region}
       $.ajax(
