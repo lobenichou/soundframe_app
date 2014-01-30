@@ -1,6 +1,6 @@
 class ProjectTrack < ActiveRecord::Base
-  attr_accessible :project_id, :text, :track_id, :latitude, :longitude
-
+  attr_accessible :project_id, :text, :track_id, :latitude, :longitude, :image, :imageDescription
+  mount_uploader :image, ImageUploader
   belongs_to :project
   belongs_to :track
 
