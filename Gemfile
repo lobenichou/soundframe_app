@@ -43,6 +43,8 @@ end
 
 group :production do
   gem 'rails_12factor'
+  gem 'pry-remote'
 end
+
 
 gem 'jquery-rails'

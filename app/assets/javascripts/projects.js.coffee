@@ -38,8 +38,8 @@ $(document).ready ->
 
 ## place markers on map ##
     for index of gon.coordinates
-      console.log gon.soundcloud_track_id[index]
-      popupContent = "<a href='#' class='target-info' data-id='#{gon.soundcloud_track_id[index]}'>" + gon.track_title[index] + "</a>"
+
+      popupContent = "<img src=" + '"' + gon.user_image[index] + '"' + "/>" + "<a href='#' class='target-info' data-id='#{gon.soundcloud_track_id[index]}'>" + gon.track_title[index] + "</a>"
       L.marker(gon.coordinates[index],
       icon: L.mapbox.marker.icon("marker-color": "#D25E15")
       ).addTo(map_project).bindPopup(popupContent)
@@ -70,20 +70,23 @@ $(document).ready ->
 
 ####### SAVING TRACK LOCATIONS + REGION #######
 
-  $("#all-tracks").on "click", "a[data-id]", (e) ->
+  $("#all-tracks").on "click", "a[id='add_location']", (e) ->
     e.preventDefault()
     id = $(this).attr("data-id")
     location = $("#location_#{id}").val()
     params = {track: id, location: location, project: gon.project_id}
     $.ajax(
-      url: '/projects/' + gon.project_id
+      url: '/projects/' + gon.project_id + '/update_track_location'
       type: 'PUT'
       data: params
-      dataType: 'json').done (data) ->
+      dataType: 'json').success (data) ->
         hidden_div = "#" + "fade_" + data.track
         visible_div = "#" + data.track
         $(visible_div).toggleClass("fade").empty()
         $(visible_div).append("<i class='fi-check large'></i>The track was added to your map!")
+      .error (data) ->
+        visible_div = "#" + data.track
+        $(visible_div).append(data.text)
 
   $("#setMap").on "click", "a[id='submit_answer']", ->
     form = $(this).closest('div#setMap').find('#map_region')
@@ -92,10 +95,43 @@ $(document).ready ->
     if yes_answer.is(':checked') && region != ""
       params = {project: gon.project_id, region: region}
       $.ajax(
-        url: '/projects/' + gon.project_id
+        url: '/projects/' + gon.project_id + '/update_map_region'
         type: 'PUT'
-        data: params).done (data) ->
+        data: params).success (data) ->
          alert "region saved"
+        .error (xhr) ->
+          errors = $.parseJSON(xhr.responseText).errors
+          $("#setMap").append(errors)
+
+#########SAVING IMAGE FOR TRACK##########
+
+  $("#all-tracks").on "click", "a[id='addImageTrigger']", ->
+    id = $(this).attr("data-id")
+    form = JST["templates/add_image_form"](id: id)
+    $("#addImage").empty()
+    $("#addImage").append(form)
+
+  $("#addImage").on "click", "a[id='upload_image']", (event) ->
+      event.preventDefault()
+      formData = new FormData()
+      track_id = $(this).attr("data-id")
+      input = $(this).closest('div#addImage').find('#image')
+      formData.append('project[image]', input[0].files[0]);
+      formData.append('track_id', track_id)
+      $.ajax(
+        url: '/projects/' + gon.project_id + '/add_image_to_track'
+        data: formData
+        cache: false
+        contentType: false
+        processData: false
+        type: 'PUT'
+        ).success (data) ->
+          alert data.text
+          $(".close-reveal-modal").click()
+        .error (data) ->
+          alert data.text
+          $(".close-reveal-modal").click()
+
 
 ######### MASONRY #############
 
