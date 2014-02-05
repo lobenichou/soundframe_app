@@ -25,6 +25,7 @@ group :development, :production do
   gem 'gon', '3.0.5'
   gem 'will_paginate'
   gem 'carrierwave'
+  gem 'rmagick'
 end
 
 group :assets do
