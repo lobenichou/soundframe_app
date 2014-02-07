@@ -17,13 +17,14 @@
 }
 
 .fade {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(247, 125, 44, 0.4);
   height: 195px;
   width:  285px;
+  border-radius: 5px;
   top: 0;
   left: 0;
   text-align: center;
-  line-height: 180px;
+  padding-top: 30%;
   color: white;
 }
 
@@ -94,3 +95,51 @@
 #map_region{
   display: none;
 }
+
+#show-track-list{
+  font-size: 30px;
+  position: relative;
+  margin-left: 90%;
+  color: black;
+  cursor: pointer;
+  -webkit-transition: all 500ms ease-out;
+  -moz-transition: all 500ms ease-out;
+  -ms-transition: all 500ms ease-out;
+  -o-transition: all 500ms ease-out;
+  transition: all 500ms ease-out;
+}
+
+#show-track-list:hover{
+  color: #D25E15;
+}
+
+#map-track-list {
+  height: auto;
+  width: 30%;
+  font-family: oswaldbook;
+  text-align: center;
+  position: relative;
+  margin-left: 66%;
+  border-radius: 5px;
+  display: none;
+  overflow: scroll;
+}
+
+.find_track{
+  cursor: pointer;
+  height: 100px;
+  padding: 40px;
+  border: dotted 1px;
+  background: rgba(247, 125, 44, 0.7);
+  margin-top: -16px;
+  -webkit-transition: all 500ms ease-out;
+  -moz-transition: all 500ms ease-out;
+  -ms-transition: all 500ms ease-out;
+  -o-transition: all 500ms ease-out;
+  transition: all 500ms ease-out;
+}
+
+.find_track:hover{
+  background-color: #D25E15;
+}
+

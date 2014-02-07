@@ -11,6 +11,7 @@ $(document).ready ->
 ## Sets map on a specific region if user chooses to do so##
 
   if $("#map-project").length > 0
+
     if gon.project_region != null
 
       showMap = (err, data) ->
@@ -38,12 +39,10 @@ $(document).ready ->
 
 ## place markers on map ##
     for index of gon.coordinates
-
-      popupContent = "<img src=" + '"' + gon.user_image[index] + '"' + "/>" + "<a href='#' class='target-info' data-id='#{gon.soundcloud_track_id[index]}'>" + gon.track_title[index] + "</a>"
-      L.marker(gon.coordinates[index],
+      popupContent = "<img src=" + '"' + gon.user_image_thumb[index] + '"' + "/>" + "<br/>" + "<a href='#' class='target-info' data-id='#{gon.soundcloud_track_id[index]}'>" + gon.track_title[index] + "</a>"
+      markers = L.marker(gon.coordinates[index],
       icon: L.mapbox.marker.icon("marker-color": "#D25E15")
       ).addTo(map_project).bindPopup(popupContent)
-
 
 ######## MAP: ON CLICK EVENTS ########
 
@@ -55,9 +54,18 @@ $(document).ready ->
         single_track = JST["templates/single_track"]({id: id})
         $("#information").append(single_track)
 
+
   $("#information").on "click", "i[id='close-information']", ->
     $("#information").contents(':not(#close-information)').remove()
     $("#information").toggle "slow"
+
+  $("#show-track-list").on "click", ->
+    $("#map-track-list").fadeToggle "slow"
+
+  $("#map-track-list").on "click", "div[class='find_track']", ->
+    id = $(this).attr("data-id")
+    map_project.setView(gon.coordinates[id], 7)
+
 
 ######## EDIT MAP: ON CLICK EVENTS #########
 
@@ -68,25 +76,31 @@ $(document).ready ->
     else if $(this).is(':checked') && $(this).val() == "No"  &&  form.is(':visible')
       $("#map_region").toggle "slow"
 
+
+
 ####### SAVING TRACK LOCATIONS + REGION #######
 
   $("#all-tracks").on "click", "a[id='add_location']", (e) ->
     e.preventDefault()
     id = $(this).attr("data-id")
     location = $("#location_#{id}").val()
-    params = {track: id, location: location, project: gon.project_id}
-    $.ajax(
-      url: '/projects/' + gon.project_id + '/update_track_location'
-      type: 'PUT'
-      data: params
-      dataType: 'json').success (data) ->
-        hidden_div = "#" + "fade_" + data.track
-        visible_div = "#" + data.track
-        $(visible_div).toggleClass("fade").empty()
-        $(visible_div).append("<i class='fi-check large'></i>The track was added to your map!")
-      .error (data) ->
-        visible_div = "#" + data.track
-        $(visible_div).append(data.text)
+    if location == ""
+      alert "The location can't be empty"
+     else
+      params = {track: id, location: location, project: gon.project_id}
+      $.ajax(
+        url: '/projects/' + gon.project_id + '/update_track_location'
+        type: 'GET'
+        data: params
+        dataType: 'json').success (data) ->
+
+          visible_div = "#" + data.track
+          $(visible_div).toggleClass("fade").empty()
+          $(visible_div).append("<i class='fi-check large'></i>The track was added to your map! <br/> ")
+
+        .error (data) ->
+          alert "An error occured. Please try again"
+
 
   $("#setMap").on "click", "a[id='submit_answer']", ->
     form = $(this).closest('div#setMap').find('#map_region')
@@ -99,13 +113,15 @@ $(document).ready ->
         type: 'PUT'
         data: params).success (data) ->
          alert "region saved"
-        .error (xhr) ->
-          errors = $.parseJSON(xhr.responseText).errors
-          $("#setMap").append(errors)
+        .error (data) ->
+          error = "<p>An error occured. Please try again</p>"
+          $("#setMap").append(error)
+
+
 
 #########SAVING IMAGE FOR TRACK##########
 
-  $("#all-tracks").on "click", "a[id='addImageTrigger']", ->
+  $("#all-tracks").on "click", "a[class='addImageTrigger']", ->
     id = $(this).attr("data-id")
     form = JST["templates/add_image_form"](id: id)
     $("#addImage").empty()
@@ -128,8 +144,10 @@ $(document).ready ->
         ).success (data) ->
           alert data.text
           $(".close-reveal-modal").click()
+          div_to_change = "#" + "add_image_" + data.track
+          $(div_to_change).html("<i class='fi-check large'></i>Image Added")
         .error (data) ->
-          alert data.text
+          alert "An error occured. Please try again."
           $(".close-reveal-modal").click()
 
 

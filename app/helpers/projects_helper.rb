@@ -1,7 +1,9 @@
 module ProjectsHelper
 
   def find_and_save_lat_lons(track, project, location)
-    project.tracks << track
+    unless project.tracks.include? track
+      project.tracks << track
+    end
     proj_tr = ProjectTrack.find(:first, :conditions => {project_id: project.id, track_id: track.id})
     location.gsub!(" ", '+')
     location.gsub!(",", "+")
@@ -11,17 +13,20 @@ module ProjectsHelper
     if updated_proj_tr
       render json: {project: project.id, track: track.soundcloud_track_id, text: "Track was saved to map!"}, status: 201
     else
-      render :json => { :errors => "The location wasn't saved. try again!" }, :status => 422
+      render json: {errors: updated_proj_tr.errors.full_messages}, status: 422
     end
   end
 
   def add_image(track, project, image)
+    unless project.tracks.include? track
+      project.tracks << track
+    end
     proj_tr = ProjectTrack.find(:first, :conditions => {project_id: project.id, track_id: track.id})
     updated_proj_tr = proj_tr.update_attributes(image: image)
     if updated_proj_tr
       render json: {track: track.soundcloud_track_id, text: "Image was associated to track!"}, status: 201
     else
-      render :json => { :errors => "The image wasn't saved" }, :status => 422
+      render json: {errors: updated_proj_tr.errors.full_messages}, status: 422
     end
   end
 
@@ -33,14 +38,14 @@ module ProjectsHelper
     gon.permalink_url = {}
     gon.track_title = {}
     gon.track_image = {}
-    gon.user_image = {}
+    gon.user_image_thumb = {}
     mapped_tracks = []
 
 
     proj_trs.each do |proj_tr|
       unless proj_tr.latitude == nil
         gon.coordinates[proj_tr.track_id] = [proj_tr.latitude, proj_tr.longitude]
-        gon.user_image[proj_tr.track_id] = [proj_tr.image.url]
+        gon.user_image_thumb[proj_tr.track_id] = [proj_tr.image.thumb.url]
         mapped_tracks << tracks.find(proj_tr.track_id)
         mapped_tracks.each do |mapped_track|
           gon.permalink_url[proj_tr.track_id] = mapped_track.permalink_url

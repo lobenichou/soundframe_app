@@ -9,3 +9,11 @@ Author: <a href="/users/<%= @project.user.id %>"><%= @project.user.name %></a>
 <div id="information">
   <i id="close-information" class="fi-x-circle large"></i>
 </div>
+<i id="show-track-list" class="fi-list large"></i>
+<div id="map-track-list">
+  <p> Track List </p>
+ <% @project.tracks.each do |track| %>
+  <br/>
+    <div data-id= "<%= track.id%>" class="find_track"><%= track.title %></div>
+  <% end %>
+<div>

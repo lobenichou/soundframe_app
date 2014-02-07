@@ -27,7 +27,7 @@ $(document).ready ->
     $("#tracks").empty()
     id = $(this).attr("id")
     SC.get "/users/#{id}/tracks",
-      limit: 20
+      limit: 40
       , (tracks) ->
         track_list = JST["templates/tracks"]({tracks: tracks})
         $("#tracks").append(track_list)

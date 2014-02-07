@@ -20,8 +20,8 @@
       </div>
       <% else %>
       <% @tracks.each do |track| %>
-      <div id="<%= track.soundcloud_track_id%>" class="box col3">
-
+      <div  class="box col3">
+        <div id="<%= track.soundcloud_track_id%>">
         <iframe width="100%" height="20%" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F<%= track.soundcloud_track_id %>&show_artwork=false"></iframe>
 
         <div class="row collapse">
@@ -35,8 +35,10 @@
             <a id="add_location" data-id="<%= track.soundcloud_track_id %>" href="#" class="button postfix add-option">Add</a>
           </div>
 
-          <a href="#" id="addImageTrigger" data-reveal-id="addImage" data-id="<%= track.soundcloud_track_id %>" class="button postfix add-option">+ Image</a>
+
         </div>
+      </div>
+      <a href='#' id='add_image_<%= track.soundcloud_track_id %>' data-reveal-id='addImage' data-id='<%= track.soundcloud_track_id %>' class="addImageTrigger"><i class='fi-plus large '></i> Image</a>
       </div>
       <% end %>
       <%end%>
