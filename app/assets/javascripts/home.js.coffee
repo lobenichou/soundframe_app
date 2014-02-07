@@ -81,11 +81,13 @@ $(document).ready ->
 
 
 ##First popup open on load##
+
     chapters[0].openPopup()
     a = chapters[0].feature.geometry.coordinates
     map.setView [a[1], a[0]], 3
 
 ##Click action to move from one marker to the next##
+
     i = -1
     $("#home-map").on "click", "a[id='next']", (e) ->
       e.preventDefault()
@@ -98,5 +100,5 @@ $(document).ready ->
       e.preventDefault()
       $("#information").toggle "slow"
 
-    $("#information").on "click", "i[id='close-information']", (e) ->
+    $("#information").on "click", "i[id='close-information-home']", (e) ->
       $("#information").toggle "slow"

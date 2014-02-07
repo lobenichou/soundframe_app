@@ -143,3 +143,22 @@
   background-color: #D25E15;
 }
 
+#close-information{
+  font-size: 50px;
+  float: right;
+  margin-top: -25%;
+  color: black;
+  border-radius: 10px;
+  cursor: pointer;
+  -webkit-transition: all 500ms ease-out;
+  -moz-transition: all 500ms ease-out;
+  -ms-transition: all 500ms ease-out;
+  -o-transition: all 500ms ease-out;
+  transition: all 500ms ease-out;
+}
+
+#close-information:hover{
+  color: white;
+  background-color: #D25E15;
+}
+
