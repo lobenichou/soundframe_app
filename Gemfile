@@ -27,6 +27,7 @@ group :development, :production do
   gem 'carrierwave'
   gem 'rmagick'
   gem "mini_magick"
+  gem "fog"
 end
 
 group :assets do
