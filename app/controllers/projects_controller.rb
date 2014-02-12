@@ -1,6 +1,5 @@
 class ProjectsController < ApplicationController
   include ProjectsHelper
-  # require 'pry-remote'
   before_filter :signed_in_user, :except => [:show]
   before_filter :correct_user,  only: [:create]
 
@@ -39,6 +38,14 @@ def update_map_region
   else
     render json: {errors: updated_project.errors.full_messages}, status: 422
   end
+end
+
+def change_map_region
+  project = current_user.projects.find(params[:project])
+  if project.region != nil
+    project.update_attributes(region: nil)
+  end
+  render json: {text: "The map region's was set!"}, status: 201
 end
 
 def add_image_to_track

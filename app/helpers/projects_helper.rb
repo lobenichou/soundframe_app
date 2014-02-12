@@ -39,6 +39,7 @@ module ProjectsHelper
     gon.track_title = {}
     gon.track_image = {}
     gon.user_image_thumb = {}
+    gon.user_image_medium = {}
     mapped_tracks = []
 
 
@@ -46,6 +47,7 @@ module ProjectsHelper
       unless proj_tr.latitude == nil
         gon.coordinates[proj_tr.track_id] = [proj_tr.latitude, proj_tr.longitude]
         gon.user_image_thumb[proj_tr.track_id] = [proj_tr.image.thumb.url]
+        gon.user_image_medium[proj_tr.track_id] = [proj_tr.image.medium.url]
         mapped_tracks << tracks.find(proj_tr.track_id)
         mapped_tracks.each do |mapped_track|
           gon.permalink_url[proj_tr.track_id] = mapped_track.permalink_url

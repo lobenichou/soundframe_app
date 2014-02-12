@@ -7,11 +7,11 @@
 <div class="small-12 columns">
   <%= gravatar_for @user %>
 </div>
-</div>
-<div id="all-projects-public">
   <div class="small-12 columns">
   <p>Projects</p>
 </div>
+</div>
+<div id="all-projects-public">
   <% if @user.projects.empty? %>
   <h3> The user does not have any projects yet!</h3>
   <% else %>
@@ -28,8 +28,8 @@
       <a href="/projects/<%=project.id%>">View</a><br/>
     </div>
     </div>
+    </div>
     <% end %>
-  </div>
   </div>
   <% end %>
 </div>

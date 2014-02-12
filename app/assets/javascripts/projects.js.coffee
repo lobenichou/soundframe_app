@@ -105,17 +105,22 @@ $(document).ready ->
   $("#setMap").on "click", "a[id='submit_answer']", ->
     form = $(this).closest('div#setMap').find('#map_region')
     yes_answer = $(this).closest('div#setMap').find('#positive_answer')
+    no_answer = $(this).closest('div#setMap').find('#negative_answer')
     region = form.val()
     if yes_answer.is(':checked') && region != ""
       params = {project: gon.project_id, region: region}
       $.ajax(
         url: '/projects/' + gon.project_id + '/update_map_region'
         type: 'PUT'
-        data: params).success (data) ->
+        data: params).done (data) ->
          alert "region saved"
-        .error (data) ->
-          error = "<p>An error occured. Please try again</p>"
-          $("#setMap").append(error)
+    if no_answer.is(':checked')
+      params = {project: gon.project_id}
+      $.ajax(
+        url: '/projects/' + gon.project_id + '/change_map_region'
+        type: 'PUT'
+        data: params).done (data) ->
+         alert "region saved"
 
 
 

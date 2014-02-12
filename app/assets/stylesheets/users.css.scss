@@ -56,8 +56,6 @@ body h1 h2{
   overflow: scroll;
 }
 
-
-
 #all-projects, #all-projects-public a{
   font-family: oswaldbook;
   color: white;
@@ -144,8 +142,9 @@ body h1 h2{
 #all-projects-public{
   border-top: 1px dotted black;
   background-color: white;
-  height: 300px;
-  overflow: visible;
+  height: 400px;
+  width: 100%;
+  overflow: scroll;
 }
 
 .padding{
