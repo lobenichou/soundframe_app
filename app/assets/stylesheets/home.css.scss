@@ -2,7 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
+.main-section{
+  overflow: scroll;
+}
 .inner-wrap {
 	position: fixed;
 	height: 100%;
@@ -148,3 +150,23 @@
   color: black;
 }
 
+//help page
+
+.instructions{
+  text-align: left;
+  border-radius: 20px;
+  border: 2.5px dotted #D25E15;
+}
+
+.instructions p{
+  font-size: 15px;
+}
+
+.example{
+  border-radius: 20px;
+  border: 2.5px dotted #D25E15
+}
+
+.align{
+  left: 13%;
+}

@@ -1,9 +1,26 @@
+<script>
+window.onload = function(){
+   try
+   {
+       if (window.parent && window.parent.location.hostname !== "soundframe.herokuapp.com"){
+          throw new Error();
+       }
+   }
+   catch (e){
+      document.body.innerHTML = "Access Denied<br/>" + "<a href='" + document.referrer + "'>Go Back</a> or visit the full website <a href='https://soundframe.herokuapp.com/help' target='_blank'>here</a>"
+   }
+}
+</script>
 <% provide(:title, 'Help') %>
-<h1> How does it work </h1>
-
-<div class="large-6 large-offset-4 columns">
-  <div class="large-2 columns">
-  </div>
-  <div class="large-4 columns">
-  </div>
+<h2> How does it work </h2>
+<div class="large-6 large-offset-3 columns instructions">
+  <p>Soundframe is simple to use. Here is how, in a few steps:</p><br/>
+  <p>1/ Sign up!</p></br>
+  <p>2/ Add tracks to your library. This will take you to a search page where you can search Soundcloud users. Click on the user whose tracks you wish to see. Click "add track" and there you go!</p></br>
+<p>3/ If you already have tracks in your library, you can go ahead and click on "create new project." This will take you to your library. Once there, you can add a location and an image to each track. Once you're done, click on "view map" and follow instructions from there.</p></br>
+</div>
+<div class="large-12 columns">
+  <h3>Here are some examples:</h3>
+  <h4>PRI's The World: This is an example mapping different stories from PRI's the World. </h4>
+  <div class="align" style="position: relative; width: 100%; height: 0px; padding-bottom: 60%;"> <iframe  width="95%" height="95%" style="position: absolute; left: 0px; top: 0px; zoom: 0.75 -moz-transform: scale(0.75); -moz-transform-origin: 0 0; -o-transform: scale(0.75); -o-transform-origin: 0 0; -webkit-transform: scale(0.75); -webkit-transform-origin: 0 0;" frameBorder="0" sandbox="allow-scripts allow-popups allow-same-origin" src="https://soundframe.herokuapp.com/projects/10"></iframe></div>
 </div>

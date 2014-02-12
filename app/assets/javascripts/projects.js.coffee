@@ -9,7 +9,6 @@ $(document).ready ->
 ########### LOAD MAPS ###########
 
 ## Sets map on a specific region if user chooses to do so##
-
   if $("#map-project").length > 0
 
     if gon.project_region != null
