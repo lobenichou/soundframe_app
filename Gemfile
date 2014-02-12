@@ -24,6 +24,10 @@ group :development, :production do
   gem 'soundcloud'
   gem 'gon', '3.0.5'
   gem 'will_paginate'
+  gem 'carrierwave'
+  gem 'rmagick'
+  gem "mini_magick"
+  gem "fog"
 end
 
 group :assets do
@@ -38,10 +42,12 @@ end
 group :development do
   gem 'quiet_assets'
   gem 'pry-rails'
+  gem 'pry-remote'
 end
 
 group :production do
   gem 'rails_12factor'
 end
+
 
 gem 'jquery-rails'

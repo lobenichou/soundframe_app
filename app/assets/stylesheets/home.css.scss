@@ -2,7 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
+.main-section{
+  overflow: scroll;
+}
 .inner-wrap {
 	position: fixed;
 	height: 100%;
@@ -27,11 +29,11 @@
   position: relative;
   margin: auto;
   display: none;
-  padding-top: 25%;
+  padding-top: 19em;
   padding-bottom: 20px;
 }
 
-#close-information{
+#close-information-home{
   font-size: 50px;
   float: right;
   margin-top: -25%;
@@ -45,7 +47,7 @@
   transition: all 500ms ease-out;
 }
 
-#close-information:hover{
+#close-information-home:hover{
   color: white;
   background-color: #D25E15;
 }
@@ -148,3 +150,23 @@
   color: black;
 }
 
+//help page
+
+.instructions{
+  text-align: left;
+  border-radius: 20px;
+  border: 2.5px dotted #D25E15;
+}
+
+.instructions p{
+  font-size: 15px;
+}
+
+.example{
+  border-radius: 20px;
+  border: 2.5px dotted #D25E15
+}
+
+.align{
+  left: 13%;
+}
