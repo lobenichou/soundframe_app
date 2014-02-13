@@ -65,6 +65,8 @@ def show
     setup_map(project)
   else
     project = Project.find(params[:id])
+    gon.project_id = project.id
+    gon.project_region = project.region
     setup_map(project)
   end
 end
