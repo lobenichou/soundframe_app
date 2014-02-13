@@ -14,6 +14,7 @@ end
 group :development, :test do
  gem 'foreman'
  gem 'dotenv-rails'
+ gem 'faker'
 end
 
 group :development, :production do
