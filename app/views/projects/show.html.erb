@@ -1,3 +1,16 @@
+<script>
+window.onload = function(){
+   try
+   {
+       if (window.parent && window.parent.location.hostname !== "soundframe.herokuapp.com"){
+          throw new Error();
+       }
+   }
+   catch (e){
+       document.getElementById("side-menu-trigger").disabled=true;
+   }
+}
+</script>
 <script src='//api.tiles.mapbox.com/mapbox.js/v1.5.2/mapbox.js'></script>
 <div id="project-title">
 Title: <%= @project.title %><br/>
