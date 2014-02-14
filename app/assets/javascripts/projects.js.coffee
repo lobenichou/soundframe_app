@@ -125,7 +125,8 @@ $(document).ready ->
         url: '/projects/' + gon.project_id + '/change_map_region'
         type: 'PUT'
         data: params).done (data) ->
-         alert "region saved"
+         $("#setMap").append("region updated to world view.")
+         window.location.href = '/projects/' + gon.project_id
 
 
 
