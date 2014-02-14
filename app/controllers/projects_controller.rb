@@ -34,7 +34,7 @@ def update_map_region
   region = params[:region]
   updated_project = project.update_attributes(region: region)
   if updated_project
-    render json: {project: project.id, track: track.soundcloud_track_id, text: "The map region's was set!"}, status: 201
+    render json: {project: project.id, text: "The map region's was set!"}, status: 201
   else
     render json: {errors: updated_project.errors.full_messages}, status: 422
   end

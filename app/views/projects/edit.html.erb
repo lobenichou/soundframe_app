@@ -24,7 +24,15 @@ window.onload = function(){
       <a href="/tracks" class="button library-option">Add tracks to library</a>
     </div>
   </div>
-
+  <div class="row">
+    <div class="small-8 medium-6 large-6 small-offset-2 medium-offset-5 large-offset-5 columns ">
+      <dl class="sub-nav">
+        <dt>Filter:</dt>
+        <dd class="active"><a id="filter_all" href="#">All</a></dd>
+        <dd ><a id="filter_added" href="#">Added</a></dd>
+      </dl>
+    </div>
+  </div>
   <div id="all-tracks" class="row">
     <div id="container" class="large-12 columns transitions-enabled large-centered clearfix">
       <% if @tracks.empty? %>
@@ -35,28 +43,56 @@ window.onload = function(){
       <% @tracks.each do |track| %>
       <div  class="box col3">
         <div id="<%= track.soundcloud_track_id%>">
-        <iframe width="100%" height="20%" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F<%= track.soundcloud_track_id %>&show_artwork=false"></iframe>
+          <iframe width="100%" height="20%" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F<%= track.soundcloud_track_id %>&show_artwork=false"></iframe>
 
-        <div class="row collapse">
+          <div class="row collapse">
 
-          <div class=" small-8 medium-9 large-10 columns">
-            <input id="location_<%= track.soundcloud_track_id %>" type="text" name="location" placeholder="input location!"/>
-            <input class ="box" type="hidden" name="location" value="<%= track.soundcloud_track_id %>" placeholder="input location!"/>
+            <div class=" small-8 medium-9 large-10 columns">
+              <input id="location_<%= track.soundcloud_track_id %>" type="text" name="location" placeholder="input location!"/>
+              <input class ="box" type="hidden" name="location" value="<%= track.soundcloud_track_id %>" placeholder="input location!"/>
+            </div>
+
+            <div class="small-4 medium-3 large-2 columns">
+              <a id="add_location" data-id="<%= track.soundcloud_track_id %>" href="#" class="button postfix add-option">Add</a>
+            </div>
+
+
           </div>
-
-          <div class="small-4 medium-3 large-2 columns">
-            <a id="add_location" data-id="<%= track.soundcloud_track_id %>" href="#" class="button postfix add-option">Add</a>
-          </div>
-
-
         </div>
-      </div>
-      <a href='#' id='add_image_<%= track.soundcloud_track_id %>' data-reveal-id='addImage' data-id='<%= track.soundcloud_track_id %>' class="addImageTrigger"><i class='fi-plus large '></i> Image</a>
+        <a href='#' id='add_image_<%= track.soundcloud_track_id %>' data-reveal-id='addImage' data-id='<%= track.soundcloud_track_id %>' class="addImageTrigger"><i class='fi-plus large '></i> Image</a>
       </div>
       <% end %>
       <%end%>
     </div>
   </div>
+</div>
+
+<div id="added-tracks" class="row hide">
+  <div id="container" class="large-12 columns transitions-enabled large-centered clearfix">
+    <% if @project.tracks.empty? %>
+    <div class="box col4">
+      <h3> No tracks were added yet.</h3>
+    </div>
+    <% else %>
+    <% @project.tracks.each do |track| %>
+    <div  class="box col3">
+      <div id="project_track_<%= track.soundcloud_track_id%>">
+        <iframe width="100%" height="20%" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F<%= track.soundcloud_track_id %>&show_artwork=false"></iframe>
+
+        <div class="row collapse">
+
+          <div class=" small-8 medium-9 large-10 columns">
+            <a href='#'> Remove from project </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <% end %>
+    <%end%>
+  </div>
+</div>
+
 </div>
 
 
@@ -69,13 +105,13 @@ window.onload = function(){
     <input id="map_region" type="text" name="region" placeholder="input the region!"/>
   </div>
   <div class="large-12 columns">
-    <a href="/projects/<%=@project.id%>" id="submit_answer" class="button library-option">View map!</a>
+    <a href="#" id="submit_answer" class="button library-option">View map!</a>
   </div>
   <a class="close-reveal-modal">&#215;</a>
 </div>
 
 
 <!-- NEW IMAGE MODAL -->
-  <div id="addImage" class="reveal-modal" data-reveal>
-  </div>
+<div id="addImage" class="reveal-modal" data-reveal>
+</div>
 

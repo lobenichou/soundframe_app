@@ -7,8 +7,8 @@ $(document).foundation();
 $(document).ready ->
 
 ########### LOAD MAPS ###########
-
 ## Sets map on a specific region if user chooses to do so##
+
   if $("#map-project").length > 0
 
     if gon.project_region != null
@@ -66,7 +66,7 @@ $(document).ready ->
     map_project.setView(gon.coordinates[id], 7)
 
 
-######## EDIT MAP: ON CLICK EVENTS #########
+######## EDIT MAP PAGE: ON CLICK EVENTS #########
 
   $("#setMap").on "click", "input[name='answer']", ->
     form = $(this).closest('div#setMap').find('#map_region')
@@ -74,6 +74,11 @@ $(document).ready ->
       $("#map_region").toggle "slow"
     else if $(this).is(':checked') && $(this).val() == "No"  &&  form.is(':visible')
       $("#map_region").toggle "slow"
+
+  $("#filter_added").on "click", ->
+    $("#all-tracks").fadeToggle "slow"
+    $("#added-tracks").fadeToggle "slow"
+    $(this).parent().addClass("active")
 
 
 
@@ -110,9 +115,10 @@ $(document).ready ->
       params = {project: gon.project_id, region: region}
       $.ajax(
         url: '/projects/' + gon.project_id + '/update_map_region'
-        type: 'PUT'
+        type: 'GET'
         data: params).done (data) ->
-         alert "region saved"
+         $("#setMap").append("region saved")
+         window.location.href = '/projects/' + gon.project_id
     if no_answer.is(':checked')
       params = {project: gon.project_id}
       $.ajax(
