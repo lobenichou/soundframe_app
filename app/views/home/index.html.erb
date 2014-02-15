@@ -2,8 +2,7 @@
 window.onload = function(){
    try
    {
-       if (window.parent && window.parent.location.hostname !== "soundframe.herokuapp.com" ||
-        window.parent && window.parent.location.hostname !== "www.soundfra.me"){
+       if (window.parent && window.parent.location.hostname !== "soundframe.herokuapp.com"){
           throw new Error();
        }
    }
