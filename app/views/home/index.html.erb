@@ -2,7 +2,10 @@
 window.onload = function(){
  try
  {
-  if (window.parent && window.parent.location.hostname !== "localhost" && window.parent.location.hostname !== "www.soundfra.me" && window.parent.location.hostname !== "soundframe.herokuapp.com")){
+  if (window.parent
+    && window.parent.location.hostname !== "localhost"
+    && window.parent.location.hostname !== "www.soundfra.me"
+    && window.parent.location.hostname !== "soundframe.herokuapp.com"){
     throw new Error();
 }
 }
