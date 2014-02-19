@@ -24,17 +24,13 @@
           <li><%= link_to "Dashboard", current_user %></li>
           <li><%= link_to "Update Profile", edit_user_path(current_user) %></li>
           <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
+          <hr>
           <li><a href="/help">How does it work?</a></li>
           <li><a href="/about">What's SoundFrame?</a></li>
           <li><a href="http://blog.soundfra.me/" target="_blank">Blog</a></li>
           <li><a href="mailto:info@soundfra.me"><i class="fi-mail large"></i> Contact Me!</a></li>
 
           <% else %>
-
-          <li><a href="/about">What's SoundFrame?</a></li>
-          <li><a href="/help">How does it work?</a></li>
-          <li><a href="http://blog.soundfra.me/" target="_blank">Blog</a></li>
-          <li><a href="mailto:info@soundfra.me"><i class="fi-mail large big_icons"></i> Contact Me!</a></li>
           <li><a href="#" data-dropdown="sign_in_form">Sign in</a></li>
 
           <div id="sign_in_form" data-dropdown-content class="small f-dropdown content">
@@ -46,6 +42,12 @@
           <div id="sign_up_form" data-dropdown-content class="small f-dropdown content">
             <%= render partial: "shared/sign_up_form" %>
           </div>
+          <hr>
+          <li><a href="/about">What's SoundFrame?</a></li>
+          <li><a href="/help">How does it work?</a></li>
+          <li><a href="http://blog.soundfra.me/" target="_blank">Blog</a></li>
+          <li><a href="mailto:info@soundfra.me"><i class="fi-mail large big_icons"></i> Contact Me!</a></li>
+
 
           <% end %>
         </ul>
