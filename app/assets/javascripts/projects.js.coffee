@@ -75,13 +75,6 @@ $(document).ready ->
     else if $(this).is(':checked') && $(this).val() == "No"  &&  form.is(':visible')
       $("#map_region").toggle "slow"
 
-  $("#filter_added").on "click", ->
-    $("#all-tracks").fadeToggle "slow"
-    $("#added-tracks").fadeToggle "slow"
-    $(this).parent().addClass("active")
-
-
-
 ####### SAVING TRACK LOCATIONS + REGION #######
 
   $("#all-tracks").on "click", "a[id='add_location']", (e) ->
@@ -97,11 +90,9 @@ $(document).ready ->
         type: 'GET'
         data: params
         dataType: 'json').success (data) ->
-
           visible_div = "#" + data.track
           $(visible_div).toggleClass("fade").empty()
           $(visible_div).append("<i class='fi-check large'></i>The track was added to your map! <br/> ")
-
         .error (data) ->
           alert "An error occured. Please try again"
 
@@ -128,7 +119,38 @@ $(document).ready ->
          $("#setMap").append("region updated to world view.")
          window.location.href = '/projects/' + gon.project_id
 
+###########REMOVE A TRACK FROM PROJECT##############
+  $("#all-tracks").on "click", "a[class='remove_track']", (event) ->
+      event.preventDefault()
+      track_id = $(this).attr("data-id")
+      params = {project: gon.project_id, track_id: track_id}
+      $.ajax(
+          url: '/projects/' + gon.project_id + '/remove_track'
+          type: 'DELETE'
+          data: params).success (data) ->
+            console.log data.track
+            alert "The track was removed."
+            div_to_remove = "#" + "project_track_" + data.track_id
+            $(div_to_remove).remove()
+          .error (data) ->
+            alert "An error has occured."
 
+###########REMOVE AN IMAGE FROM A TRACK##############
+
+  $("#all-tracks").on "click", "a[class='remove_image']", (event) ->
+      event.preventDefault()
+      track_id = $(this).attr("data-id")
+      params = {project: gon.project_id, track_id: track_id}
+      $.ajax(
+          url: '/projects/' + gon.project_id + '/remove_image'
+          type: 'DELETE'
+          data: params).success (data) ->
+            console.log data.track
+            alert "The image was removed."
+            div_to_change = "#" + "remove_image_" + data.track_id
+            $(div_to_change).html("<i class='fi-check large'></i>Image removed")
+          .error (data) ->
+            alert "An error has occured."
 
 #########SAVING IMAGE FOR TRACK##########
 
@@ -140,6 +162,8 @@ $(document).ready ->
 
   $("#addImage").on "click", "a[id='upload_image']", (event) ->
       event.preventDefault()
+      loading = $(this).closest('div#addImage').find('#loading')
+      $(loading).html('<img src="/assets/380.GIF"><br/> loading...');
       formData = new FormData()
       track_id = $(this).attr("data-id")
       input = $(this).closest('div#addImage').find('#image')
@@ -174,5 +198,18 @@ $(document).ready ->
       isAnimated: !Modernizr.csstransitions,
       isFitWidth: true
     )
+
+#######ISOTOPE#############
+  # init Isotope
+    $container = $("#container").isotope({
+      filter: '.library'
+      })
+
+    # filter items on button click
+    $("#filters").on "click", "button", (event) ->
+      filterValue = $(this).attr("data-filter-value")
+      $container.isotope filter: filterValue
+      return
+
 
 

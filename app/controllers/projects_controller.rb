@@ -69,6 +69,20 @@ def destroy
   render json: {project: project.id}, status: 201
 end
 
+def remove_track
+  track_to_delete = Track.find_by_soundcloud_track_id(params[:track_id])
+  proj_tr = ProjectTrack.find(:first, :conditions => {project_id: params[:project], track_id: track_to_delete.id})
+  proj_tr.destroy
+  render json: {track_title: track_to_delete.title, track_id: track_to_delete.soundcloud_track_id}, status: 201
+end
+
+def remove_image
+  track = Track.find_by_soundcloud_track_id(params[:track_id])
+  proj_tr = ProjectTrack.find(:first, :conditions => {project_id: params[:project], track_id: track.id})
+  proj_tr.remove_image!
+  proj_tr.save
+  render json: {track_title: track.title, track_id: track.soundcloud_track_id}, status: 201
+end
 
 private
 
