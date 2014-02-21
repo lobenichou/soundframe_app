@@ -52,8 +52,6 @@ $transition-values: all, 500ms, ease-out;
   position: fixed;
   bottom: 0;
   display: none;
-  padding-top: 20px;
-  padding-left: 20px;
 }
 
 #all-tracks{
@@ -159,17 +157,17 @@ $transition-values: all, 500ms, ease-out;
 }
 
 #map-track-list {
-  height: auto;
-  width: 10%;
+  height: 45px;
+  width: 100%;
   font-family: $font-stack;
   text-align: center;
   position: relative;
-  margin-left: 89%;
-  margin-top: 15%;
+  top: 45%;
   border-radius: 5px;
   display: none;
   overflow: scroll;
 }
+
 
 .find-track{
   @include transition($transition-values...);
@@ -177,7 +175,6 @@ $transition-values: all, 500ms, ease-out;
   height: inherit;
   padding: 10px;
   background: rgba(255, 255, 255, 1);
-  margin-top: -16px;
 }
 
 .find-track:hover{
@@ -243,11 +240,11 @@ $transition-values: all, 500ms, ease-out;
     font-size: 20px;
   }
 
-  #map-track-list {
-    width: 20%;
-    margin-left: 77%;
-    margin-top: 23%;
-  }
+  // #map-track-list {
+  //   width: 20%;
+  //   margin-left: 77%;
+  //   margin-top: 23%;
+  // }
 
   .find-track{
     font-size: 12px;
