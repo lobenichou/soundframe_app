@@ -124,8 +124,8 @@ $transition-values: all, 500ms, ease-out;
   position: fixed;
   text-align: right;
   font-family: $font-stack;
-  width: 145px;
-  height: 140px;
+  width: 155px;
+  height: auto;
   z-index: 9999;
   right: 0;
   padding: 10px;
@@ -174,9 +174,9 @@ $transition-values: all, 500ms, ease-out;
 .find-track{
   @include transition($transition-values...);
   cursor: pointer;
-  height: 40px;
-  border: dotted 1px;
-  background: rgba(255, 255, 255, 0.7);
+  height: inherit;
+  padding: 10px;
+  background: rgba(255, 255, 255, 1);
   margin-top: -16px;
 }
 
