@@ -61,7 +61,7 @@ $(document).ready ->
   $("#show-track-list").on "click", ->
     $("#map-track-list").fadeToggle "slow"
 
-  $("#map-track-list").on "click", "div[class='find_track']", ->
+  $("#map-track-list").on "click", "div[class='find-track']", ->
     id = $(this).attr("data-id")
     map_project.setView(gon.coordinates[id], 7)
 
@@ -69,11 +69,11 @@ $(document).ready ->
 ######## EDIT MAP PAGE: ON CLICK EVENTS #########
 
   $("#setMap").on "click", "input[name='answer']", ->
-    form = $(this).closest('div#setMap').find('#map_region')
+    form = $(this).closest('div#setMap').find('#map-region')
     if $(this).is(':checked') && $(this).val() == "Yes" && form.is(':visible') == false
-      $("#map_region").toggle "slow"
+      $("#map-region").toggle "slow"
     else if $(this).is(':checked') && $(this).val() == "No"  &&  form.is(':visible')
-      $("#map_region").toggle "slow"
+      $("#map-region").toggle "slow"
 
 ####### SAVING TRACK LOCATIONS + REGION #######
 
@@ -98,7 +98,7 @@ $(document).ready ->
 
 
   $("#setMap").on "click", "a[id='submit_answer']", ->
-    form = $(this).closest('div#setMap').find('#map_region')
+    form = $(this).closest('div#setMap').find('#map-region')
     yes_answer = $(this).closest('div#setMap').find('#positive_answer')
     no_answer = $(this).closest('div#setMap').find('#negative_answer')
     region = form.val()

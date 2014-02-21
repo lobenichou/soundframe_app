@@ -1,13 +1,25 @@
+/*************GLOBAL SASS VARIABLES****************/
+
+$font-stack: oswaldbook;
+$accent-color: #D25E15;
+
+@mixin transition($transition) {
+  -webkit-transition: $transition;
+     -moz-transition: $transition;
+      -ms-transition: $transition;
+       -o-transition: $transition;
+          transition: $transition;
+}
 
 body{
   text-align: center;
   }
 
-#column_left{
+.left-column{
   border-right: 1px dotted black;
 
 }
-#search_results{
+#search-results{
   height:400px;
   overflow-y: overlay;
 }
@@ -18,18 +30,14 @@ body{
 }
 
 .clickeable {
+  @include transition(all 500ms east-out);
   cursor: pointer;
   border-radius: 10px;
-  -webkit-transition: all 500ms ease-out;
-  -moz-transition: all 500ms ease-out;
-  -ms-transition: all 500ms ease-out;
-  -o-transition: all 500ms ease-out;
-  transition: all 500ms ease-out;
 }
 
 .clickeable:hover{
   color: white;
-  background-color: #D25E15;
+  background-color: $accent-color;
 }
 
 

@@ -10,7 +10,7 @@ $(document).ready ->
 
   $("#submit_query").on "click", (event) ->
     event.preventDefault()
-    $("#search_results").empty()
+    $("#search-results").empty()
     query = $("#search_query").val()
 
     if query == ""
@@ -21,9 +21,9 @@ $(document).ready ->
       limit: 20
       , (users) ->
         list = JST["templates/users"]({users: users})
-        $("#search_results").append(list)
+        $("#search-results").append(list)
 
-  $("#search_results").on "click", "div", ->
+  $("#search-results").on "click", "div", ->
     $("#tracks").empty()
     id = $(this).attr("id")
     SC.get "/users/#{id}/tracks",
