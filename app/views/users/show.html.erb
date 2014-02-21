@@ -16,56 +16,56 @@ catch (e){
 </script>
 <% provide(:title, @user.name) %>
 <div id="user-info">
-<h1>Dashboard</h1>
-<p>Welcome,</p><h3><%= @user.name %>.</h3>
+  <h1>Dashboard</h1>
+  <p>Welcome,</p><h3><%= @user.name %>.</h3>
 
-<div class="small-12 columns">
-  <%= gravatar_for @user %>
-</div>
+  <div class="small-12 columns">
+    <%= gravatar_for @user %>
+  </div>
 
-<div class="row">
-  <div class="small-4 columns">
-    <a href="#" class="button dashboard-option" data-reveal-id="newProject">Create a new project</a>
+  <div class="row">
+    <div class="small-4 columns">
+      <a href="#" class="button dashboard-option" data-reveal-id="newProject">Create a new project</a>
+    </div>
+    <div class="small-4 columns">
+      <a href="/tracks" class="button dashboard-option">Add tracks to your library</a>
+    </div>
+    <div class="small-4 columns">
+      <a href="#" id="reveal-project" class="button dashboard-option">View my projects</a>
+    </div>
   </div>
-  <div class="small-4 columns">
-    <a href="/tracks" class="button dashboard-option">Add tracks to your library</a>
-  </div>
-  <div class="small-4 columns">
-    <a href="#" id="reveal-project" class="button dashboard-option">View my projects</a>
-  </div>
-</div>
 </div>
 <div id="projects-revealed-here">
-<div id="all-projects">
-  <i id="close-project" class="fi-x-circle large"></i>
-  <% if @user.projects.empty? %>
-  <h3> You do not have any projects yet! <a href="#" class="new_project_link" data-reveal-id="newProject">Create one?</a></h3>
-  <% else %>
-  <div class="row">
-    <div id="container" class="large-12 columns transitions-enabled large-centered clearfix">
-    <% @user.projects.each do |project| %>
-    <div id="<%=project.id%>" class="box project-box">
-      <h1><%= project.title %>:</h1><br/>
-      <p><%= project.description %></p><br/>
-      Created at:  <%= project.created_at %><br/>
-      <hr>
-      <div class="row">
-        <div class="small-4 columns">
-      <a href="/projects/<%=project.id%>">View</a>
-    </div>
-    <div class="small-4 columns">
-      <a href="/projects/<%=project.id%>/edit"> Edit </a>
-    </div>
-    <div class="small-4 columns">
-      <a href="#" id="delete_project" data-id="<%=project.id%>"> Delete </a>
-    </div>
-    </div>
+  <div id="all-projects">
+    <% if @user.projects.empty? %>
+    <h3> You do not have any projects yet! <a href="#" class="new_project_link" data-reveal-id="newProject">Create one?</a></h3>
+    <% else %>
+    <div class="row">
+      <div id="container" class="large-12 columns transitions-enabled large-centered clearfix">
+        <i id="close-project" class="fi-x-circle large"></i>
+        <% @user.projects.each do |project| %>
+        <div id="<%=project.id%>" class="box project-box">
+          <h1><%= project.title %>:</h1><br/>
+          <p><%= project.description %></p><br/>
+          Created at:  <%= project.created_at %><br/>
+          <hr>
+          <div class="row">
+            <div class="small-4 columns">
+              <a href="/projects/<%=project.id%>">View</a>
+            </div>
+            <div class="small-4 columns">
+              <a href="/projects/<%=project.id%>/edit"> Edit </a>
+            </div>
+            <div class="small-4 columns">
+              <a href="#" id="delete_project" data-id="<%=project.id%>"> Delete </a>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
     </div>
     <% end %>
   </div>
-  </div>
-  <% end %>
-</div>
 </div>
 
 <!-- NEW PROJECT MODAL -->

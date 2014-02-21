@@ -18,8 +18,6 @@ catch (e){
 <div id="info">
   <h2>Library</h2>
   <h4>Add a location for the tracks you'd like to map.</h4>
-
-
   <div class="row collapse">
     <div class="small-5 columns">
       <a href="#" data-reveal-id="setMap" class="button library-option">View Map!</a>
@@ -42,39 +40,32 @@ catch (e){
       <div class="box col4">
         <h3> You do not have any tracks yet! <a href="/tracks">Add some?</a></h3>
       </div>
+
       <% else %>
 
       <% @tracks.each do |track| %>
-
       <div  class="box col3 library">
         <div id="<%= track.soundcloud_track_id%>">
           <iframe width="100%" height="20%" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F<%= track.soundcloud_track_id %>&show_artwork=false"></iframe>
-
           <div class="row collapse">
-
             <div class=" small-8 medium-9 large-10 columns">
               <input id="location_<%= track.soundcloud_track_id %>" type="text" name="location" placeholder="input location!"/>
               <input class ="box" type="hidden" name="location" value="<%= track.soundcloud_track_id %>" placeholder="input location!"/>
             </div>
-
             <div class="small-4 medium-3 large-2 columns">
               <a id="add_location" data-id="<%= track.soundcloud_track_id %>" href="#" class="button postfix add-option">Add</a>
             </div>
-
-
           </div>
         </div>
         <a href='#' id='add_image_<%= track.soundcloud_track_id %>' data-reveal-id='addImage' data-id='<%= track.soundcloud_track_id %>' class="addImageTrigger"><i class='fi-plus large '></i> Image</a>
       </div>
+
       <% end %>
 
       <% @project.tracks.each do |track| %>
-
       <div  class="box col3 added" id="project_track_<%= track.soundcloud_track_id%>">
         <iframe width="100%" height="20%" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F<%= track.soundcloud_track_id %>&show_artwork=false"></iframe>
-
         <div class="row">
-
           <div class="large-12 columns">
             <a class="remove_track" data-id="<%= track.soundcloud_track_id%>" href='#'><i class="fi-x-circle large"></i> Remove track from project</a>
           </div>
@@ -85,35 +76,28 @@ catch (e){
         </div>
       </div>
       <% end %>
-
-
       <%end%>
     </div>
   </div>
 </div>
-
-
 </div>
-
 
 <!-- NEW MAP MODAL -->
 <div id="setMap" class="reveal-modal" data-reveal>
   <h2>One more thing...</h2>
   <p>Would you like to focus the map on a specific region or city (i.e., "United-States", "San Francisco, CA")?</p>(You can change this back to world view by checking "no" next time you edit your map.)<br/>
   <p><input id="positive_answer" type="radio" name="answer" value="Yes"> Yes </input>
-  <input id="negative_answer" type="radio" name="answer" value="No"> No </input></p>
-  <div class="large-12 columns">
-    <input id="map-region" type="text" name="region" placeholder="input the region!"/>
+    <input id="negative_answer" type="radio" name="answer" value="No"> No </input></p>
+    <div class="large-12 columns">
+      <input id="map-region" type="text" name="region" placeholder="input the region!"/>
+    </div>
+    <div class="large-12 columns">
+      <a href="#" id="submit_answer" class="button library-option">View map!</a>
+    </div>
+    <a class="close-reveal-modal">&#215;</a>
   </div>
-  <div class="large-12 columns">
-    <a href="#" id="submit_answer" class="button library-option">View map!</a>
+
+  <!-- NEW IMAGE MODAL -->
+  <div id="addImage" class="reveal-modal" data-reveal>
   </div>
-  <a class="close-reveal-modal">&#215;</a>
-</div>
-
-
-<!-- NEW IMAGE MODAL -->
-<div id="addImage" class="reveal-modal" data-reveal>
-
-</div>
 

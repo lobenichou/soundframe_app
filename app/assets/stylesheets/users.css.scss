@@ -6,15 +6,18 @@
 
 $font-stack: oswaldbook;
 $accent-color: #D25E15;
+$transition-values: all, 500ms, ease-out;
 
-@mixin transition($transition) {
-  -webkit-transition: $transition;
-     -moz-transition: $transition;
-      -ms-transition: $transition;
-       -o-transition: $transition;
-          transition: $transition;
+@mixin transition($transition-property, $transition-time, $method) {
+    -webkit-transition: $transition-property $transition-time $method;
+    -moz-transition: $transition-property $transition-time $method;
+    -ms-transition: $transition-property $transition-time $method;
+    -o-transition: $transition-property $transition-time $method;
+    transition: $transition-property $transition-time $method;
 }
 
+
+/*************USER PAGE****************/
 
 body p{
   font-family: $font-stack;
@@ -42,7 +45,7 @@ body h1 h2{
 
 
 .dashboard-option {
-   @include transition(all 500ms east-out);
+  @include transition($transition-values...);
   cursor: pointer;
   background-color: black;
   font-family: $font-stack;
@@ -63,6 +66,7 @@ body h1 h2{
   background-color: white;
   height: 700px;
   padding-top: 40px;
+  margin-top: 10px;
   overflow: scroll;
 }
 
@@ -78,7 +82,7 @@ body h1 h2{
 }
 
 .project-box{
-  @include transition(all 500ms east-out);
+  @include transition($transition-values...);
   border: 3px solid black;
   background-color: white;
   padding: 10px;
@@ -90,7 +94,7 @@ body h1 h2{
 }
 
 .project-box a{
-  @include transition(all 500ms east-out);
+  @include transition($transition-values...);
   margin: 20px;
   color: white;
 }
@@ -102,9 +106,11 @@ body h1 h2{
 }
 
 #close-project{
-  @include transition(all 500ms east-out);
+  @include transition($transition-values...);
   font-size: 50px;
-  float: right;
+  position: fixed;
+  top: 0;
+  right: 0;
   color: black;
   cursor: pointer;
   border-radius: 10px;

@@ -17,10 +17,10 @@ catch (e){
 <script src='//api.tiles.mapbox.com/mapbox.js/v1.5.2/mapbox.js'></script>
 <div id="project-title">
   <div class="project-info">
-  Title: <%= @project.title %><br/>
-  Description: <%= @project.description %><br/>
-  Author: <a href="/users/<%= @project.user.id %>"><%= @project.user.name %></a>
-</div>
+    Title: <%= @project.title %><br/>
+    Description: <%= @project.description %><br/>
+    Author: <a href="/users/<%= @project.user.id %>"><%= @project.user.name %></a>
+  </div>
   <div class="map-options">
     <div class="large-1 columns">
       <i id="show-track-list" class="fi-list large"></i>

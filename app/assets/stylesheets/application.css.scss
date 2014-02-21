@@ -22,13 +22,14 @@
 
 $font-stack: oswaldbook;
 $accent-color: #D25E15;
+$transition-values: all, 500ms, ease-out;
 
-@mixin transition($transition) {
-  -webkit-transition: $transition;
-     -moz-transition: $transition;
-      -ms-transition: $transition;
-       -o-transition: $transition;
-          transition: $transition;
+@mixin transition($transition-property, $transition-time, $method) {
+    -webkit-transition: $transition-property $transition-time $method;
+    -moz-transition: $transition-property $transition-time $method;
+    -ms-transition: $transition-property $transition-time $method;
+    -o-transition: $transition-property $transition-time $method;
+    transition: $transition-property $transition-time $method;
 }
 
 /*************LAYOUT****************/
@@ -59,8 +60,7 @@ $accent-color: #D25E15;
 }
 
 ul.off-canvas-list li a{
-  @include transition(all 500ms east-out);
-
+  @include transition($transition-values...);
 }
 
 ul.off-canvas-list li a:hover{
