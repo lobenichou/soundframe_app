@@ -25,10 +25,12 @@ catch (e){
     <div class="large-1 columns">
       <i id="show-track-list" class="fi-list large"></i>
     </div>
+    <% if signed_in? %>
     <% if @current_user.id = @project.user_id%>
     <div class="large-1 columns">
       <a href="/projects/<%= @project.id %>/edit"><i id="edit-project" class="fi-pencil large"></i></a>
     </div>
+    <%end%>
     <%end%>
   </div>
 </div>
