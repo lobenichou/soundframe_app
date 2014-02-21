@@ -40,7 +40,7 @@ $(document).ready ->
     for index of gon.coordinates
       popupContent = "<img src=" + '"' + gon.user_image_thumb[index] + '"' + "/>" + "<br/>" + "<a href='#' class='target-info' data-id='#{gon.soundcloud_track_id[index]}'>" + gon.track_title[index] + "</a>"
       markers = L.marker(gon.coordinates[index],
-      icon: L.mapbox.marker.icon("marker-color": "#D25E15")
+      icon: L.mapbox.marker.icon("marker-color": "#D25E15", "marker-symbol": "music")
       ).addTo(map_project).bindPopup(popupContent)
 
 ######## MAP: ON CLICK EVENTS ########

@@ -21,16 +21,14 @@
   position: fixed;
 }
 
-#information {
-  height: 100%;
+#home-information {
+  height: 250px;
   width: 100%;
-  text-align: center;
+  text-align: left;
   background: rgba(247, 125, 44, 0.2);
-  position: relative;
-  margin: auto;
+  position: fixed;
+  bottom: 0;
   display: none;
-  padding-top: 300px;
-  padding-bottom: 20px;
 }
 
 #close-information-home{
@@ -50,6 +48,8 @@
   color: white;
   background-color: #D25E15;
 }
+
+
 
 //ABOUT PAGE
 
@@ -171,4 +171,22 @@
 
 .big_icons{
   font-size: 25px;
+}
+
+
+@media (max-width:640px) {
+
+  .leaflet-popup-content{
+    width: 200px;
+  }
+
+  #home-information{
+    height: 150px;
+    padding: 0 0 20px 0
+  }
+
+  #close-information-home{
+    font-size: 20px;
+  }
+
 }
