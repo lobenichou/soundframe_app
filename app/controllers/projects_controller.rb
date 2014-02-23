@@ -34,7 +34,7 @@ def update_map_region
   region = params[:region]
   updated_project = project.update_attributes(region: region)
   if updated_project
-    render json: {project: project.id, track: track.soundcloud_track_id, text: "The map region's was set!"}, status: 201
+    render json: {project: project.id, text: "The map region's was set!"}, status: 201
   else
     render json: {errors: updated_project.errors.full_messages}, status: 422
   end
@@ -57,16 +57,10 @@ end
 
 def show
   @project = Project.find(params[:id])
-
-  if current_user
-    project = current_user.projects.find(params[:id])
+    project = Project.find(params[:id])
     gon.project_id = project.id
     gon.project_region = project.region
     setup_map(project)
-  else
-    project = Project.find(params[:id])
-    setup_map(project)
-  end
 end
 
 def destroy
@@ -75,6 +69,20 @@ def destroy
   render json: {project: project.id}, status: 201
 end
 
+def remove_track
+  track_to_delete = Track.find_by_soundcloud_track_id(params[:track_id])
+  proj_tr = ProjectTrack.find(:first, :conditions => {project_id: params[:project], track_id: track_to_delete.id})
+  proj_tr.destroy
+  render json: {track_title: track_to_delete.title, track_id: track_to_delete.soundcloud_track_id}, status: 201
+end
+
+def remove_image
+  track = Track.find_by_soundcloud_track_id(params[:track_id])
+  proj_tr = ProjectTrack.find(:first, :conditions => {project_id: params[:project], track_id: track.id})
+  proj_tr.remove_image!
+  proj_tr.save
+  render json: {track_title: track.title, track_id: track.soundcloud_track_id}, status: 201
+end
 
 private
 

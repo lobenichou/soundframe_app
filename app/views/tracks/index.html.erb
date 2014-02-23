@@ -1,14 +1,17 @@
 <script>
 window.onload = function(){
-   try
-   {
-       if (window.parent && window.parent.location.hostname !== "soundframe.herokuapp.com"){
-          throw new Error();
-       }
-   }
-   catch (e){
-      document.body.innerHTML = "Access Denied<br/>" + "<a href='" + document.referrer + "'>Go Back</a> or visit the full website <a href='https://soundframe.herokuapp.com/' target='_blank'>here</a>"
-   }
+ try
+ {
+  if (window.parent
+    && window.parent.location.hostname !== "localhost"
+    && window.parent.location.hostname !== "www.soundfra.me"
+    && window.parent.location.hostname !== "soundframe.herokuapp.com"){
+    throw new Error();
+}
+}
+catch (e){
+  document.body.innerHTML = "Access Denied<br/>" + "<a href='" + document.referrer + "'>Go Back</a> or visit the full website <a href='https://soundframe.herokuapp.com' target='_blank'>here</a>"
+}
 }
 </script>
 <form>
@@ -24,9 +27,9 @@ window.onload = function(){
 </form>
 
 <div class="row">
-	<div id="column_left" class="large-6 columns">
+	<div class="large-6 columns left-column">
 		<h3>Soundcloud users</h3>
-		<div id="search_results">
+		<div id="search-results">
 			<!-- search_results append here -->
 		</div>
 	</div>

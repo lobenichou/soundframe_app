@@ -1,14 +1,17 @@
 <script>
 window.onload = function(){
-   try
-   {
-       if (window.parent && window.parent.location.hostname !== "soundframe.herokuapp.com"){
-          throw new Error();
-       }
-   }
-   catch (e){
-      document.body.innerHTML = "Access Denied<br/>" + "<a href='" + document.referrer + "'>Go Back</a> or visit the full website <a href='https://soundframe.herokuapp.com/signup' target='_blank'>here</a>"
-   }
+ try
+ {
+  if (window.parent
+    && window.parent.location.hostname !== "localhost"
+    && window.parent.location.hostname !== "www.soundfra.me"
+    && window.parent.location.hostname !== "soundframe.herokuapp.com"){
+    throw new Error();
+}
+}
+catch (e){
+  document.body.innerHTML = "Access Denied<br/>" + "<a href='" + document.referrer + "'>Go Back</a> or visit the full website <a href='https://soundframe.herokuapp.com' target='_blank'>here</a>"
+}
 }
 </script>
 <% provide(:title, 'Sign Up') %>
@@ -37,7 +40,7 @@ window.onload = function(){
         <input type="password" name="user[password_confirmation]" data-equalto="password">
         <small class="error">The password did not match</small>
       </div>
-      <input class="button dashboard-option submit_button" name="commit" type="submit" value="Sign up">
+      <input class="button dashboard-option submit-button" name="commit" type="submit" value="Sign up">
     </form>
   </div>
 </div>

@@ -17,6 +17,23 @@
 
 @import 'foundation-icons';
 
+
+/*************GLOBAL SASS VARIABLES****************/
+
+$font-stack: oswaldbook;
+$accent-color: #D25E15;
+$transition-values: all, 500ms, ease-out;
+
+@mixin transition($transition-property, $transition-time, $method) {
+    -webkit-transition: $transition-property $transition-time $method;
+    -moz-transition: $transition-property $transition-time $method;
+    -ms-transition: $transition-property $transition-time $method;
+    -o-transition: $transition-property $transition-time $method;
+    transition: $transition-property $transition-time $method;
+}
+
+/*************LAYOUT****************/
+
 .gravatar{
   border-radius: 50px;
 }
@@ -25,25 +42,30 @@
   height: 100%;
 }
 
+#target-side-bar{
+  position: fixed;
+  width: 145px;
+  height: 40px;
+  z-index: 9999;
+  cursor: pointer;
+  margin-left: 40px;
+  background-color: rgba(247, 125, 44, 0.2);
+}
+
 .left-off-canvas-menu {
   text-align: left;
-  font-family: oswaldbook;
+  font-family: $font-stack;
   background-color: white;
-  border-right: 1px dotted #D25E15;
+  border-right: 1px dotted $accent-color;
 }
 
 ul.off-canvas-list li a{
-  -webkit-transition: all 500ms ease;
-  -moz-transition: all 500ms ease;
-  -ms-transition: all 500ms ease;
-  -o-transition: all 500ms ease;
-  transition: all 500ms ease;
-
+  @include transition($transition-values...);
 }
 
 ul.off-canvas-list li a:hover{
   color: white;
-  background-color: #D25E15;
+  background-color: $accent-color;
 }
 
 .active {
@@ -59,18 +81,8 @@ ul.off-canvas-list li a:hover{
   display: inline;
 }
 
-#target-side-bar{
-  position: fixed;
-  width: 145px;
-  height: 40px;
-  z-index: 9999;
-  cursor: pointer;
-  margin-left: 40px;
-  background-color: rgba(247, 125, 44, 0.2);
-}
 
-
-/**** MASONRY****/
+/************ MASONRY *************/
  #container {
           float:none;
           background: white;

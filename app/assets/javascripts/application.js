@@ -16,6 +16,7 @@
 //= require tile.stamen.js
 //= require soundcloud
 //= require masonry.pkgd.min.js
+//= require isotope.pkgd.js
 //= require modernizr
 //= require foundation
 //= require_tree .
@@ -29,3 +30,5 @@ $(document).ready(function(){
     client_id: gon.client_id,
   });
 })
+
+

@@ -33,7 +33,7 @@ $(document).ready ->
           type: "Point"
 
         properties:
-          description: "SoundFrame is an app that allows you to tells stories through sounds and maps. Journalists, travelers and storyteller will get a kick out of it. <a id=\"next\" href=\"#\">Next</a>"
+          description: "<div class='show-for-small-only'><strong >NOTE: This app performs much better on a desktop. Mobile optimization is coming soon...</strong><br/><br/></div>SoundFrame is an app that allows you to tell stories through sounds and maps. Journalists, travelers and storyteller will get a kick out of it. <a id=\"next\" href=\"#\">Next</a>"
           id: "marker-hp3iwdvc"
           "marker-color": "#D25E15"
           "marker-size": "medium"
@@ -98,7 +98,7 @@ $(document).ready ->
 
     $("#home-map").on "click", "a[id='home-example-link']", (e) ->
       e.preventDefault()
-      $("#information").toggle "slow"
+      $("#home-information").toggle "slow"
 
-    $("#information").on "click", "i[id='close-information-home']", (e) ->
-      $("#information").toggle "slow"
+    $("#home-information").on "click", "i[id='close-information-home']", (e) ->
+      $("#home-information").toggle "slow"

@@ -1,19 +1,49 @@
+<script>
+window.onload = function(){
+ try
+ {
+   if (window.parent
+    && window.parent.location.hostname !== "localhost"
+    && window.parent.location.hostname !== "www.soundfra.me"
+    && window.parent.location.hostname !== "soundframe.herokuapp.com"){
+    throw new Error();
+}
+}
+catch (e){
+ document.getElementById("side-menu-trigger").disabled=true;
+}
+}
+</script>
 <script src='//api.tiles.mapbox.com/mapbox.js/v1.5.2/mapbox.js'></script>
 <div id="project-title">
-Title: <%= @project.title %><br/>
-Description: <%= @project.description %><br/>
-Author: <a href="/users/<%= @project.user.id %>"><%= @project.user.name %></a>
+  <div class="project-info">
+    Title: <%= @project.title %><br/>
+    Description: <%= @project.description %><br/>
+    Author: <a href="/users/<%= @project.user.id %>"><%= @project.user.name %></a>
+  </div>
+  <div class="map-options">
+    <div class="large-1 columns">
+      <i id="show-track-list" class="fi-list large"></i>
+    </div>
+    <% if signed_in? %>
+    <% if @current_user.id = @project.user_id%>
+    <div class="large-1 columns">
+      <a href="/projects/<%= @project.id %>/edit"><i id="edit-project" class="fi-pencil large"></i></a>
+    </div>
+    <%end%>
+    <%end%>
+  </div>
 </div>
 <div id="map-project">
 </div>
 <div id="information">
   <i id="close-information" class="fi-x-circle large"></i>
 </div>
-<i id="show-track-list" class="fi-list large"></i>
+
 <div id="map-track-list">
-  <p> Track List </p>
- <% @project.tracks.each do |track| %>
+  <p> Track List (Scroll) </p>
+  <% @project.tracks.each do |track| %>
   <br/>
-    <div data-id= "<%= track.id%>" class="find_track"><%= track.title %></div>
+  <div data-id= "<%= track.id%>" class="find-track"><%= track.title %></div>
   <% end %>
-<div>
+  <div>

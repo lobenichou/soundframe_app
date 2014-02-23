@@ -1,28 +1,31 @@
 <script>
 window.onload = function(){
-   try
-   {
-       if (window.parent && window.parent.location.hostname !== "soundframe.herokuapp.com"){
-          throw new Error();
-       }
-   }
-   catch (e){
-      document.body.innerHTML = "Access Denied<br/>" + "<a href='" + document.referrer + "'>Go Back</a> or visit the full website <a href='https://soundframe.herokuapp.com/' target='_blank'>here</a>"
-   }
+ try
+ {
+  if (window.parent
+    && window.parent.location.hostname !== "localhost"
+    && window.parent.location.hostname !== "www.soundfra.me"
+    && window.parent.location.hostname !== "soundframe.herokuapp.com"){
+    throw new Error();
+}
+}
+catch (e){
+  document.body.innerHTML = "Access Denied<br/>" + "<a href='" + document.referrer + "'>Go Back</a> or visit the full website <a href='https://soundframe.herokuapp.com' target='_blank'>here</a>"
+}
 }
 </script>
 <% provide(:title, @user.name) %>
 <div id="user-info">
-<h1>SoundFrame User Profile</h1>
-<div class="small-12 columns">
-  <p>Welcome to <%= @user.name %>'s public profile</p>
-</div>
-<div class="small-12 columns">
-  <%= gravatar_for @user %>
-</div>
+  <h1>SoundFrame User Profile</h1>
   <div class="small-12 columns">
-  <p>Projects</p>
-</div>
+    <p>Welcome to <%= @user.name %>'s public profile</p>
+  </div>
+  <div class="small-12 columns">
+    <%= gravatar_for @user %>
+  </div>
+  <div class="small-12 columns">
+    <p>Projects</p>
+  </div>
 </div>
 <div id="all-projects-public">
   <% if @user.projects.empty? %>
@@ -30,19 +33,19 @@ window.onload = function(){
   <% else %>
   <div class="row">
     <div id="container" class="large-12 columns transitions-enabled large-centered clearfix">
-    <% @user.projects.each do |project| %>
-    <div class="box project-box">
-      <h1><%= project.title %>:</h1><br/>
-      <p><%= project.description %></p><br/>
-      Created at: <%= project.created_at %><br/>
-      <hr>
-      <div class="row">
-        <div class="small-4 columns">
-      <a href="/projects/<%=project.id%>">View</a><br/>
-    </div>
-    </div>
+      <% @user.projects.each do |project| %>
+      <div class="box project-box">
+        <h1><%= project.title %>:</h1><br/>
+        <p><%= project.description %></p><br/>
+        Created at: <%= project.created_at %><br/>
+        <hr>
+        <div class="row">
+          <div class="small-4 columns">
+            <a href="/projects/<%=project.id%>">View</a><br/>
+          </div>
+        </div>
+      </div>
+      <% end %>
     </div>
     <% end %>
   </div>
-  <% end %>
-</div>

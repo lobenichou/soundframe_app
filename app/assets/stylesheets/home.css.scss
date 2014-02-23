@@ -2,6 +2,23 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+/*************GLOBAL SASS VARIABLES****************/
+
+$font-stack: oswaldbook;
+$accent-color: #D25E15;
+$transition-values: all, 500ms, ease-out;
+
+@mixin transition($transition-property, $transition-time, $method) {
+  -webkit-transition: $transition-property $transition-time $method;
+  -moz-transition: $transition-property $transition-time $method;
+  -ms-transition: $transition-property $transition-time $method;
+  -o-transition: $transition-property $transition-time $method;
+  transition: $transition-property $transition-time $method;
+}
+
+/*******************INDEX PAGE ********************/
+
 .main-section{
   overflow: scroll;
 }
@@ -21,127 +38,55 @@
   position: fixed;
 }
 
-#information {
-  height: 100%;
+#home-information {
+  height: 250px;
   width: 100%;
-  text-align: center;
+  text-align: left;
   background: rgba(247, 125, 44, 0.2);
-  position: relative;
-  margin: auto;
+  position: fixed;
+  bottom: 0;
   display: none;
-  padding-top: 19em;
-  padding-bottom: 20px;
 }
 
 #close-information-home{
+  @include transition($transition-values...);
   font-size: 50px;
   float: right;
-  margin-top: -25%;
   color: black;
   border-radius: 10px;
   cursor: pointer;
-  -webkit-transition: all 500ms ease-out;
-  -moz-transition: all 500ms ease-out;
-  -ms-transition: all 500ms ease-out;
-  -o-transition: all 500ms ease-out;
-  transition: all 500ms ease-out;
 }
 
 #close-information-home:hover{
   color: white;
-  background-color: #D25E15;
+  background-color: $accent-color;
 }
 
-//ABOUT PAGE
 
-.style_one{
+/*******************ABOUT PAGE ********************/
+
+//large and medium screens//
+.style-one{
   margin-top: 40px;
   height: 150px;
   margin-left: 260px;
   text-align: right;
   border-radius: 20px;
-  border: 2.5px dotted #D25E15;
+  border: 2.5px dotted $accent-color;
 }
 
-.style_two{
-  margin-top: 150px;
-  padding-top: 20px;
-  height: 250px;
-  width: 250px;
-  text-align: center;
-  border-radius: 20px;
-  border:2.5px dotted #D25E15;
-  -webkit-transition: all 500ms ease-in-out;
-  -moz-transition: all 500ms ease-in-out;
-  -ms-transition: all 500ms ease-in-out;
-  -o-transition: all 500ms ease-in-out;
-  transition: all 500ms ease-in-out;
-}
-
-.style_two:hover{
-  background-color: #D25E15;
-  width: 500px;
-}
-
-.style_two:hover .about_img{
-  float: right;
-}
-
-
-.style_two:hover .about_me_blurb {
-  display: block;
-}
-
-.style_two a{
-  font-family: oswaldbook;
-  color: white;
-  font-size: 15px;
-  -webkit-transition: all 500ms ease;
-  -moz-transition: all 500ms ease;
-  -ms-transition: all 500ms ease;
-  -o-transition: all 500ms ease;
-  transition: all 500ms ease;
-}
-
-.style_two a:hover {
-  background-color: black;
-  color: white;
-  border-radius: 10px;
-}
-
-
-.connector{
-  border-right: 2.5px dotted #D25E15;
-  border-bottom: 2.5px dotted #D25E15;
-  margin-left: 200px;
-  height: 100px;
-  top: 190px;
-}
-
-.connector_two{
-  border-left: 2.5px dotted #D25E15;
-  margin-left: 200px;
-  height: 50px;
-  top: 190px;
-}
-
-.about_title{
+.about-title{
   font-family: oswaldbold;
 }
 
-.about_img{
+.about-img{
+  @include transition($transition-values...);
   height: 150px;
   width: 150px;
   border-radius: 100px;
-  -webkit-transition: all 500ms ease-in-out;
-  -moz-transition: all 500ms ease-in-out;
-  -ms-transition: all 500ms ease-in-out;
-  -o-transition: all 500ms ease-in-out;
-  transition: all 500ms ease-in-out;
-
 }
 
-.about_me_blurb{
+.about-me-blurb{
   text-align: left;
   position: fixed;
   height: 250px;
@@ -150,12 +95,104 @@
   color: black;
 }
 
-//help page
+.style-two{
+  @include transition($transition-values...);
+  margin-top: 150px;
+  padding-top: 20px;
+  height: 280px;
+  text-align: center;
+  border-radius: 20px;
+  border:2.5px dotted $accent-color;
+}
+
+
+.bigger-icons{
+  font-size: 70px;
+}
+
+.style-two:hover{
+  background-color: $accent-color;
+  width: 500px;
+}
+
+.style-two:hover .about-img{
+  float: right;
+}
+
+
+.style-two:hover .about-me-blurb {
+  display: block;
+}
+
+.style-two a{
+  @include transition(all, 500ms, ease-out);
+  font-family: $font-stack;
+  color: black;
+}
+
+.style-two a:hover {
+  color: white;
+}
+
+.connector{
+  border-right: 2.5px dotted $accent-color;
+  border-bottom: 2.5px dotted $accent-color;
+  margin-left: 200px;
+  height: 100px;
+  top: 190px;
+}
+
+.connector-two{
+  border-left: 2.5px dotted $accent-color;
+  margin-left: 200px;
+  height: 50px;
+  top: 190px;
+}
+
+.big-icons{
+  font-size: 25px;
+}
+
+//small and medium screen//
+
+.style-two-sm {
+  padding-top: 20px;
+  height: 300px;
+  margin-top: 10px;
+  text-align: center;
+  border-radius: 20px;
+  background-color: $accent-color;
+}
+
+.about-me-blurb-sm{
+  position: relative;
+  text-align: center;
+  height: 250px;
+  width: 100%;
+  color: black;
+}
+
+.about-img-sm{
+  height: 150px;
+  width: 150px;
+  border-radius: 100px;
+}
+
+.style-two-sm a{
+  @include transition(all, 500ms, ease-out);
+  font-family: $font-stack;
+  color: black;
+}
+.style-two-sm a:hover{
+  color: white;
+}
+
+/*******************HELP PAGE ********************/
 
 .instructions{
   text-align: left;
   border-radius: 20px;
-  border: 2.5px dotted #D25E15;
+  border: 2.5px dotted $accent-color;
 }
 
 .instructions p{
@@ -164,9 +201,50 @@
 
 .example{
   border-radius: 20px;
-  border: 2.5px dotted #D25E15
+  border: 2.5px dotted $accent-color;
 }
 
 .align{
   left: 13%;
 }
+
+/*******************MEDIA QUERIES********************/
+
+
+@media (max-width:1025px) {
+
+  .style-one{
+    height: 150px;
+    margin-left: 0;
+    margin-top: 10px;
+  }
+
+  .connector-two, .connector{
+    display: none;
+  }
+
+}
+
+@media (max-width:640px) {
+
+  .leaflet-popup-content{
+    width: 200px;
+  }
+
+  #home-information{
+    height: 150px;
+    padding: 0 0 20px 0
+  }
+
+  #close-information-home{
+    font-size: 20px;
+  }
+
+  .style-one{
+    height: 230px;
+  }
+
+}
+
+
+

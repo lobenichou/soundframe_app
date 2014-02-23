@@ -1,14 +1,17 @@
 <script>
 window.onload = function(){
-   try
-   {
-       if (window.parent && window.parent.location.hostname !== "soundframe.herokuapp.com"){
-          throw new Error();
-       }
-   }
-   catch (e){
-      document.body.innerHTML = "Access Denied<br/>" + "<a href='" + document.referrer + "'>Go Back</a> or visit the full website <a href='https://soundframe.herokuapp.com' target='_blank'>here</a>"
-   }
+ try
+ {
+  if (window.parent
+    && window.parent.location.hostname !== "localhost"
+    && window.parent.location.hostname !== "www.soundfra.me"
+    && window.parent.location.hostname !== "soundframe.herokuapp.com"){
+    throw new Error();
+}
+}
+catch (e){
+  document.body.innerHTML = "Access Denied<br/>" + "<a href='" + document.referrer + "'>Go Back</a> or visit the full website <a href='https://soundframe.herokuapp.com' target='_blank'>here</a>"
+}
 }
 </script>
 <% provide(:title, 'Edit User') %>
@@ -25,10 +28,10 @@ window.onload = function(){
   <%= f.password_field :password %>
   <%= f.label :password_confirmation, "Confirmation" %>
   <%= f.password_field :password_confirmation %>
-  <%= f.submit "Save changes", class: "button dashboard-option submit_button" %>
+  <%= f.submit "Save changes", class: "button dashboard-option submit-button" %>
   <% end %>
 </div>
-<div class="large-3 columns connector_form">
+<div class="large-3 columns connector-form">
 </div>
 <div class="large-3 columns">
   <%= gravatar_for @user %><br/>
