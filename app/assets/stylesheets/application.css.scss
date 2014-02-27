@@ -53,10 +53,11 @@ $transition-values: all, 500ms, ease-out;
 }
 
 .left-off-canvas-menu {
+  width: 170px;
   text-align: left;
   font-family: $font-stack;
   background-color: white;
-  border-right: 1px dotted $accent-color;
+  border-right: 10px solid $accent-color;
 }
 
 ul.off-canvas-list li a{
@@ -66,6 +67,14 @@ ul.off-canvas-list li a{
 ul.off-canvas-list li a:hover{
   color: white;
   background-color: $accent-color;
+}
+
+.move-right > .inner-wrap {
+-webkit-transform: translate3d(181px, 0, 0);
+-moz-transform: translate3d(181px, 0, 0);
+-ms-transform: translate3d(181px, 0, 0);
+-o-transform: translate3d(181px, 0, 0);
+transform: translate3d(181px, 0, 0);
 }
 
 .active {
