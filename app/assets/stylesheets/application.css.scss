@@ -23,6 +23,8 @@
 $font-stack: oswaldbook;
 $accent-color: #D25E15;
 $transition-values: all, 500ms, ease-out;
+$transition-values-menu: background-color, 500ms, ease-out;
+
 
 @mixin transition($transition-property, $transition-time, $method) {
     -webkit-transition: $transition-property $transition-time $method;
@@ -61,11 +63,13 @@ $transition-values: all, 500ms, ease-out;
 }
 
 ul.off-canvas-list li a{
-  @include transition($transition-values...);
+  @include transition($transition-values-menu...);
+  padding-left: 10px;
 }
 
 ul.off-canvas-list li a:hover{
   color: white;
+  border-left: 5px solid black;
   background-color: $accent-color;
 }
 
