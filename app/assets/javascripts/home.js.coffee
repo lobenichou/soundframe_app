@@ -33,11 +33,11 @@ $(document).ready ->
           type: "Point"
 
         properties:
-          description: "<div class='show-for-small-only'><strong >NOTE: This app performs much better on a desktop. Mobile optimization is coming soon...</strong><br/><br/></div>SoundFrame is an app that allows you to tell stories through sounds and maps. Journalists, travelers and storyteller will get a kick out of it. <a id=\"next\" href=\"#\">Next</a>"
+          description: "<div class='show-for-small-only'><strong >NOTE: This app performs much better on a desktop. Mobile optimization is coming soon...</strong><br/><br/></div>SoundFrame is an app that allows you to tell stories through sounds and maps. Journalists, travelers and storytellers will get a kick out of it. <br/> <a id=\"next\" href=\"#\">Next</a>"
           id: "marker-hp3iwdvc"
           "marker-color": "#D25E15"
           "marker-size": "medium"
-          "marker-symbol": ""
+          "marker-symbol": "music"
           title: "<h1>Welcome to SoundFrame</h1>"
 
         type: "Feature"
@@ -51,7 +51,7 @@ $(document).ready ->
           id: "marker-hp3izy7a"
           "marker-color": "#D25E15"
           "marker-size": "medium"
-          "marker-symbol": ""
+          "marker-symbol": "music"
           title: "<h1>Create maps</h1>"
 
         type: "Feature"
@@ -65,7 +65,7 @@ $(document).ready ->
           id: "marker-hp3j2iya"
           "marker-color": "#D25E15"
           "marker-size": "medium"
-          "marker-symbol": ""
+          "marker-symbol": "music"
           title: "<h1>Share with the world</h1>"
 
         type: "Feature"
